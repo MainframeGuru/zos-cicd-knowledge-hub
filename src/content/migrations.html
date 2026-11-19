@@ -45,7 +45,7 @@
 <p class="muted small">Sources: <a href="https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/ca-endevor-software-change-manager/19-0/administrating/library-conversion-utilities-for-panvalet-or-librarian.html">Broadcom TechDocs</a>, <a href="https://community.ibm.com/community/user/blogs/andreina-dyer/2025/09/03/mtbank">IBM Community (M&amp;T Bank)</a></p></section>
 
 <section id="automatisiert"><h2>Automated migration: which approaches exist?</h2>
-<p>With tens of thousands to hundreds of thousands of elements, manual migration is not an option. Four categories of automation are publicly described – this overview is neutral and makes no claim to completeness:</p>
+<p>With tens of thousands to hundreds of thousands of elements, manual migration is not an option. Four categories of automation are publicly described – this overview makes no claim to completeness:</p>
 <div class="grid">
  <div class="card"><h3>1 · Vendor utilities for source transfer</h3><p><b>IBM DBB Migration Tool</b> (copies PDS members into a Git repo on zFS, sets code page tags and <code>.gitattributes</code>, reports problematic characters), <b>DBB Git Migration Modeler</b> (open source: detects application boundaries based on naming conventions, analyzes copybook usage, generates build properties, repositories and pipeline templates), <b>SCLM-to-Git Migration Tool</b>.</p></div>
  <div class="card"><h3>2 · Translating build logic</h3><p>The <b>JCL-to-YAML migration tool</b> in DBB 3.0.2+ generates zBuilder language configurations from existing build JCL. “Scan only” populates dependency metadata without a full build. For Endevor processors, type, processor group, system, subsystem and environment have to be mapped dynamically.</p></div>
@@ -71,7 +71,7 @@
 <details><summary>People</summary><p>Moving hundreds of developers to Git at the same time requires training, pilot teams, champions and simple entry-level tools – M&amp;T Bank, for example, built a simple web interface for business analysts.</p></details>
 </section>
 
-<section id="vorgehen"><h2>A neutral approach</h2>
+<section id="vorgehen"><h2>A typical approach</h2>
 <ol>
 <li><b>Assessment:</b> inventory, types, processors, promotion paths, interfaces, volume.</li>
 <li><b>Target picture:</b> coexistence or Git-native? Repository layout, branching model, build/deploy tools.</li>

@@ -2,6 +2,13 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.0.1] – 2026-11-19
+### Changed
+- Dropped prominent self-labels such as “vendor-neutral” and “independent” from the site tagline,
+  meta description, hero eyebrow, footer, Open Graph image, migrations page, imprint, README and
+  the GitHub repository description. The site remains factually even-handed (all vendors, sources labeled);
+  the words simply no longer appear as a slogan.
+
 ## [2.0.0] – 2026-11-19
 ### Changed
 - **Site language switched to English** (international topic and audience): all pages, product news,

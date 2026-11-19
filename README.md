@@ -1,6 +1,6 @@
 # z/OS CI/CD Compass
 
-A vendor-neutral, English-language knowledge site about CI/CD, Git and DevOps on IBM z/OS.
+An English-language knowledge site about CI/CD, Git and DevOps on IBM z/OS.
 Static, no framework, no cookies, no third-party scripts.
 
 Live: https://mainframeguru.github.io/zos-cicd-knowledge-hub/

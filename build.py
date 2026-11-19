@@ -50,7 +50,7 @@ PAGES = [
     # slug, nav label, title, description, content file, in navigation, page type
     ("", "Overview", "CI/CD on z/OS – Git, pipelines & migrations explained", SITE["description"], "index.html", True, "WebPage"),
     ("why-cicd", "Why CI/CD", "Why CI/CD on the mainframe? Reasons, benefits, risks", "Skills, Git as the standard, speed, testing, compliance and cost: the main reasons for CI/CD on IBM z/OS – with publicly documented examples and an FAQ.", "why-cicd.html", True, "Article"),
-    ("migrations", "Migrations", "Migration paths: Endevor, ChangeMan ZMF, ISPW, SCLM → Git & CI/CD", "A neutral comparison of migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline, SCLM, Panvalet and Librarian to Git, DBB and CI/CD – including automated migration approaches.", "migrations.html", True, "Article"),
+    ("migrations", "Migrations", "Migration paths: Endevor, ChangeMan ZMF, ISPW, SCLM → Git & CI/CD", "Migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline, SCLM, Panvalet and Librarian to Git, DBB and CI/CD – including automated migration approaches.", "migrations.html", True, "Article"),
     ("news", "Product news", "Product news on CI/CD for z/OS: IBM, Broadcom, BMC, Rocket, Zowe", "Dated product announcements around mainframe DevOps: IBM DBB, Wazi Deploy, Endevor Bridge for Git, BMC AMI DevX, Zowe, Galasa, Rocket and more – filterable by vendor.", None, True, "CollectionPage"),
     ("resources", "Resources", "Case studies, talks & articles on mainframe CI/CD", "Curated, clearly labeled sources: project references, experience reports, talks/webinars, whitepapers and press articles on Git and CI/CD on z/OS.", None, True, "CollectionPage"),
     ("imprint", "Imprint", "Imprint (Impressum)", "Imprint (German legal notice, “Impressum”) and disclaimer of the z/OS CI/CD Compass.", "imprint.html", False, "WebPage"),
@@ -209,7 +209,7 @@ def layout(page, body):
 <div class="wrap">{share_block(page_url, title)}{cite_block(page_url, title)}</div>
 </main>
 <footer class="site"><div class="wrap cols">
-  <div><b>{E(SITE['name'])}</b><br>{E(SITE['tagline'])}.<br>Vendor-neutral · no cookies · no third-party trackers.</div>
+  <div><b>{E(SITE['name'])}</b><br>{E(SITE['tagline'])}.<br>No cookies · no third-party trackers.</div>
   <div>Last updated: <time datetime="{SITE['last_updated']}">{fmt_date(SITE['last_updated'])}</time><br>
   <a href="/feed.xml">Atom feed</a> · <a href="/sitemap.xml">Sitemap</a><br>
   <a href="/imprint/">Imprint</a> · <a href="/privacy/">Privacy</a></div>

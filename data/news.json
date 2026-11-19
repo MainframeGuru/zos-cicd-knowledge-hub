@@ -1,27 +1,446 @@
 [
-  {"id": "ibm-pipeline-automation-for-z-2026-10", "date": "2026-10-23", "vendor": "IBM", "product": "IBM Pipeline Automation for Z", "title": "IBM Pipeline Automation for Z: new version generally available", "summary": "IBM combines Git-based, dependency-aware builds, CLI-based COBOL quality and security scanning, YAML/Ansible/Python-based deployment, COBOL unit tests with coverage, and functional tests via IBM Enterprise Edition for Galasa into one pipeline platform. Positioned as the “outer loop” counterpart to the AI development assistant IBM Bob Premium Package for Z.", "tags": ["Build", "Test", "Deploy", "AI"], "url": "https://www.ibm.com/new/announcements/introducing-ibm-pipeline-automation-for-z-accelerate-enterprise-delivery-with-scalable-automated-ai-driven-pipelines", "source": "IBM Announcement"},
-  {"id": "zowe-3-6-2026-10", "date": "2026-10-27", "vendor": "Open Mainframe Project", "product": "Zowe", "title": "Zowe 3.6.0 (server release) published", "summary": "According to the Zowe download page, server release 3.6.0 shipped on 27 Oct 2026; the client components (Zowe Explorer/CLI 3.6) had already arrived in the autumn. In an article on Zowe Explorer 3.6, Broadcom highlights SSH-based connectivity (Zowe Remote SSH) as a faster way to get started.", "tags": ["Open Source", "IDE", "CLI"], "url": "https://www.zowe.org/download.html", "source": "zowe.org", "extra_links": [{"label": "Broadcom: Zowe Explorer 3.6", "url": "https://www.broadcom.com/company/news/articles/mainframe/zowe-explorer-3-6-a-faster-path-to-productivity"}]},
-  {"id": "ibm-sclm-sod-update-2026-10", "date": "2026-10-27", "vendor": "IBM", "product": "z/OS SCLM", "title": "SCLM: IBM updates its Statement of Direction – removal “in a future release”", "summary": "IBM had originally announced that z/OS 3.2 would be the last release to include SCLM. Following customer feedback, the updated intent is now to remove SCLM from an unspecified future z/OS release. Migration therefore remains necessary, but the time pressure is reduced.", "tags": ["SCLM", "Migration", "Lifecycle"], "url": "https://community.ibm.com/community/user/blogs/sneha-kanaujia1/2026/04/06/ibm-zos-simplification-planned-changes", "source": "IBM Community (simplification overview)", "extra_links": [{"label": "LinkedIn post by Marna Walle (IBM)", "url": "https://www.linkedin.com/posts/marna-walle-862848a_ibm-z-simplification-activity-7520845369736466432-UJLM"}]},
-  {"id": "dbb-3-0-5-4-2026-10", "date": "2026-10-15", "date_precision": "month", "vendor": "IBM", "product": "IBM Dependency Based Build (DBB)", "title": "DBB 3.0.5.4 maintenance PTF with new optional DB schema", "summary": "The fix list names PTF UO09871 (DBB 3.0.5.4) for October 2026. According to the documentation, 3.0.5.4 supports schema versions 2.0.2, 3.0.3 and 3.0.5.4; since 3.0.3, schema upgrades are only required for new features.", "tags": ["Build"], "url": "https://www.ibm.com/support/pages/fix-list-ibm-dependency-based-build", "source": "IBM Support"},
-  {"id": "wazi-deploy-3-0-8-2026", "date": "2026-10-15", "date_precision": "month", "vendor": "IBM", "product": "IBM Wazi Deploy", "title": "Wazi Deploy 3.0.8: deployment evidence in Db2 and HTML reports", "summary": "Version 3.0.8 can store the generated deployment evidence directly in Db2 for z/OS, automatically produces an HTML evidence report, extends restart capabilities and adds a new building block cics_prog_update (without CMCI). The fix list most recently shows 3.0.8.3 (October 2026).", "tags": ["Deploy", "Compliance"], "url": "https://www.ibm.com/docs/en/developer-for-zos/17.0.x?topic=deploy-whats-new-in-wazi", "source": "IBM Documentation", "extra_links": [{"label": "Wazi Deploy fix list", "url": "https://www.ibm.com/support/pages/fix-list-ibm-wazi-deploy"}]},
-  {"id": "bmc-oct-2026-release", "date": "2026-10-01", "date_precision": "month", "vendor": "BMC", "product": "BMC AMI DevX", "title": "BMC October release: AMI DevX Unit Test (beta) and Code Pipeline MCP Server (beta)", "summary": "BMC AMI DevX Unit Test generates test data from COBOL sources and compares runs against an approved baseline in VS Code. The new Code Pipeline MCP Server (beta) connects MCP-capable AI assistants to Code Pipeline build and deploy operations.", "tags": ["Test", "AI", "Build"], "url": "https://www.bmc.com/it-solutions/bmc-ami-latest-release.html", "source": "BMC What's New"},
-  {"id": "ibm-taz-3-0-2026-09", "date": "2026-09-25", "vendor": "IBM", "product": "IBM Test Accelerator for Z", "title": "IBM Test Accelerator for Z v3.0 with AI-assisted COBOL unit test generation", "summary": "Version 3.0 generates and runs COBOL unit tests with AI assistance, integrates with VS Code and can be included in CI/CD pipelines (shift-left testing).", "tags": ["Test", "AI"], "url": "https://community.ibm.com/community/user/blogs/neha-shah/2026/10/09/a-new-era-of-mainframe-testing-with-agentic-ai-powered-by-ibm-test-accelerator-for-z-v3-0", "source": "IBM Community Blog"},
-  {"id": "endevor-19-approver-groups-2026-09", "date": "2026-09-15", "vendor": "Broadcom", "product": "Endevor", "title": "Endevor 19.0: package approver groups now also via REST API v2, Zowe CLI and Endevor API", "summary": "The enhancement (PTF LU20326 for V19, LU20331 for V18.1) extends approver group selection to the API and CLI interfaces – relevant for automated approval processes in pipelines.", "tags": ["SCM", "API", "Compliance"], "url": "https://community.broadcom.com/discussion/endevor-190-ga-announcement-package-approver-group-selection-rest-api-cli-endevor-api", "source": "Broadcom Community"},
-  {"id": "ibm-bob-premium-z-2026-07", "date": "2026-07-09", "vendor": "IBM", "product": "IBM Bob Premium Package for Z", "title": "IBM Bob Premium Package for Z generally available – successor to watsonx Code Assistant for Z", "summary": "IBM positions the package as an agentic AI development partner for IBM Z with modes, reusable “skills”, repository-level AGENTS.md rules and impact analysis based on Z Understand.", "tags": ["AI", "IDE"], "url": "https://www.ibm.com/new/announcements/announcing-the-ibm-bob-premium-package-for-z", "source": "IBM Announcement"},
-  {"id": "b4g-2x-eos-2026-06", "date": "2026-06-22", "vendor": "Broadcom", "product": "Endevor Bridge for Git", "title": "Endevor Bridge for Git 2.x: end of service on 30 June 2027", "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027. Users are advised to move to 3.0 or later (prerequisites include Java 17 and higher hardware requirements).", "tags": ["SCM", "Git", "Lifecycle"], "url": "https://community.broadcom.com/discussion/bridge-for-git-2x-component-end-of-service", "source": "Broadcom Community"},
-  {"id": "team-build-1-11-2026-06", "date": "2026-06-10", "vendor": "Broadcom", "product": "Team Build", "title": "Team Build 1.11.0: simplified export for Bridge for Git workflows and SBOM improvements", "summary": "New features include the --build-scripts-only flag (exportz) for change-based builds in a Bridge for Git context, wildcard mappings in sbomz and space checks in syncz.", "tags": ["Build", "SBOM", "Git"], "url": "https://community.broadcom.com/discussion/team-build-version-1110-is-now-generally-available", "source": "Broadcom Community"},
-  {"id": "b4g-3-2-1-2026-05", "date": "2026-05-22", "vendor": "Broadcom", "product": "Endevor Bridge for Git", "title": "Endevor Bridge for Git 3.2.1 generally available", "summary": "Improved branch merging, configurable limits for hook notifications with large mappings and additional security hardening. Also delivered as a Docker image and Helm chart.", "tags": ["SCM", "Git"], "url": "https://community.broadcom.com/discussion/endevor-bridge-for-git-version-321-generally-available", "source": "Broadcom Community"},
-  {"id": "zowe-3-5-2026-05", "date": "2026-05-21", "vendor": "Open Mainframe Project", "product": "Zowe", "title": "Zowe 3.5.0 published", "summary": "Another release of the V3 LTS line (SMP/E PTFs, PSWI and convenience build on zowe.org).", "tags": ["Open Source"], "url": "https://www.zowe.org/download.html", "source": "zowe.org"},
-  {"id": "dbb-3-0-5-2026-05", "date": "2026-05-15", "date_precision": "month", "vendor": "IBM", "product": "IBM Dependency Based Build (DBB)", "title": "DBB 3.0.5 release PTF", "summary": "Release PTF UO07766 (May 2026). Since DBB 3.0.4.1, zBuilder generates build maps by default – this requires a DB fix script.", "tags": ["Build"], "url": "https://www.ibm.com/docs/en/adffz/dbb/3.0.x?topic=dbbo-what-is-new-noteworthy-in-dependency-based-build", "source": "IBM Documentation"},
-  {"id": "zowe-3-4-2026-01", "date": "2026-01-06", "vendor": "Open Mainframe Project", "product": "Zowe", "title": "Zowe 3.4 LTS: Bridge for Git plug-in V3-conformant, multiple OIDC providers", "summary": "The release includes V3 conformance of the Endevor Bridge for Git plug-in for Zowe CLI, support for multiple OIDC providers at the same time and ICSF keyrings in the API Mediation Layer.", "tags": ["Open Source", "CLI", "Security"], "url": "https://community.broadcom.com/discussion/open-mainframe-project-zowe-v34-long-term-support-lts-is-now-available", "source": "Broadcom Community"},
-  {"id": "galasa-0-45-2025-12", "date": "2025-12-04", "vendor": "Open Mainframe Project", "product": "Galasa", "title": "Galasa 0.45.0: cleanup of local test runs, timeouts for waiting runs", "summary": "The open-source integration test framework for z/OS adds, among other things, the command galasactl runs cleanup local; 0.44.0 (October 2025) updated the Kubernetes client and Helm options.", "tags": ["Test", "Open Source"], "url": "https://galasa.dev/releases/archive/2025/", "source": "galasa.dev"},
-  {"id": "rocket-devops-2025-11", "date": "2025-11-12", "vendor": "Rocket Software", "product": "Rocket DevOps-Portfolio", "title": "Rocket Software announces a new DevOps generation for IBM Z and IBM i", "summary": "Focus areas according to the press release: Git-integrated source change management, CI/CD and LLM API integration, AI-assisted code explanation (e.g. COBOL), anomaly detection, and compliance through separation of duties and audit reports.", "tags": ["SCM", "Git", "AI"], "url": "https://www.rocketsoftware.com/en-us/news/rocket-software-unveils-next-evolution-devops-tools", "source": "Rocket press release"},
-  {"id": "b4g-3-0-2025-10", "date": "2025-10-24", "vendor": "Broadcom", "product": "Endevor Bridge for Git", "title": "Endevor Bridge for Git 3.0 generally available", "summary": "Major release with multi-branching, separate sync and refresh operations, a new front end and a new TechDocs site. Java 17 is a prerequisite; note the breaking changes.", "tags": ["SCM", "Git"], "url": "https://community.broadcom.com/discussion/endevor-bridge-for-git-version-30-generally-available", "source": "Broadcom Community"},
-  {"id": "bmc-survey-2025-09", "date": "2025-09-16", "vendor": "Markt & Studien", "product": "BMC Mainframe Survey 2025", "title": "BMC Mainframe Survey 2025: 67% use DevOps on the mainframe", "summary": "The 20th edition (more than 1,100 respondents) reports DevOps adoption of 67% (previous year: 63%); 26% saw benefits in under six months. Millennials make up 51% and Gen Z 15% of respondents. Note: vendor survey.", "tags": ["Survey", "Skills"], "url": "https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html", "source": "BMC Blog", "extra_links": [{"label": "SiliconANGLE report", "url": "https://siliconangle.com/2025/09/16/mainframe-confidence-surges-modernization-campaigns-bear-fruit/"}]},
-  {"id": "zowe-3-3-2025-09", "date": "2025-09-09", "vendor": "Open Mainframe Project", "product": "Zowe", "title": "Zowe 3.3 LTS: API ML as a single service (tech preview), JCL-based installation", "summary": "New features include the API Mediation Layer as a single JVM process (technical preview), zwe init via JCL including dry run, a table view for data sets and job polling in Zowe Explorer.", "tags": ["Open Source", "IDE"], "url": "https://openmainframeproject.org/blog/whats-new-in-zowe-3-3/", "source": "Open Mainframe Project Blog"},
-  {"id": "gitlab-ultimate-ibm-z-2025-06", "date": "2025-06-23", "vendor": "GitLab", "product": "GitLab Ultimate for IBM Z", "title": "GitLab Ultimate for IBM Z with native z/OS runner", "summary": "GitLab and IBM offer a joint solution with a GitLab Runner running natively on z/OS and integration with IBM Developer for z/OS Enterprise Edition (including dependency-based builds).", "tags": ["Git", "CI", "Partnership"], "url": "https://about.gitlab.com/blog/gitlab-ultimate-for-ibm-z-modern-devsecops-for-mainframes/", "source": "GitLab Blog"},
-  {"id": "bmc-code-pipeline-git-2025-06", "date": "2025-06-09", "vendor": "BMC", "product": "BMC AMI DevX Code Pipeline", "title": "BMC describes the Git integration of AMI DevX Code Pipeline (formerly ISPW)", "summary": "Git for source control, Code Pipeline for build and deployment on z/OS; integrations for Jenkins, GitHub Actions and Azure DevOps. According to BMC, Code Pipeline also supports “100% Git” operation.", "tags": ["Git", "Build", "Deploy"], "url": "https://www.bmc.com/blogs/how-does-git-work-with-ispw/", "source": "BMC Blog"},
-  {"id": "dbb-3-0-2-2025-05", "date": "2025-05-27", "vendor": "IBM", "product": "IBM Dependency Based Build (DBB)", "title": "DBB 3.0.2: Java 21, JCL-to-YAML migration tool, z/OS Connect task", "summary": "zBuilder approaches parity with zAppBuild: integrated build maps, “scan only” for initial population of metadata, automatic migration of zAppBuild metadata and a tool that generates YAML language configurations from build JCL.", "tags": ["Build", "Migration"], "url": "https://community.ibm.com/community/user/blogs/shabbir-moledina1/2025/05/27/ready-or-not-here-comes-dbb-v302", "source": "IBM Community Blog"},
-  {"id": "rocket-acquires-amc-2024-05", "date": "2024-05-01", "vendor": "Rocket Software", "product": "ChangeMan ZMF", "title": "ChangeMan ZMF now belongs to Rocket Software", "summary": "OpenText sold its AMC business (formerly Micro Focus, including ChangeMan ZMF) to Rocket Software for USD 2.275 billion. The product is now called Rocket ChangeMan ZMF.", "tags": ["SCM", "Market"], "url": "https://www.opentext.com/about/press-releases/opentext-completes-divestiture-of-application-modernization-and-connectivity-amc-business-to-rocket-software-for-2-275b", "source": "OpenText press release", "extra_links": [{"label": "Rocket: product renaming", "url": "https://www.rocketsoftware.com/en-us/rocket-software-product-renaming-acquisition-reference"}]},
-  {"id": "qgroup-dwpbank-success-story-2026-06", "date": "2026-06-12", "vendor": "Q Group", "product": "Q-Wing", "title": "IBM Expert Labs success story: Endevor to GitLab at dwpbank with Q Group’s Q-Wing", "summary": "Success story on the migration of 181,435 Endevor elements to GitLab with z/OS runners, IBM DBB and Wazi Deploy, delivered by IBM Expert Labs and Q Group in 11 months. Q-Wing migrated application bundles automatically and archived older versions to DMS3. A companion story covers Atruvia (about 3.6 million elements, Bitbucket/Jenkins/DBB/UCD). Date taken from the PDF document; the web page itself shows no publication date.", "tags": ["Migration", "SCM", "Git"], "url": "https://www.qgrp.com/en-gb/endevor-to-git-dwp-bank", "source": "Q Group"}
+  {
+    "id": "ibm-pipeline-automation-for-z-2026-10",
+    "date": "2026-10-23",
+    "vendor": "IBM",
+    "product": "IBM Pipeline Automation for Z",
+    "title": "IBM Pipeline Automation for Z: new version generally available",
+    "summary": "IBM combines Git-based, dependency-aware builds, CLI-based COBOL quality and security scanning, YAML/Ansible/Python-based deployment, COBOL unit tests with coverage, and functional tests via IBM Enterprise Edition for Galasa into one pipeline platform. Positioned as the “outer loop” counterpart to the AI development assistant IBM Bob Premium Package for Z.",
+    "tags": [
+      "Build",
+      "Test",
+      "Deploy",
+      "AI"
+    ],
+    "url": "https://www.ibm.com/new/announcements/introducing-ibm-pipeline-automation-for-z-accelerate-enterprise-delivery-with-scalable-automated-ai-driven-pipelines",
+    "source": "IBM Announcement"
+  },
+  {
+    "id": "zowe-3-6-2026-10",
+    "date": "2026-10-27",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe",
+    "title": "Zowe 3.6.0 (server release) published",
+    "summary": "According to the Zowe download page, server release 3.6.0 shipped on 27 Oct 2026; the client components (Zowe Explorer/CLI 3.6) had already arrived in the autumn. In an article on Zowe Explorer 3.6, Broadcom highlights SSH-based connectivity (Zowe Remote SSH) as a faster way to get started.",
+    "tags": [
+      "Open Source",
+      "IDE",
+      "CLI"
+    ],
+    "url": "https://www.zowe.org/download.html",
+    "source": "zowe.org",
+    "extra_links": [
+      {
+        "label": "Broadcom: Zowe Explorer 3.6",
+        "url": "https://www.broadcom.com/company/news/articles/mainframe/zowe-explorer-3-6-a-faster-path-to-productivity"
+      }
+    ]
+  },
+  {
+    "id": "ibm-sclm-sod-update-2026-10",
+    "date": "2026-10-27",
+    "vendor": "IBM",
+    "product": "z/OS SCLM",
+    "title": "SCLM: IBM updates its Statement of Direction – removal “in a future release”",
+    "summary": "IBM had originally announced that z/OS 3.2 would be the last release to include SCLM. Following customer feedback, the updated intent is now to remove SCLM from an unspecified future z/OS release. Migration therefore remains necessary, but the time pressure is reduced.",
+    "tags": [
+      "SCLM",
+      "Migration",
+      "Lifecycle"
+    ],
+    "url": "https://community.ibm.com/community/user/blogs/sneha-kanaujia1/2026/04/06/ibm-zos-simplification-planned-changes",
+    "source": "IBM Community (simplification overview)",
+    "extra_links": [
+      {
+        "label": "LinkedIn post by Marna Walle (IBM)",
+        "url": "https://www.linkedin.com/posts/marna-walle-862848a_ibm-z-simplification-activity-7520845369736466432-UJLM"
+      }
+    ]
+  },
+  {
+    "id": "dbb-3-0-5-4-2026-10",
+    "date": "2026-10-15",
+    "date_precision": "month",
+    "vendor": "IBM",
+    "product": "IBM Dependency Based Build (DBB)",
+    "title": "DBB 3.0.5.4 maintenance PTF with new optional DB schema",
+    "summary": "The fix list names PTF UO09871 (DBB 3.0.5.4) for October 2026. According to the documentation, 3.0.5.4 supports schema versions 2.0.2, 3.0.3 and 3.0.5.4; since 3.0.3, schema upgrades are only required for new features.",
+    "tags": [
+      "Build"
+    ],
+    "url": "https://www.ibm.com/support/pages/fix-list-ibm-dependency-based-build",
+    "source": "IBM Support"
+  },
+  {
+    "id": "wazi-deploy-3-0-8-2026",
+    "date": "2026-10-15",
+    "date_precision": "month",
+    "vendor": "IBM",
+    "product": "IBM Wazi Deploy",
+    "title": "Wazi Deploy 3.0.8: deployment evidence in Db2 and HTML reports",
+    "summary": "Version 3.0.8 can store the generated deployment evidence directly in Db2 for z/OS, automatically produces an HTML evidence report, extends restart capabilities and adds a new building block cics_prog_update (without CMCI). The fix list most recently shows 3.0.8.3 (October 2026).",
+    "tags": [
+      "Deploy",
+      "Compliance"
+    ],
+    "url": "https://www.ibm.com/docs/en/developer-for-zos/17.0.x?topic=deploy-whats-new-in-wazi",
+    "source": "IBM Documentation",
+    "extra_links": [
+      {
+        "label": "Wazi Deploy fix list",
+        "url": "https://www.ibm.com/support/pages/fix-list-ibm-wazi-deploy"
+      }
+    ]
+  },
+  {
+    "id": "bmc-oct-2026-release",
+    "date": "2026-10-01",
+    "date_precision": "month",
+    "vendor": "BMC",
+    "product": "BMC AMI DevX",
+    "title": "BMC October release: AMI DevX Unit Test (beta) and Code Pipeline MCP Server (beta)",
+    "summary": "BMC AMI DevX Unit Test generates test data from COBOL sources and compares runs against an approved baseline in VS Code. The new Code Pipeline MCP Server (beta) connects MCP-capable AI assistants to Code Pipeline build and deploy operations.",
+    "tags": [
+      "Test",
+      "AI",
+      "Build"
+    ],
+    "url": "https://www.bmc.com/it-solutions/bmc-ami-latest-release.html",
+    "source": "BMC What's New",
+    "extra_links": [
+      {
+        "label": "BMC press release: BMC AMI Agentics (20 Oct 2026)",
+        "url": "https://www.bmc.com/newsroom/releases/bmc-advances-enterprise-ai-with-bmc-ami-agentics-and-control-m.html"
+      }
+    ]
+  },
+  {
+    "id": "ibm-taz-3-0-2026-09",
+    "date": "2026-09-25",
+    "vendor": "IBM",
+    "product": "IBM Test Accelerator for Z",
+    "title": "IBM Test Accelerator for Z v3.0 with AI-assisted COBOL unit test generation",
+    "summary": "Version 3.0 generates and runs COBOL unit tests with AI assistance, integrates with VS Code and can be included in CI/CD pipelines (shift-left testing).",
+    "tags": [
+      "Test",
+      "AI"
+    ],
+    "url": "https://community.ibm.com/community/user/blogs/neha-shah/2026/10/09/a-new-era-of-mainframe-testing-with-agentic-ai-powered-by-ibm-test-accelerator-for-z-v3-0",
+    "source": "IBM Community Blog"
+  },
+  {
+    "id": "endevor-19-approver-groups-2026-09",
+    "date": "2026-09-15",
+    "vendor": "Broadcom",
+    "product": "Endevor",
+    "title": "Endevor 19.0: package approver groups now also via REST API v2, Zowe CLI and Endevor API",
+    "summary": "The enhancement (PTF LU20326 for V19, LU20331 for V18.1) extends approver group selection to the API and CLI interfaces – relevant for automated approval processes in pipelines.",
+    "tags": [
+      "SCM",
+      "API",
+      "Compliance"
+    ],
+    "url": "https://community.broadcom.com/discussion/endevor-190-ga-announcement-package-approver-group-selection-rest-api-cli-endevor-api",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "ibm-bob-premium-z-2026-07",
+    "date": "2026-07-09",
+    "vendor": "IBM",
+    "product": "IBM Bob Premium Package for Z",
+    "title": "IBM Bob Premium Package for Z generally available – successor to watsonx Code Assistant for Z",
+    "summary": "IBM positions the package as an agentic AI development partner for IBM Z with modes, reusable “skills”, repository-level AGENTS.md rules and impact analysis based on Z Understand.",
+    "tags": [
+      "AI",
+      "IDE"
+    ],
+    "url": "https://www.ibm.com/new/announcements/announcing-the-ibm-bob-premium-package-for-z",
+    "source": "IBM Announcement"
+  },
+  {
+    "id": "b4g-2x-eos-2026-06",
+    "date": "2026-06-22",
+    "vendor": "Broadcom",
+    "product": "Endevor Bridge for Git",
+    "title": "Endevor Bridge for Git 2.x: end of service on 30 June 2027",
+    "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027. Users are advised to move to 3.0 or later (prerequisites include Java 17 and higher hardware requirements).",
+    "tags": [
+      "SCM",
+      "Git",
+      "Lifecycle"
+    ],
+    "url": "https://community.broadcom.com/discussion/bridge-for-git-2x-component-end-of-service",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "team-build-1-11-2026-06",
+    "date": "2026-06-10",
+    "vendor": "Broadcom",
+    "product": "Team Build",
+    "title": "Team Build 1.11.0: simplified export for Bridge for Git workflows and SBOM improvements",
+    "summary": "New features include the --build-scripts-only flag (exportz) for change-based builds in a Bridge for Git context, wildcard mappings in sbomz and space checks in syncz.",
+    "tags": [
+      "Build",
+      "SBOM",
+      "Git"
+    ],
+    "url": "https://community.broadcom.com/discussion/team-build-version-1110-is-now-generally-available",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "b4g-3-2-1-2026-05",
+    "date": "2026-05-22",
+    "vendor": "Broadcom",
+    "product": "Endevor Bridge for Git",
+    "title": "Endevor Bridge for Git 3.2.1 generally available",
+    "summary": "Improved branch merging, configurable limits for hook notifications with large mappings and additional security hardening. Also delivered as a Docker image and Helm chart.",
+    "tags": [
+      "SCM",
+      "Git"
+    ],
+    "url": "https://community.broadcom.com/discussion/endevor-bridge-for-git-version-321-generally-available",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "zowe-3-5-2026-05",
+    "date": "2026-05-21",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe",
+    "title": "Zowe 3.5.0 published",
+    "summary": "Another release of the V3 LTS line (SMP/E PTFs, PSWI and convenience build on zowe.org).",
+    "tags": [
+      "Open Source"
+    ],
+    "url": "https://www.zowe.org/download.html",
+    "source": "zowe.org"
+  },
+  {
+    "id": "dbb-3-0-5-2026-05",
+    "date": "2026-05-15",
+    "date_precision": "month",
+    "vendor": "IBM",
+    "product": "IBM Dependency Based Build (DBB)",
+    "title": "DBB 3.0.5 release PTF",
+    "summary": "Release PTF UO07766 (May 2026). Since DBB 3.0.4.1, zBuilder generates build maps by default – this requires a DB fix script.",
+    "tags": [
+      "Build"
+    ],
+    "url": "https://www.ibm.com/docs/en/adffz/dbb/3.0.x?topic=dbbo-what-is-new-noteworthy-in-dependency-based-build",
+    "source": "IBM Documentation"
+  },
+  {
+    "id": "zowe-3-4-2026-01",
+    "date": "2026-01-06",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe",
+    "title": "Zowe 3.4 LTS: Bridge for Git plug-in V3-conformant, multiple OIDC providers",
+    "summary": "The release includes V3 conformance of the Endevor Bridge for Git plug-in for Zowe CLI, support for multiple OIDC providers at the same time and ICSF keyrings in the API Mediation Layer.",
+    "tags": [
+      "Open Source",
+      "CLI",
+      "Security"
+    ],
+    "url": "https://community.broadcom.com/discussion/open-mainframe-project-zowe-v34-long-term-support-lts-is-now-available",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "galasa-0-45-2025-12",
+    "date": "2025-12-04",
+    "vendor": "Open Mainframe Project",
+    "product": "Galasa",
+    "title": "Galasa 0.45.0: cleanup of local test runs, timeouts for waiting runs",
+    "summary": "The open-source integration test framework for z/OS adds, among other things, the command galasactl runs cleanup local; 0.44.0 (October 2025) updated the Kubernetes client and Helm options.",
+    "tags": [
+      "Test",
+      "Open Source"
+    ],
+    "url": "https://galasa.dev/releases/archive/2025/",
+    "source": "galasa.dev"
+  },
+  {
+    "id": "rocket-devops-2025-11",
+    "date": "2025-11-12",
+    "vendor": "Rocket Software",
+    "product": "Rocket DevOps-Portfolio",
+    "title": "Rocket Software announces a new DevOps generation for IBM Z and IBM i",
+    "summary": "Focus areas according to the press release: Git-integrated source change management, CI/CD and LLM API integration, AI-assisted code explanation (e.g. COBOL), anomaly detection, and compliance through separation of duties and audit reports.",
+    "tags": [
+      "SCM",
+      "Git",
+      "AI"
+    ],
+    "url": "https://www.rocketsoftware.com/en-us/news/rocket-software-unveils-next-evolution-devops-tools",
+    "source": "Rocket press release"
+  },
+  {
+    "id": "b4g-3-0-2025-10",
+    "date": "2025-10-24",
+    "vendor": "Broadcom",
+    "product": "Endevor Bridge for Git",
+    "title": "Endevor Bridge for Git 3.0 generally available",
+    "summary": "Major release with multi-branching, separate sync and refresh operations, a new front end and a new TechDocs site. Java 17 is a prerequisite; note the breaking changes.",
+    "tags": [
+      "SCM",
+      "Git"
+    ],
+    "url": "https://community.broadcom.com/discussion/endevor-bridge-for-git-version-30-generally-available",
+    "source": "Broadcom Community"
+  },
+  {
+    "id": "bmc-survey-2025-09",
+    "date": "2025-09-16",
+    "vendor": "Markt & Studien",
+    "product": "BMC Mainframe Survey 2025",
+    "title": "BMC Mainframe Survey 2025: 67% use DevOps on the mainframe",
+    "summary": "The 20th edition (more than 1,100 respondents) reports DevOps adoption of 67% (previous year: 63%); 26% saw benefits in under six months. Millennials make up 51% and Gen Z 15% of respondents. Note: vendor survey.",
+    "tags": [
+      "Survey",
+      "Skills"
+    ],
+    "url": "https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html",
+    "source": "BMC Blog",
+    "extra_links": [
+      {
+        "label": "SiliconANGLE report",
+        "url": "https://siliconangle.com/2025/09/16/mainframe-confidence-surges-modernization-campaigns-bear-fruit/"
+      }
+    ]
+  },
+  {
+    "id": "zowe-3-3-2025-09",
+    "date": "2025-09-09",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe",
+    "title": "Zowe 3.3 LTS: API ML as a single service (tech preview), JCL-based installation",
+    "summary": "New features include the API Mediation Layer as a single JVM process (technical preview), zwe init via JCL including dry run, a table view for data sets and job polling in Zowe Explorer.",
+    "tags": [
+      "Open Source",
+      "IDE"
+    ],
+    "url": "https://openmainframeproject.org/blog/whats-new-in-zowe-3-3/",
+    "source": "Open Mainframe Project Blog"
+  },
+  {
+    "id": "gitlab-ultimate-ibm-z-2025-06",
+    "date": "2025-06-23",
+    "vendor": "GitLab",
+    "product": "GitLab Ultimate for IBM Z",
+    "title": "GitLab Ultimate for IBM Z with native z/OS runner",
+    "summary": "GitLab and IBM offer a joint solution with a GitLab Runner running natively on z/OS and integration with IBM Developer for z/OS Enterprise Edition (including dependency-based builds).",
+    "tags": [
+      "Git",
+      "CI",
+      "Partnership"
+    ],
+    "url": "https://about.gitlab.com/blog/gitlab-ultimate-for-ibm-z-modern-devsecops-for-mainframes/",
+    "source": "GitLab Blog"
+  },
+  {
+    "id": "bmc-code-pipeline-git-2025-06",
+    "date": "2025-06-09",
+    "vendor": "BMC",
+    "product": "BMC AMI DevX Code Pipeline",
+    "title": "BMC describes the Git integration of AMI DevX Code Pipeline (formerly ISPW)",
+    "summary": "Git for source control, Code Pipeline for build and deployment on z/OS; integrations for Jenkins, GitHub Actions and Azure DevOps. According to BMC, Code Pipeline also supports “100% Git” operation.",
+    "tags": [
+      "Git",
+      "Build",
+      "Deploy"
+    ],
+    "url": "https://www.bmc.com/blogs/how-does-git-work-with-ispw/",
+    "source": "BMC Blog"
+  },
+  {
+    "id": "dbb-3-0-2-2025-05",
+    "date": "2025-05-27",
+    "vendor": "IBM",
+    "product": "IBM Dependency Based Build (DBB)",
+    "title": "DBB 3.0.2: Java 21, JCL-to-YAML migration tool, z/OS Connect task",
+    "summary": "zBuilder approaches parity with zAppBuild: integrated build maps, “scan only” for initial population of metadata, automatic migration of zAppBuild metadata and a tool that generates YAML language configurations from build JCL.",
+    "tags": [
+      "Build",
+      "Migration"
+    ],
+    "url": "https://community.ibm.com/community/user/blogs/shabbir-moledina1/2025/05/27/ready-or-not-here-comes-dbb-v302",
+    "source": "IBM Community Blog"
+  },
+  {
+    "id": "rocket-acquires-amc-2024-05",
+    "date": "2024-05-01",
+    "vendor": "Rocket Software",
+    "product": "ChangeMan ZMF",
+    "title": "ChangeMan ZMF now belongs to Rocket Software",
+    "summary": "OpenText sold its AMC business (formerly Micro Focus, including ChangeMan ZMF) to Rocket Software for USD 2.275 billion. The product is now called Rocket ChangeMan ZMF.",
+    "tags": [
+      "SCM",
+      "Market"
+    ],
+    "url": "https://www.opentext.com/about/press-releases/opentext-completes-divestiture-of-application-modernization-and-connectivity-amc-business-to-rocket-software-for-2-275b",
+    "source": "OpenText press release",
+    "extra_links": [
+      {
+        "label": "Rocket: product renaming",
+        "url": "https://www.rocketsoftware.com/en-us/rocket-software-product-renaming-acquisition-reference"
+      }
+    ]
+  },
+  {
+    "id": "qgroup-dwpbank-success-story-2026-06",
+    "date": "2026-06-12",
+    "vendor": "Q Group",
+    "product": "Q-Wing",
+    "title": "IBM Expert Labs success story: Endevor to GitLab at dwpbank with Q Group’s Q-Wing",
+    "summary": "Success story on the migration of 181,435 Endevor elements to GitLab with z/OS runners, IBM DBB and Wazi Deploy, delivered by IBM Expert Labs and Q Group in 11 months. Q-Wing migrated application bundles automatically and archived older versions to DMS3. A companion story covers Atruvia (about 3.6 million elements, Bitbucket/Jenkins/DBB/UCD). Date taken from the PDF document; the web page itself shows no publication date.",
+    "tags": [
+      "Migration",
+      "SCM",
+      "Git"
+    ],
+    "url": "https://www.qgrp.com/en-gb/endevor-to-git-dwp-bank",
+    "source": "Q Group"
+  },
+  {
+    "id": "ibm-idzee-18-adfz-6-2026-10",
+    "date": "2026-10-16",
+    "vendor": "IBM",
+    "product": "IDz Enterprise Edition 18.0 / ADFz 6.0 (DBB 4.0, Wazi Deploy 4.0)",
+    "title": "IBM Developer for z/OS EE 18.0 and ADFz 6.0: DBB 4.0, Wazi Deploy 4.0 and the new Release Orchestrator for Z",
+    "summary": "The major release adds IBM Release Orchestrator for Z (part of Wazi Deploy) to schedule and coordinate deployments across multiple applications, release groups, targets and phases via a web interface. DBB 4.0.0 brings cross-application dependency support in zBuilder (versioned build packages published and imported across Git repositories, impact analysis on imported dependencies), Java 25 support and a new 'dbb validate' command; from 4.0.0, DBB is only available as a component of other offerings. Wazi Deploy adds GitLab package registry support and MCP tools; ZCodeScan adds new COBOL and PL/I rules and baselines.",
+    "tags": [
+      "Build",
+      "Deploy",
+      "Release",
+      "AI"
+    ],
+    "url": "https://www.ibm.com/docs/en/developer-for-zos/18.0.x?announcement=application-delivery-foundation-zos-600-introduces-net-new-release-orchestration-feature-in-developer-zos-enterprise-edition-1800-exploit-in-devops-pipeline",
+    "source": "IBM Documentation (announcement)",
+    "extra_links": [
+      {
+        "label": "What's new in DBB 4.0",
+        "url": "https://www.ibm.com/docs/en/developer-for-zos/18.0.x?topic=release-whats-new-in-dependency-based-build-zos"
+      },
+      {
+        "label": "Release Orchestrator overview",
+        "url": "https://www.ibm.com/docs/en/developer-for-zos/18.0.x?topic=orchestrator-release-overview"
+      },
+      {
+        "label": "IBM Community blog (16 Oct 2026)",
+        "url": "https://community.ibm.com/community/user/blogs/andrew-tram/2026/10/16/hey-pumpkin-looking-for-ibm-developer-for-z-os-18-0-0"
+      }
+    ]
+  },
+  {
+    "id": "endevor-mcp-beta-2026-02",
+    "date": "2026-02-17",
+    "vendor": "Broadcom",
+    "product": "Endevor",
+    "title": "Endevor and AI: read-only MCP bridge to the Endevor inventory in beta",
+    "summary": "Broadcom announced beta availability of a read-only bridge that connects an LLM of the customer's choice to the Endevor inventory via the Model Context Protocol (MCP). Access to the beta is by request through the Broadcom community post.",
+    "tags": [
+      "AI",
+      "SCM"
+    ],
+    "url": "https://community.broadcom.com/mainframesoftware/discussion/endevor-and-ai-announcing-beta-availability",
+    "source": "Broadcom Mainframe Software Community"
+  }
 ]

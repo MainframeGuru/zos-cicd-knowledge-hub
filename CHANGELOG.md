@@ -2,6 +2,15 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.1.1] – 2026-11-19
+### Added
+- News: IBM Developer for z/OS EE 18.0 / ADFz 6.0 with DBB 4.0, Wazi Deploy 4.0 and the new Release Orchestrator for Z
+  (`/news/#news-ibm-idzee-18-adfz-6-2026-10`); Broadcom Endevor read-only MCP bridge beta (`/news/#news-endevor-mcp-beta-2026-02`).
+- BMC October 2026 release entry: link to the BMC AMI Agentics press release (20 Oct 2026).
+- Resources: CROZ article on DBB 4 and Release Orchestrator (`/resources/#res-croz-dbb4-release-orchestrator`, labeled Press / Article).
+### Changed
+- Migrations page, “Application boundaries & repo layout”: note on DBB 4.0 cross-application dependencies; DBB 4.0 added to sources.
+
 ## [2.1.0] – 2026-11-19
 ### Added
 - Q Group AG and its Q-Wing tool (Endevor → Git migration with history and archive) on the migrations page:

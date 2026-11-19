@@ -2,6 +2,17 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.1.0] – 2026-11-19
+### Added
+- Q Group AG and its Q-Wing tool (Endevor → Git migration with history and archive) on the migrations page:
+  Endevor section (Atruvia and dwpbank projects), the “Service provider tools & accelerators” card and a new
+  comparison table “Migration tooling at a glance” (`/migrations/#tools-vergleich`) that also covers IBM, Broadcom,
+  BMC, Royal Cyber, Living Mainframe and CROZ based on their public information.
+- Resources: project references Atruvia (`#res-atruvia-qgroup`) and dwpbank (`#res-dwpbank-qgroup`), vendor pages
+  Q-Wing (`#res-qgroup-qwing`) and IDz4VSE (`#res-qgroup-idz4vse`).
+- News: IBM Expert Labs success story on the dwpbank migration (`#news-qgroup-dwpbank-success-story-2026-06`).
+- Overview page: context figure for the Atruvia migration.
+
 ## [2.0.1] – 2026-11-19
 ### Changed
 - Dropped prominent self-labels such as “vendor-neutral” and “independent” from the site tagline,

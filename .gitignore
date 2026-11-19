@@ -1,0 +1,5 @@
+public/
+__pycache__/
+# Lokale Schutzliste (enthält Begriffe, die nie veröffentlicht werden dürfen) – bewusst nicht im Repo
+scripts/banned-terms.txt
+.DS_Store

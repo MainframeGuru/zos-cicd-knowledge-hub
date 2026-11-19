@@ -1,0 +1,83 @@
+<div class="wrap">
+<header class="page-head"><span class="eyebrow">Migration paths</span><h1>Migrations: from Endevor, ChangeMan ZMF, ISPW, SCLM &amp; co. to CI/CD</h1>
+<p class="lead">There is no single “right” way. Broadly, two strategies can be distinguished – and many organizations combine them one after the other.</p></header>
+<div class="grid">
+ <div class="card"><h3>A · Coexistence / bridge</h3><p>The existing library manager remains the system of record for build, promotion and approval; developers work (partly) in Git. Lower transition risk, but two worlds that have to be kept in sync.</p></div>
+ <div class="card"><h3>B · Git-native</h3><p>Git becomes the sole source; build (e.g. DBB, JCL from the pipeline), test and deployment are rebuilt, and the old library manager is retired. A bigger overhaul, but a single unified toolchain.</p></div>
+ <div class="card"><h3>C · Switching library managers</h3><p>Moving to a different mainframe SCM with Git integration (e.g. to BMC AMI DevX Code Pipeline, or from Panvalet/Librarian to Endevor). Vendors offer their own migration methods for this.</p></div>
+</div>
+<nav class="toc" aria-label="Source systems"><a href="#tabelle">Overview table</a> · <a href="#endevor">Endevor</a> · <a href="#changeman">ChangeMan ZMF</a> · <a href="#ispw">ISPW / Code Pipeline</a> · <a href="#sclm">SCLM</a> · <a href="#panvalet">Panvalet / Librarian</a> · <a href="#automatisiert">Automated migration</a> · <a href="#stolpersteine">Pitfalls</a> · <a href="#vorgehen">Approach</a></nav>
+
+<section id="tabelle"><h2>Overview of the paths</h2>
+<div class="table-wrap"><table>
+<caption class="muted small" style="text-align:left;padding:.6rem .9rem">As of November 2026. All information from public vendor and trade sources; no rating implied.</caption>
+<thead><tr><th scope="col">Source system (vendor)</th><th scope="col">A · Coexistence</th><th scope="col">B · Git-native</th><th scope="col">Public examples</th><th scope="col">Points to note</th></tr></thead>
+<tbody>
+<tr><th scope="row">Endevor (Broadcom)</th><td>Endevor Bridge for Git 3.x synchronizes Git branches with Endevor; Team Build for local/change-based builds; Code4z / Explorer for Endevor in VS Code</td><td>Unload elements to PDS → DBB Migration Tool / Migration Modeler → Git; build with DBB zBuilder; deploy with Wazi Deploy, Ansible or DevOps Deploy</td><td><a href="/resources/#res-hcsc-royalcyber">HCSC</a> (Git-native)</td><td>Bridge for Git 2.x: end of service 30 June 2027; recreate processors, “delete behind” and package approvals</td></tr>
+<tr><th scope="row">ChangeMan ZMF (Rocket Software, formerly Micro Focus/OpenText)</th><td>Git integration: change packages mapped to Git, Git connector for VS Code, REST API, Zowe CLI plug-in</td><td>Unload → Git; build with DBB; rebuild deployment</td><td><a href="/resources/#res-onemain-webinar">OneMain Financial</a> (talk), <a href="/resources/#res-legacyit-ubs">UBS</a> (planned)</td><td>Ownership changed to Rocket in 2024; map release/promotion logic and emergency procedures</td></tr>
+<tr><th scope="row">ISPW / Code Pipeline (BMC, formerly Compuware)</th><td>Code Pipeline with Git integration: source in Git, build/deploy by Code Pipeline; plug-ins for Jenkins, GitHub Actions, Azure DevOps</td><td>Unload to PDS → Git; build with DBB</td><td><a href="/resources/#res-bmc-datastream">BMC internal team</a> (coexistence)</td><td>According to BMC, “100% Git” with Code Pipeline for build &amp; deploy is also possible</td></tr>
+<tr><th scope="row">SCLM (IBM, part of z/OS)</th><td>—</td><td>IBM SCLM-to-Git Migration Tool; then DBB or JCL builds from the pipeline</td><td>—</td><td>IBM intends removal “in a future z/OS release” (SoD update, Oct. 2026)</td></tr>
+<tr><th scope="row">Panvalet / Librarian (Broadcom)</th><td>Code4z supports Panvalet and Librarian in VS Code</td><td>Extraction → Git; build with DBB</td><td><a href="/resources/#res-mtbank-ibm">M&amp;T Bank</a> (Panvalet → Git)</td><td>Broadcom documents conversion utilities from Panvalet/Librarian to Endevor (path C)</td></tr>
+<tr><th scope="row">RTC / EWM (IBM)</th><td>—</td><td>Transfer sources to Git, builds with DBB/Jenkins</td><td><a href="/resources/#res-living-mainframe-ref">Anonymized reference</a></td><td>Build information is often spread across scripts (e.g. REXX)</td></tr>
+</tbody></table></div></section>
+
+<section id="endevor"><h2>Endevor (Broadcom)</h2>
+<h3>Path A: Endevor Bridge for Git</h3>
+<p>Bridge for Git maps Endevor inventory locations to Git repositories and branches and synchronizes changes in both directions. Version 3.0 (Oct. 2025) introduced multi-branching and a new front end; 3.2.1 (May 2026) improved branch merging. Version 2.x loses support on <b>30 June 2027</b>. In addition, Team Build enables change-based builds; since 1.11.0 there has been a simplified export for Bridge for Git workflows. In parallel, Endevor 19 extends the API and CLI interfaces (e.g. approver groups via REST API v2).</p>
+<h3>Path B: Git + DBB</h3>
+<p>Elements are unloaded to PDS and transferred into repositories with the DBB Migration Tool or the DBB Git Migration Modeler. Endevor processors are translated into DBB language configurations (since DBB 3.0.2, a JCL-to-YAML tool helps). The publicly documented HCSC migration covered around 294,000 elements, 150+ applications and 15 DBB language processors; Endevor behavior such as “delete behind” was recreated through deployment automation.</p>
+<p class="muted small">Sources: <a href="https://community.broadcom.com/discussion/endevor-bridge-for-git-version-30-generally-available">Broadcom (B4G 3.0)</a>, <a href="https://community.broadcom.com/discussion/bridge-for-git-2x-component-end-of-service">Broadcom (EoS 2.x)</a>, <a href="https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/">Royal Cyber (HCSC)</a></p></section>
+
+<section id="changeman"><h2>ChangeMan ZMF (Rocket Software)</h2>
+<p>ChangeMan ZMF has belonged to Rocket Software since May 2024 (acquisition of OpenText’s AMC business). Rocket promotes a native Git integration in which change packages are mapped to Git, plus REST APIs and a Zowe CLI plug-in. The Git-native path involves unloading the sources to Git and rebuilding build and deployment; an early public user report comes from OneMain Financial (ChangeMan → GitLab + DBB). According to a 2025 conversation, UBS plans to move from ChangeMan to DBB, following a “bridge first, then evolve” approach.</p>
+<p class="muted small">Sources: <a href="https://www.rocketsoftware.com/en-us/products/changeman/changeman-zmf">Rocket</a>, <a href="https://www.opentext.com/about/press-releases/opentext-completes-divestiture-of-application-modernization-and-connectivity-amc-business-to-rocket-software-for-2-275b">OpenText</a>, <a href="https://ibm-zcouncil.com/events/build-better-and-deliver-faster-with-gitlab-and-dbb-on-ibm-z/">IBM Z Customer Council</a>, <a href="https://croz.net/mighty-mainframe-mingle-with-tom-liechti/">CROZ/UBS</a></p></section>
+
+<section id="ispw"><h2>ISPW / BMC AMI DevX Code Pipeline</h2>
+<p>BMC positions Code Pipeline as a build and deploy engine that can be combined with Git (GitHub, Bitbucket and others): developers work with branches and pull requests, while Code Pipeline handles dependency-based generation, promotion and deployment. For moving from other SCMs to Code Pipeline, BMC cites its own methodology with a “Migration Discovery Tool”. Those who want to replace ISPW entirely unload the components to PDS and migrate to Git + DBB as with other systems.</p>
+<p class="muted small">Sources: <a href="https://www.bmc.com/blogs/how-does-git-work-with-ispw/">BMC Blog</a>, <a href="https://www.bmc.com/it-solutions/bmc-ami-devx-code-pipeline.html">BMC product page</a>, <a href="https://www.ibm.com/docs/en/z-devops-guide?topic=git-steps-migrating-data-from-zos">IBM Z DevOps Guide</a></p></section>
+
+<section id="sclm"><h2>SCLM (IBM)</h2>
+<p>IBM had announced z/OS 3.2 as the last release with SCLM; in October 2026 the intent was changed to “removal in a future release”. As a target, IBM recommends Git (via IBM Open Enterprise Foundation for z/OS) or IBM Developer for z/OS Enterprise Edition; for source migration there is the SCLM-to-Git Migration Tool. Trade articles emphasize that existing JCL builds can initially be called from the pipeline and that DBB is optional.</p>
+<p class="muted small">Sources: <a href="https://community.ibm.com/community/user/blogs/sneha-kanaujia1/2026/04/06/ibm-zos-simplification-planned-changes">IBM Community</a>, <a href="https://techchannel.com/api/replacing-sclm-takes-more-than-git/">TechChannel</a></p></section>
+
+<section id="panvalet"><h2>Panvalet and Librarian</h2>
+<p>Broadcom documents conversion utilities from Panvalet and Librarian to Endevor. For the direct route to Git there is a public example: M&amp;T Bank replaced its roughly 30-year-old Panvalet with Git/GitLab plus DBB, SonarQube and Ansible.</p>
+<p class="muted small">Sources: <a href="https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/ca-endevor-software-change-manager/19-0/administrating/library-conversion-utilities-for-panvalet-or-librarian.html">Broadcom TechDocs</a>, <a href="https://community.ibm.com/community/user/blogs/andreina-dyer/2025/09/03/mtbank">IBM Community (M&amp;T Bank)</a></p></section>
+
+<section id="automatisiert"><h2>Automated migration: which approaches exist?</h2>
+<p>With tens of thousands to hundreds of thousands of elements, manual migration is not an option. Four categories of automation are publicly described – this overview is neutral and makes no claim to completeness:</p>
+<div class="grid">
+ <div class="card"><h3>1 · Vendor utilities for source transfer</h3><p><b>IBM DBB Migration Tool</b> (copies PDS members into a Git repo on zFS, sets code page tags and <code>.gitattributes</code>, reports problematic characters), <b>DBB Git Migration Modeler</b> (open source: detects application boundaries based on naming conventions, analyzes copybook usage, generates build properties, repositories and pipeline templates), <b>SCLM-to-Git Migration Tool</b>.</p></div>
+ <div class="card"><h3>2 · Translating build logic</h3><p>The <b>JCL-to-YAML migration tool</b> in DBB 3.0.2+ generates zBuilder language configurations from existing build JCL. “Scan only” populates dependency metadata without a full build. For Endevor processors, type, processor group, system, subsystem and environment have to be mapped dynamically.</p></div>
+ <div class="card"><h3>3 · Synchronization instead of big bang</h3><p>Bridges such as <b>Endevor Bridge for Git</b>, the <b>Code Pipeline Git integration</b> or the <b>ChangeMan Git integration</b> allow a gradual transition. Lifecycle orchestrators also advertise synchronization between the legacy SCM and Git during the transition phase.</p></div>
+ <div class="card"><h3>4 · Service provider accelerators</h3><p>Several service providers offer their own tools and process models (Discover → Migrate → Validate → Enable), including for history transfer, delta synchronization and validation. Their scope and maturity are usually only described publicly as marketing – ask for references and a PoC with your own data before choosing one.</p></div>
+</div>
+<h3>What matters in automated migration</h3>
+<ul>
+<li><b>History:</b> current state only, last n versions or full history? Where does non-migrated history go (archive for audit)?</li>
+<li><b>Integrity:</b> hex comparison, record formats (FB/VB), non-printable and non-round-trippable characters, record lengths.</li>
+<li><b>Delta runs:</b> if development continues in parallel, changes must be carried over until cutover.</li>
+<li><b>Application boundaries &amp; repo layout:</b> monorepo vs. one repo per application, shared copybooks.</li>
+<li><b>Build equivalence:</b> comparing newly built load modules with production (e.g. through test runs or binary comparison).</li>
+<li><b>Processes:</b> approvals, emergency fixes and promotion paths cannot be “migrated” – they have to be redesigned.</li>
+</ul>
+<p class="muted small">Sources: <a href="https://www.ibm.com/docs/en/z-devops-guide?topic=git-dbb-migration-tool">IBM DBB Migration Tool</a>, <a href="https://github.com/IBM/dbb-git-migration-modeler">DBB Git Migration Modeler</a>, <a href="https://community.ibm.com/community/user/blogs/shabbir-moledina1/2025/05/27/ready-or-not-here-comes-dbb-v302">DBB 3.0.2</a>, <a href="https://www.ibm.com/support/pages/system/files/inline-files/Migration%20Recipes%20with%20DBB%20and%20zAppBuild_v2.0.0.pdf">Migration Recipes (PDF)</a>, <a href="https://www.royalcyber.com/webinar/mainframe-git-migration/">Example four-phase model (service provider)</a></p></section>
+
+<section id="stolpersteine"><h2>Typical pitfalls</h2>
+<details><summary>Code pages and special characters</summary><p>Source code is stored in EBCDIC (e.g. IBM-1141 in German-speaking countries). Git servers typically work with UTF-8. Non-round-trippable characters (for example in hex literals) must be detected and treated as binary if necessary. The IBM Z DevOps Guide describes the options.</p></details>
+<details><summary>Initializing dependency metadata</summary><p>For incremental builds to work, the build system needs the dependencies. Either a full build (costly, produces new modules) or “scan only” (DBB 3.0.2+) to generate metadata without compiling.</p></details>
+<details><summary>Processors and special cases</summary><p>Decades-old processors contain options, pre-compilers, link-edit rules and exceptions. Inventorying them completely is often the single biggest effort.</p></details>
+<details><summary>Approval and emergency processes</summary><p>Package approvals, emergency fixes and “delete behind” logic must be recreated in pull request rules, pipeline gates and deployment automation.</p></details>
+<details><summary>People</summary><p>Moving hundreds of developers to Git at the same time requires training, pilot teams, champions and simple entry-level tools – M&amp;T Bank, for example, built a simple web interface for business analysts.</p></details>
+</section>
+
+<section id="vorgehen"><h2>A neutral approach</h2>
+<ol>
+<li><b>Assessment:</b> inventory, types, processors, promotion paths, interfaces, volume.</li>
+<li><b>Target picture:</b> coexistence or Git-native? Repository layout, branching model, build/deploy tools.</li>
+<li><b>Pilot:</b> a manageable but representative application, including Db2/CICS.</li>
+<li><b>Migration factory:</b> automated transfer, validation, delta runs, wave planning.</li>
+<li><b>Enablement:</b> training, documentation, support, feedback loops.</li>
+<li><b>Decommissioning:</b> archiving the history, ending the legacy system’s license.</li>
+</ol></section>
+</div>

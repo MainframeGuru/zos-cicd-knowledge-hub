@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Statischer Site-Generator für den z/OS CI/CD Kompass.
+"""Static site generator for the z/OS CI/CD Compass.
 
-Liest data/*.json und src/content/*.html und schreibt die fertige Website nach public/.
-Keine Abhängigkeiten außer Python 3.8+. Aufruf:  python3 build.py
+Reads data/*.json and src/content/*.html and writes the finished website to public/.
+No dependencies other than Python 3.8+. Usage:  python3 build.py
 """
 import json, html, os, re, shutil, datetime
 from pathlib import Path
@@ -14,47 +14,57 @@ SITE = json.loads((ROOT / "data/site.json").read_text(encoding="utf-8"))
 NEWS = sorted(json.loads((ROOT / "data/news.json").read_text(encoding="utf-8")), key=lambda n: n["date"], reverse=True)
 RES = json.loads((ROOT / "data/resources.json").read_text(encoding="utf-8"))
 BASE = SITE["base_url"].rstrip("/")
-# Pfad-Präfix aus base_url ableiten: "https://user.github.io/repo" -> "/repo", eigene Domain -> "".
-# Alle root-absoluten Links (href="/…", src="/…") im erzeugten HTML werden damit automatisch präfixiert.
+LANG = SITE.get("language", "en")
+# Derive the path prefix from base_url: "https://user.github.io/repo" -> "/repo", custom domain -> "".
+# All root-absolute links (href="/…", src="/…") in the generated HTML are prefixed automatically.
 BASE_PATH = urlparse(BASE).path.rstrip("/")
 
 
 def with_base(markup):
-    """Präfixiert root-absolute interne Links/Assets mit BASE_PATH (lässt //cdn… und https://… unberührt)."""
+    """Prefix root-absolute internal links/assets with BASE_PATH (leaves //cdn… and https://… untouched)."""
     if not BASE_PATH:
         return markup
     return re.sub(r'((?:href|src|action)=")/(?!/)', lambda m: m.group(1) + BASE_PATH + "/", markup)
 E = html.escape
-MONTHS = ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sep.", "Okt.", "Nov.", "Dez."]
+MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
-RES_TYPES = [  # Reihenfolge = Filter-Reihenfolge. Neue Typen hier ergänzen.
-    ("projektreferenz", "Projektreferenz / Case Study", "Öffentlich dokumentiertes Projekt mit benannter oder anonymisierter Organisation, veröffentlicht von Anwender, Hersteller oder Dienstleister."),
-    ("erfahrungsbericht", "Erfahrungsbericht", "Anwender berichten in Interview, Blog oder Gespräch – weniger formal als eine Case Study."),
-    ("vortrag", "Webinar / Vortrag / Präsentation", "Konferenzvortrag, Webinar, Panel, Demo oder Foliensatz (SHARE, GSE, TechXchange, Open Mainframe Summit …)."),
-    ("whitepaper", "Whitepaper / Hersteller-Doku", "Dokumentation, Leitfäden, Produktseiten und Marketing von Herstellern oder Dienstleistern."),
-    ("presse", "Presse / Fachartikel", "Berichte und Gastbeiträge in Fach- und Publikumsmedien sowie Pressemitteilungen."),
+RES_TYPES = [  # Order = filter order. Add new types here.
+    ("case-study", "Project reference / Case study", "Publicly documented project with a named or anonymized organization, published by the user, vendor or service provider."),
+    ("experience", "Experience report", "Users report in an interview, blog or conversation – less formal than a case study."),
+    ("talk", "Webinar / Talk / Presentation", "Conference talk, webinar, panel, demo or slide deck (SHARE, GSE, TechXchange, Open Mainframe Summit …)."),
+    ("whitepaper", "Whitepaper / Vendor docs", "Documentation, guides, product pages and marketing from vendors or service providers."),
+    ("press", "Press / Article", "Reports and guest articles in trade and general media, as well as press releases."),
 ]
 TYPE_LABEL = {k: v for k, v, _ in RES_TYPES}
 
 FAQ = [
-    ("Ist Git auf z/OS überhaupt verfügbar?", "Ja. Ein Git-Client für z/OS UNIX System Services wird u. a. über IBM Open Enterprise Foundation for z/OS bzw. die zopen Community bereitgestellt. Alternativ arbeiten Entwickler lokal (VS Code, Eclipse) und Builds laufen per SSH/Zowe auf z/OS."),
-    ("Muss ich für CI/CD auf IBM DBB umsteigen?", "Nein. DBB ist eine verbreitete Option für abhängigkeitsbasierte Builds. Alternativen sind Broadcom Team Build, BMC AMI DevX Code Pipeline oder bestehende JCL-Builds, die von der Pipeline gestartet und überwacht werden."),
-    ("Kann ich meinen Library Manager behalten?", "Ja. Endevor (Bridge for Git), ChangeMan ZMF und BMC Code Pipeline bieten Git-Integrationen für eine Koexistenz. Ob das dauerhaft oder als Übergang sinnvoll ist, wird in der Fachwelt unterschiedlich bewertet."),
-    ("Wie lange dauert eine Migration?", "Öffentliche Beispiele reichen von wenigen Monaten für Pilotumfänge bis zu mehrjährigen Programmen. ANZ meldet ca. 40 Anwendungen in 8 Monaten. Entscheidend sind Volumen, Anzahl Prozessorvarianten, Testabdeckung und Schulungsaufwand."),
-    ("Welche CI-Server funktionieren mit z/OS?", "Jenkins, GitLab CI (inkl. nativem z/OS-Runner), GitHub Actions und Azure DevOps sind öffentlich dokumentiert – meist mit Agent/Runner, der per SSH oder Zowe auf z/OS zugreift. IBM stellt Pipeline-Templates auf GitHub bereit."),
-    ("Was passiert mit SCLM?", "IBM beabsichtigt laut aktualisiertem Statement of Direction (Okt. 2026), SCLM aus einem zukünftigen z/OS-Release zu entfernen. Ursprünglich war z/OS 3.2 als letztes Release genannt."),
+    ("Is Git actually available on z/OS?", "Yes. A Git client for z/OS UNIX System Services is provided, among others, through IBM Open Enterprise Foundation for z/OS and the zopen Community. Alternatively, developers work locally (VS Code, Eclipse) and builds run on z/OS via SSH/Zowe."),
+    ("Do I have to switch to IBM DBB for CI/CD?", "No. DBB is a widely used option for dependency-based builds. Alternatives include Broadcom Team Build, BMC AMI DevX Code Pipeline, or existing JCL builds that are started and monitored by the pipeline."),
+    ("Can I keep my library manager?", "Yes. Endevor (Bridge for Git), ChangeMan ZMF and BMC Code Pipeline offer Git integrations for coexistence. Whether this makes sense permanently or only as a transition is assessed differently by experts."),
+    ("How long does a migration take?", "Public examples range from a few months for pilot scopes to multi-year programs. ANZ reports around 40 applications in 8 months. The key factors are volume, the number of processor variants, test coverage and training effort."),
+    ("Which CI servers work with z/OS?", "Jenkins, GitLab CI (including a native z/OS runner), GitHub Actions and Azure DevOps are publicly documented – usually with an agent/runner that accesses z/OS via SSH or Zowe. IBM provides pipeline templates on GitHub."),
+    ("What happens to SCLM?", "According to an updated Statement of Direction (Oct. 2026), IBM intends to remove SCLM from a future z/OS release. Originally, z/OS 3.2 had been named as the last release."),
 ]
 
 PAGES = [
-    # slug, Navigationslabel, Titel, Beschreibung, Content-Datei, in Navigation, Seitentyp
-    ("", "Überblick", "CI/CD auf z/OS – Git, Pipelines & Migrationen verständlich erklärt", SITE["description"], "index.html", True, "WebPage"),
-    ("warum-cicd", "Warum CI/CD", "Warum CI/CD auf dem Mainframe? Gründe, Nutzen, Risiken", "Fachkräfte, Git als Standard, Geschwindigkeit, Tests, Compliance und Kosten: die wichtigsten Gründe für CI/CD auf IBM z/OS – mit öffentlich belegten Beispielen und FAQ.", "warum-cicd.html", True, "Article"),
-    ("migrationen", "Migrationen", "Migrationspfade: Endevor, ChangeMan ZMF, ISPW, SCLM → Git & CI/CD", "Neutraler Vergleich der Migrationspfade von Endevor, ChangeMan ZMF, ISPW/Code Pipeline, SCLM, Panvalet und Librarian zu Git, DBB und CI/CD – inklusive automatisierter Migrationsansätze.", "migrationen.html", True, "Article"),
-    ("news", "Produkt-News", "Produkt-News CI/CD auf z/OS: IBM, Broadcom, BMC, Rocket, Zowe", "Datierte Produktneuheiten rund um Mainframe-DevOps: IBM DBB, Wazi Deploy, Endevor Bridge for Git, BMC AMI DevX, Zowe, Galasa, Rocket und mehr – filterbar nach Hersteller.", None, True, "CollectionPage"),
-    ("ressourcen", "Ressourcen", "Case Studies, Vorträge & Artikel zu Mainframe-CI/CD", "Kuratierte, klar gekennzeichnete Quellen: Projektreferenzen, Erfahrungsberichte, Vorträge/Webinare, Whitepaper und Presseartikel zu Git und CI/CD auf z/OS.", None, True, "CollectionPage"),
-    ("impressum", "Impressum", "Impressum", "Impressum und Haftungsausschluss des z/OS CI/CD Kompass.", "impressum.html", False, "WebPage"),
-    ("datenschutz", "Datenschutz", "Datenschutz", "Datenschutzhinweise: keine Cookies, keine Drittanbieter-Skripte, optionale cookielose Reichweitenmessung.", "datenschutz.html", False, "WebPage"),
+    # slug, nav label, title, description, content file, in navigation, page type
+    ("", "Overview", "CI/CD on z/OS – Git, pipelines & migrations explained", SITE["description"], "index.html", True, "WebPage"),
+    ("why-cicd", "Why CI/CD", "Why CI/CD on the mainframe? Reasons, benefits, risks", "Skills, Git as the standard, speed, testing, compliance and cost: the main reasons for CI/CD on IBM z/OS – with publicly documented examples and an FAQ.", "why-cicd.html", True, "Article"),
+    ("migrations", "Migrations", "Migration paths: Endevor, ChangeMan ZMF, ISPW, SCLM → Git & CI/CD", "A neutral comparison of migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline, SCLM, Panvalet and Librarian to Git, DBB and CI/CD – including automated migration approaches.", "migrations.html", True, "Article"),
+    ("news", "Product news", "Product news on CI/CD for z/OS: IBM, Broadcom, BMC, Rocket, Zowe", "Dated product announcements around mainframe DevOps: IBM DBB, Wazi Deploy, Endevor Bridge for Git, BMC AMI DevX, Zowe, Galasa, Rocket and more – filterable by vendor.", None, True, "CollectionPage"),
+    ("resources", "Resources", "Case studies, talks & articles on mainframe CI/CD", "Curated, clearly labeled sources: project references, experience reports, talks/webinars, whitepapers and press articles on Git and CI/CD on z/OS.", None, True, "CollectionPage"),
+    ("imprint", "Imprint", "Imprint (Impressum)", "Imprint (German legal notice, “Impressum”) and disclaimer of the z/OS CI/CD Compass.", "imprint.html", False, "WebPage"),
+    ("privacy", "Privacy", "Privacy policy", "Privacy policy: no cookies, no third-party scripts, optional cookieless audience measurement.", "privacy.html", False, "WebPage"),
 ]
+
+# Former German URL paths (v1) -> new English slugs. Redirect pages keep existing links working.
+REDIRECTS = {
+    "warum-cicd": "why-cicd",
+    "migrationen": "migrations",
+    "ressourcen": "resources",
+    "impressum": "imprint",
+    "datenschutz": "privacy",
+}
 
 
 def url(slug):
@@ -70,29 +80,33 @@ def fmt_date(d, precision=None):
     y, m = int(parts[0]), int(parts[1])
     if len(parts) == 2 or precision == "month":
         return f"{MONTHS[m-1]} {y}"
-    return f"{int(parts[2])}. {MONTHS[m-1]} {y}"
+    return f"{MONTHS[m-1]} {int(parts[2])}, {y}"
+
+
+def _configured(value):
+    return bool(value) and "_HERE" not in value
 
 
 def analytics_snippet():
     a = SITE.get("analytics", {})
     p = a.get("provider", "none")
-    if p == "cloudflare" and "HIER" not in a.get("cloudflare_token", "HIER"):
+    if p == "cloudflare" and _configured(a.get("cloudflare_token", "")):
         tok = json.dumps({"token": a["cloudflare_token"]})
         return f"<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{tok}'></script>"
-    if p == "goatcounter" and "HIER" not in a.get("goatcounter_code", "HIER"):
+    if p == "goatcounter" and _configured(a.get("goatcounter_code", "")):
         return f'<script data-goatcounter="https://{E(a["goatcounter_code"])}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
-    return "<!-- Analytics deaktiviert (data/site.json → analytics.provider) -->"
+    return "<!-- Analytics disabled (data/site.json → analytics.provider) -->"
 
 
 def analytics_text():
     p = SITE.get("analytics", {}).get("provider", "none")
     if p == "cloudflare":
-        return ("Wir nutzen Cloudflare Web Analytics. Es werden keine Cookies gesetzt und keine personenbezogenen Profile gebildet; "
-                "gemessen werden aggregierte Seitenaufrufe, Referrer, Land und Gerätetyp. Anbieter: Cloudflare, Inc. [Rechtsgrundlage/Drittlandtransfer ergänzen].")
+        return ("We use Cloudflare Web Analytics. No cookies are set and no personal profiles are created; "
+                "aggregated page views, referrers, country and device type are measured. Provider: Cloudflare, Inc. [Add legal basis/third-country transfer].")
     if p == "goatcounter":
-        return ("Wir nutzen GoatCounter (goatcounter.com), eine cookielose, datensparsame Open-Source-Statistik. "
-                "Gemessen werden aggregierte Seitenaufrufe, Referrer, Browser, Bildschirmgröße und Land; IP-Adressen werden nicht gespeichert. [Rechtsgrundlage ergänzen].")
-    return "Derzeit findet keine Reichweitenmessung statt. Falls aktiviert, wird ausschließlich ein cookieloses Verfahren (Cloudflare Web Analytics oder GoatCounter) eingesetzt; dieser Abschnitt wird dann aktualisiert."
+        return ("We use GoatCounter (goatcounter.com), a cookieless, privacy-friendly open-source analytics service. "
+                "Aggregated page views, referrers, browser, screen size and country are measured; IP addresses are not stored. [Add legal basis].")
+    return "No audience measurement currently takes place. If enabled, only a cookieless method (Cloudflare Web Analytics or GoatCounter) will be used; this section will then be updated."
 
 
 LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0b7a75"/><path d="M8 11h16M8 16h10M8 21h16" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="23" cy="16" r="2.6" fill="#7ee2d9"/></svg>'
@@ -100,30 +114,30 @@ LOGO = '<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect
 
 def share_block(page_url, title):
     u, t = quote(page_url, safe=""), quote(title, safe="")
-    return f'''<aside class="share" aria-label="Seite teilen">
-  <span class="muted small">Teilen:</span>
+    return f'''<aside class="share" aria-label="Share this page">
+  <span class="muted small">Share:</span>
   <a href="https://www.linkedin.com/sharing/share-offsite/?url={u}" rel="noopener" target="_blank">LinkedIn</a>
   <a href="https://x.com/intent/post?url={u}&amp;text={t}" rel="noopener" target="_blank">X</a>
   <a href="https://mastodonshare.com/?url={u}&amp;text={t}" rel="noopener" target="_blank">Mastodon</a>
-  <a href="mailto:?subject={t}&amp;body={u}">E-Mail</a>
-  <a href="{E(page_url)}" data-copy="url">Link kopieren</a>
+  <a href="mailto:?subject={t}&amp;body={u}">Email</a>
+  <a href="{E(page_url)}" data-copy="url">Copy link</a>
 </aside>'''
 
 
 def cite_block(page_url, title):
     today = SITE["last_updated"]
-    txt = f'{SITE["name"]}: „{title}“. Stand {fmt_date(today)}. Online: {page_url} (abgerufen am TT.MM.JJJJ).'
-    return f'''<details class="cite-box"><summary>Zitieren</summary>
-<p class="small muted">Vorschlag für eine Quellenangabe (Abrufdatum anpassen). Einzelne Einträge haben eigene Anker-Links (¶).</p>
+    txt = f'{SITE["name"]}: “{title}”. Last updated {fmt_date(today)}. Available at: {page_url} (accessed YYYY-MM-DD).'
+    return f'''<details class="cite-box"><summary>Cite</summary>
+<p class="small muted">Suggested citation (adjust the access date). Individual entries have their own anchor links (¶).</p>
 <div class="cite">{E(txt)}</div>
-<p><button class="chip" type="button" data-copy="{E(txt)}">Zitat kopieren</button></p></details>'''
+<p><button class="chip" type="button" data-copy="{E(txt)}">Copy citation</button></p></details>'''
 
 
 def json_ld(page):
     slug, _, title, desc, _, _, ptype = page
     graph = [
-        {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": SITE["name"], "description": SITE["description"], "inLanguage": "de"},
-        {"@type": ptype, "@id": url(slug) + "#page", "url": url(slug), "name": title, "description": desc, "inLanguage": "de",
+        {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": SITE["name"], "description": SITE["description"], "inLanguage": LANG},
+        {"@type": ptype, "@id": url(slug) + "#page", "url": url(slug), "name": title, "description": desc, "inLanguage": LANG,
          "isPartOf": {"@id": BASE + "/#website"}, "dateModified": SITE["last_updated"],
          "image": BASE + "/assets/og-image.png"},
     ]
@@ -131,9 +145,9 @@ def json_ld(page):
         graph[1].update({"headline": title, "author": {"@type": "Organization", "name": SITE["name"]}, "datePublished": "2026-11-19"})
     if slug:
         graph.append({"@type": "BreadcrumbList", "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": "Überblick", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 1, "name": "Overview", "item": BASE + "/"},
             {"@type": "ListItem", "position": 2, "name": page[1], "item": url(slug)}]})
-    if slug == "warum-cicd":
+    if slug == "why-cicd":
         graph.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]})
     if slug == "news":
         graph.append({"@type": "ItemList", "itemListElement": [
@@ -151,16 +165,16 @@ def layout(page, body):
         for p in PAGES if p[5])
     tw = f'<meta name="twitter:site" content="{E(SITE["twitter_handle"])}">' if SITE.get("twitter_handle") else ""
     return f'''<!doctype html>
-<html lang="de">
+<html lang="{LANG}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(full_title)}</title>
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="{page_url}">
-<link rel="alternate" hreflang="de" href="{page_url}">
+<link rel="alternate" hreflang="{LANG}" href="{page_url}">
 <link rel="alternate" hreflang="x-default" href="{page_url}">
-<link rel="alternate" type="application/atom+xml" title="{E(SITE['name'])} – Produkt-News" href="/feed.xml">
+<link rel="alternate" type="application/atom+xml" title="{E(SITE['name'])} – Product news" href="/feed.xml">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0b7a75">
 <meta property="og:type" content="{"article" if page[6] == "Article" else "website"}">
@@ -171,7 +185,7 @@ def layout(page, body):
 <meta property="og:url" content="{page_url}">
 <meta property="og:image" content="{BASE}/assets/og-image.png">
 <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="{E(SITE['name'])}: CI/CD auf z/OS">
+<meta property="og:image:alt" content="{E(SITE['name'])}: CI/CD on z/OS">
 <meta name="twitter:card" content="summary_large_image">{tw}
 <meta name="twitter:title" content="{E(title)}">
 <meta name="twitter:description" content="{E(desc)}">
@@ -183,23 +197,23 @@ def layout(page, body):
 {analytics_snippet()}
 </head>
 <body>
-<a class="skip" href="#main">Zum Inhalt springen</a>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site"><div class="wrap nav">
   <a class="brand" href="/">{LOGO}<span>{E(SITE['name'])}</span></a>
-  <button class="icon-btn menu-btn" id="menu-toggle" aria-controls="menu" aria-expanded="false" aria-label="Menü">☰</button>
-  <nav aria-label="Hauptnavigation"><ul id="menu">{nav}</ul></nav>
-  <button class="icon-btn" id="theme-toggle" type="button" aria-label="Farbschema wechseln" hidden>◐</button>
+  <button class="icon-btn menu-btn" id="menu-toggle" aria-controls="menu" aria-expanded="false" aria-label="Menu">☰</button>
+  <nav aria-label="Main navigation"><ul id="menu">{nav}</ul></nav>
+  <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle color scheme" hidden>◐</button>
 </div></header>
 <main id="main">
 {body}
 <div class="wrap">{share_block(page_url, title)}{cite_block(page_url, title)}</div>
 </main>
 <footer class="site"><div class="wrap cols">
-  <div><b>{E(SITE['name'])}</b><br>{E(SITE['tagline'])}.<br>Herstellerneutral · keine Cookies · keine Tracker von Drittanbietern.</div>
-  <div>Zuletzt aktualisiert: <time datetime="{SITE['last_updated']}">{fmt_date(SITE['last_updated'])}</time><br>
-  <a href="/feed.xml">Atom-Feed</a> · <a href="/sitemap.xml">Sitemap</a><br>
-  <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></div>
-  <div class="small">Marken gehören ihren Inhabern. Angaben ohne Gewähr; Quellen sind jeweils verlinkt.</div>
+  <div><b>{E(SITE['name'])}</b><br>{E(SITE['tagline'])}.<br>Vendor-neutral · no cookies · no third-party trackers.</div>
+  <div>Last updated: <time datetime="{SITE['last_updated']}">{fmt_date(SITE['last_updated'])}</time><br>
+  <a href="/feed.xml">Atom feed</a> · <a href="/sitemap.xml">Sitemap</a><br>
+  <a href="/imprint/">Imprint</a> · <a href="/privacy/">Privacy</a></div>
+  <div class="small">Trademarks belong to their respective owners. Information provided without warranty; sources are linked in each case.</div>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="/assets/app.js" defer></script>
@@ -214,9 +228,9 @@ def news_card(n, heading="h3"):
     aid = "news-" + n["id"]
     return f'''<li><article class="card" id="{aid}" data-vendor="{E(n['vendor'])}">
   <div class="meta"><time datetime="{n['date'][:7] if n.get('date_precision') == 'month' else n['date']}">{fmt_date(n['date'], n.get('date_precision'))}</time><span class="badge v">{E(n['vendor'])}</span><span>{E(n['product'])}</span></div>
-  <{heading}>{E(n['title'])}<a class="anchor" href="/news/#{aid}" aria-label="Link zu diesem Eintrag" title="Link zu diesem Eintrag">¶</a></{heading}>
+  <{heading}>{E(n['title'])}<a class="anchor" href="/news/#{aid}" aria-label="Link to this entry" title="Link to this entry">¶</a></{heading}>
   <p>{E(n['summary'])}</p>
-  <p class="small">Quelle: <a href="{E(n['url'])}" rel="noopener">{E(n['source'])}</a>{extra}</p>
+  <p class="small">Source: <a href="{E(n['url'])}" rel="noopener">{E(n['source'])}</a>{extra}</p>
   <div class="tags">{tags}</div>
 </article></li>'''
 
@@ -226,61 +240,61 @@ def page_news():
     for n in NEWS:
         if n["vendor"] not in vendors:
             vendors.append(n["vendor"])
-    chips = '<button class="chip" type="button" data-value="alle" aria-pressed="true">Alle</button>' + "".join(
+    chips = '<button class="chip" type="button" data-value="all" aria-pressed="true">All</button>' + "".join(
         f'<button class="chip" type="button" data-value="{E(v)}" aria-pressed="false">{E(v)} ({sum(1 for n in NEWS if n["vendor"] == v)})</button>' for v in vendors)
     items = "\n".join(news_card(n, "h2") for n in NEWS)
     return f'''<div class="wrap">
-<header class="page-head"><span class="eyebrow">Produkt-News</span><h1>Produkt-News: CI/CD und DevOps auf z/OS</h1>
-<p class="lead">Datierte Neuheiten von Herstellern und Open-Source-Projekten – jeweils mit Primärquelle. Neueste zuerst. <a href="/feed.xml">Als Atom-Feed abonnieren</a>.</p></header>
+<header class="page-head"><span class="eyebrow">Product news</span><h1>Product news: CI/CD and DevOps on z/OS</h1>
+<p class="lead">Dated announcements from vendors and open-source projects – each with its primary source. Newest first. <a href="/feed.xml">Subscribe via Atom feed</a>.</p></header>
 <div data-filter-root="vendor">
-  <div class="filters" role="group" aria-label="Nach Hersteller filtern" hidden>{chips}</div>
-  <p><input class="search" type="search" placeholder="In News suchen …" aria-label="In News suchen" hidden> <span class="count" aria-live="polite">{len(NEWS)} Einträge</span></p>
+  <div class="filters" role="group" aria-label="Filter by vendor" hidden>{chips}</div>
+  <p><input class="search" type="search" placeholder="Search news …" aria-label="Search news" hidden> <span class="count" aria-live="polite">{len(NEWS)} entries</span></p>
   <ol class="timeline" data-filter-list>
 {items}
   </ol>
 </div>
-<p class="muted small">Datumsangaben mit Monatsgenauigkeit stammen aus Fix-Listen oder Release-Übersichten ohne Tagesdatum.</p>
+<p class="muted small">Dates with month precision come from fix lists or release overviews without a specific day.</p>
 </div>'''
 
 
 def res_card(r):
     extra = "".join(f' · <a href="{E(l["url"])}" rel="noopener">{E(l["label"])}</a>' for l in r.get("extra_links", []))
     rows = []
-    for k, lbl in (("org", "Organisation"), ("from", "Von"), ("to", "Nach / Werkzeuge"), ("event", "Veranstaltung"), ("format", "Format")):
+    for k, lbl in (("org", "Organization"), ("from", "From"), ("to", "To / tools"), ("event", "Event"), ("format", "Format")):
         v = r.get(k)
-        if v and v not in ("—", "k. A."):
+        if v and v not in ("—", "n/a"):
             rows.append(f"<b>{lbl}:</b> {E(v)}")
     aid = "res-" + r["id"]
     date = f'<time datetime="{E(r["date"])}">{fmt_date(r["date"])}</time>' if r.get("date") else ""
     return f'''<li><article class="card" id="{aid}" data-type="{r['type']}">
   <div class="meta"><span class="badge t-{r['type']}">{E(TYPE_LABEL[r['type']])}</span>{date}<span>{E(r['publisher'])}</span></div>
-  <h3>{E(r['title'])}<a class="anchor" href="/ressourcen/#{aid}" aria-label="Link zu diesem Eintrag" title="Link zu diesem Eintrag">¶</a></h3>
+  <h3>{E(r['title'])}<a class="anchor" href="/resources/#{aid}" aria-label="Link to this entry" title="Link to this entry">¶</a></h3>
   <p>{E(r['summary'])}</p>
   <p class="small">{" · ".join(rows)}</p>
-  <p class="small"><a href="{E(r['url'])}" rel="noopener">Zur Quelle →</a>{extra}</p>
+  <p class="small"><a href="{E(r['url'])}" rel="noopener">Go to source →</a>{extra}</p>
   <p class="small muted">{E(r.get('note', ''))}</p>
 </article></li>'''
 
 
 def page_resources():
-    chips = '<button class="chip" type="button" data-value="alle" aria-pressed="true">Alle</button>' + "".join(
+    chips = '<button class="chip" type="button" data-value="all" aria-pressed="true">All</button>' + "".join(
         f'<button class="chip" type="button" data-value="{k}" aria-pressed="false">{E(v)} ({sum(1 for r in RES if r["type"] == k)})</button>' for k, v, _ in RES_TYPES)
     legend = "".join(f'<div class="card"><span class="badge t-{k}">{E(v)}</span><p class="small">{E(d)}</p></div>' for k, v, d in RES_TYPES)
     order = {k: i for i, (k, _, _) in enumerate(RES_TYPES)}
     items = "\n".join(res_card(r) for r in sorted(RES, key=lambda r: (order[r["type"]], -int((r.get("date") or "0")[:4]))))
     return f'''<div class="wrap">
-<header class="page-head"><span class="eyebrow">Ressourcen</span><h1>Case Studies, Erfahrungsberichte, Vorträge &amp; Artikel</h1>
-<p class="lead">Jede Quelle ist eindeutig gekennzeichnet. Wichtig: Eine <b>Projektreferenz</b> dokumentiert ein konkretes Vorhaben; ein <b>Vortrag/Webinar</b> ist nicht automatisch eine Referenz; <b>Whitepaper</b> und Herstellerseiten sind Marketing bzw. Dokumentation.</p></header>
-<h2 class="small muted" style="margin-top:1rem">Kennzeichnung</h2>
+<header class="page-head"><span class="eyebrow">Resources</span><h1>Case studies, experience reports, talks &amp; articles</h1>
+<p class="lead">Every source is clearly labeled. Important: a <b>project reference</b> documents a concrete undertaking; a <b>talk/webinar</b> is not automatically a reference; <b>whitepapers</b> and vendor pages are marketing or documentation.</p></header>
+<h2 class="small muted" style="margin-top:1rem">Labels</h2>
 <div class="grid">{legend}</div>
 <div data-filter-root="type" style="margin-top:2rem">
-  <div class="filters" role="group" aria-label="Nach Quellentyp filtern" hidden>{chips}</div>
-  <p><input class="search" type="search" placeholder="Suchen (z. B. Endevor, GitLab, Bank) …" aria-label="Ressourcen durchsuchen" hidden> <span class="count" aria-live="polite">{len(RES)} Einträge</span></p>
+  <div class="filters" role="group" aria-label="Filter by source type" hidden>{chips}</div>
+  <p><input class="search" type="search" placeholder="Search (e.g. Endevor, GitLab, bank) …" aria-label="Search resources" hidden> <span class="count" aria-live="polite">{len(RES)} entries</span></p>
   <ul class="grid" style="list-style:none;padding:0" data-filter-list>
 {items}
   </ul>
 </div>
-<div class="info small">Fehlt eine öffentliche Quelle? Hinweise sind willkommen (siehe <a href="/impressum/">Impressum</a>). Aufgenommen werden nur Einträge mit öffentlich erreichbarer URL.</div>
+<div class="info small">Missing a public source? Suggestions are welcome (see <a href="/imprint/">Imprint</a>). Only entries with a publicly accessible URL are included.</div>
 </div>'''
 
 
@@ -295,15 +309,35 @@ def atom_feed():
         link = url("news") + "#news-" + n["id"]
         entries.append(f'''<entry><title>{E(n['title'])}</title><link href="{link}"/><id>{link}</id>
 <updated>{n['date']}T00:00:00Z</updated><category term="{E(n['vendor'])}"/>
-<summary>{E(n['summary'])} Quelle: {E(n['url'])}</summary></entry>''')
+<summary>{E(n['summary'])} Source: {E(n['url'])}</summary></entry>''')
     return f'''<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-<title>{E(SITE['name'])} – Produkt-News</title>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{LANG}">
+<title>{E(SITE['name'])} – Product news</title>
 <subtitle>{E(SITE['tagline'])}</subtitle>
 <link href="{BASE}/feed.xml" rel="self"/><link href="{url('news')}"/>
 <id>{BASE}/feed.xml</id><updated>{upd}</updated><author><name>{E(SITE['name'])}</name></author>
 {"".join(entries)}
 </feed>
+'''
+
+
+def redirect_page(old, new):
+    target = url(new)
+    t = json.dumps(target)
+    return f'''<!doctype html>
+<html lang="{LANG}">
+<head>
+<meta charset="utf-8">
+<title>Moved to {E(target)}</title>
+<link rel="canonical" href="{target}">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0; url={target}">
+<script>location.replace({t}+location.search+location.hash)</script>
+</head>
+<body>
+<p>This page has moved (former path <code>/{old}/</code>). New address: <a href="{target}">{E(target)}</a></p>
+</body>
+</html>
 '''
 
 
@@ -319,7 +353,7 @@ def main():
         slug, _, _, _, src, _, _ = page
         if slug == "news":
             body = page_news()
-        elif slug == "ressourcen":
+        elif slug == "resources":
             body = page_resources()
         else:
             body = (ROOT / "src/content" / src).read_text(encoding="utf-8")
@@ -327,30 +361,36 @@ def main():
         d = OUT / slug if slug else OUT
         d.mkdir(parents=True, exist_ok=True)
         (d / "index.html").write_text(with_base(layout(page, body)), encoding="utf-8")
+    # Redirects from the former German paths (absolute URLs, so no with_base needed)
+    slugs = {p[0] for p in PAGES}
+    for old, new in REDIRECTS.items():
+        assert new in slugs and old not in slugs, (old, new)
+        (OUT / old).mkdir(parents=True, exist_ok=True)
+        (OUT / old / "index.html").write_text(redirect_page(old, new), encoding="utf-8")
     # 404
-    p404 = ("404", "", "Seite nicht gefunden", "Diese Seite existiert nicht (mehr).", None, False, "WebPage")
-    (OUT / "404.html").write_text(with_base(layout(p404, '<div class="wrap"><h1>Seite nicht gefunden</h1><p>Zurück zum <a href="/">Überblick</a>.</p></div>')).replace('content="index,follow', 'content="noindex,follow'), encoding="utf-8")
+    p404 = ("404", "", "Page not found", "This page does not exist (anymore).", None, False, "WebPage")
+    (OUT / "404.html").write_text(with_base(layout(p404, '<div class="wrap"><h1>Page not found</h1><p>Back to the <a href="/">overview</a>.</p></div>')).replace('content="index,follow', 'content="noindex,follow'), encoding="utf-8")
     (OUT / "feed.xml").write_text(atom_feed(), encoding="utf-8")
-    sm = "".join(f"<url><loc>{url(p[0])}</loc><lastmod>{SITE['last_updated']}</lastmod><changefreq>{'weekly' if p[0] in ('', 'news', 'ressourcen') else 'monthly'}</changefreq></url>" for p in PAGES)
+    sm = "".join(f"<url><loc>{url(p[0])}</loc><lastmod>{SITE['last_updated']}</lastmod><changefreq>{'weekly' if p[0] in ('', 'news', 'resources') else 'monthly'}</changefreq></url>" for p in PAGES)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{sm}</urlset>\n', encoding="utf-8")
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
     (OUT / "_headers").write_text("/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: interest-cohort=()\n/assets/*\n  Cache-Control: public, max-age=86400\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
-    # Sicherheitsnetz: verbotene Begriffe dürfen nie veröffentlicht werden
-    # Liste liegt lokal in scripts/banned-terms.txt (per .gitignore NICHT im Repository).
+    # Safety net: banned terms must never be published.
+    # The list lives locally in scripts/banned-terms.txt (excluded from the repository via .gitignore).
     bf = ROOT / "scripts/banned-terms.txt"
     banned = [b.strip().lower() for b in bf.read_text(encoding="utf-8").splitlines() if b.strip() and not b.startswith("#")] if bf.exists() else []
-    # In CI (GitHub Actions) kommt die Liste aus dem Repository-Secret BANNED_TERMS (eine Zeile oder Komma je Begriff).
+    # In CI (GitHub Actions) the list comes from the repository secret BANNED_TERMS (one term per line or comma-separated).
     banned += [b.strip().lower() for b in re.split(r"[\n,]", os.environ.get("BANNED_TERMS", "")) if b.strip()]
     if not banned:
-        print("Hinweis: keine Schutzliste gefunden (scripts/banned-terms.txt / BANNED_TERMS) – Prüfung übersprungen.")
+        print("Note: no banned-terms list found (scripts/banned-terms.txt / BANNED_TERMS) – check skipped.")
     for f in OUT.rglob("*"):
         if f.is_file() and f.suffix in (".html", ".xml", ".txt", ".js", ".css"):
             low = f.read_text(encoding="utf-8").lower()
             for b in banned:
                 if b in low:
-                    raise SystemExit(f"ABBRUCH: verbotener Begriff '{b}' in {f}")
-    print(f"OK: {len(PAGES)} Seiten, {len(NEWS)} News, {len(RES)} Ressourcen → {OUT}")
+                    raise SystemExit(f"ABORT: banned term '{b}' found in {f}")
+    print(f"OK: {len(PAGES)} pages, {len(REDIRECTS)} redirects, {len(NEWS)} news, {len(RES)} resources → {OUT}")
 
 
 if __name__ == "__main__":

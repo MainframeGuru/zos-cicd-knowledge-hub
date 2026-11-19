@@ -68,14 +68,14 @@ section{scroll-margin-top:80px}
 .stat b{display:block;font-size:2rem;color:var(--accent);line-height:1.1}
 .stat a{font-size:.8rem}
 .badge{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:999px;border:1px solid var(--border);color:var(--muted);background:var(--bg-alt);white-space:nowrap}
-.badge.t-projektreferenz{color:#0a6b3d;background:#e2f6ea;border-color:#b7e5c9}
-.badge.t-vortrag{color:#6a3fb5;background:#efe7fb;border-color:#d8c7f5}
+.badge.t-case-study{color:#0a6b3d;background:#e2f6ea;border-color:#b7e5c9}
+.badge.t-talk{color:#6a3fb5;background:#efe7fb;border-color:#d8c7f5}
 .badge.t-whitepaper{color:#8a5a00;background:#fff1d6;border-color:#f2d9a3}
-.badge.t-presse{color:#1f4fb3;background:#e4ecfd;border-color:#c3d4f8}
-[data-theme="dark"] .badge.t-projektreferenz{color:#7ee2ad;background:#0f2e20;border-color:#1f5a3c}
-[data-theme="dark"] .badge.t-vortrag{color:#c9b0ff;background:#24173d;border-color:#46307a}
+.badge.t-press{color:#1f4fb3;background:#e4ecfd;border-color:#c3d4f8}
+[data-theme="dark"] .badge.t-case-study{color:#7ee2ad;background:#0f2e20;border-color:#1f5a3c}
+[data-theme="dark"] .badge.t-talk{color:#c9b0ff;background:#24173d;border-color:#46307a}
 [data-theme="dark"] .badge.t-whitepaper{color:#ffd27a;background:#33260b;border-color:#6a4e14}
-[data-theme="dark"] .badge.t-presse{color:#a9c3ff;background:#132447;border-color:#2b4a8a}
+[data-theme="dark"] .badge.t-press{color:#a9c3ff;background:#132447;border-color:#2b4a8a}
 .meta{display:flex;flex-wrap:wrap;gap:.4rem .6rem;align-items:center;font-size:.85rem;color:var(--muted)}
 .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.5rem}
 .chip{border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:999px;padding:.4rem .85rem;font:inherit;font-size:.9rem;cursor:pointer}
@@ -111,8 +111,8 @@ footer.site a{color:var(--muted)}
 .count{font-size:.9rem;color:var(--muted)}
 .toast{position:fixed;bottom:1.25rem;left:50%;transform:translateX(-50%);background:var(--text);color:var(--bg);padding:.5rem 1rem;border-radius:8px;font-size:.9rem;opacity:0;pointer-events:none;transition:opacity .2s}
 .toast.show{opacity:1}
-.badge.t-erfahrungsbericht{color:#9b2c55;background:#fbe6ee;border-color:#f2c2d4}
-[data-theme="dark"] .badge.t-erfahrungsbericht{color:#ffb3cd;background:#3a1424;border-color:#6e2a45}
+.badge.t-experience{color:#9b2c55;background:#fbe6ee;border-color:#f2c2d4}
+[data-theme="dark"] .badge.t-experience{color:#ffb3cd;background:#3a1424;border-color:#6e2a45}
 .badge.v{color:var(--text)}
 .page-head{padding:3rem 0 1rem}
 .page-head h1{margin-top:.6rem}

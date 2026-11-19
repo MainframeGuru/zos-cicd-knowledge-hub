@@ -1,60 +1,60 @@
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow">Mainframe DevOps · herstellerneutral</span>
-    <h1>CI/CD auf z/OS – der Kompass für Git, Pipelines und Migrationen</h1>
-    <p class="lead">Wie bringt man COBOL, PL/I und Assembler in moderne Git-Workflows mit automatisiertem Build, Test und Deployment? Diese Seite sammelt den aktuellen Stand – Produkt-News aller Hersteller, Migrationspfade von Endevor, ChangeMan ZMF, ISPW/Code Pipeline und SCLM sowie öffentlich dokumentierte Praxisbeispiele, jeweils mit Quelle.</p>
+    <span class="eyebrow">Mainframe DevOps · vendor-neutral</span>
+    <h1>CI/CD on z/OS – your compass for Git, pipelines and migrations</h1>
+    <p class="lead">How do you bring COBOL, PL/I and Assembler into modern Git workflows with automated build, test and deployment? This site collects the current state of the art – product news from all vendors, migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline and SCLM, and publicly documented real-world examples, each with its source.</p>
     <div class="btns">
-      <a class="btn primary" href="/migrationen/">Migrationspfade ansehen</a>
-      <a class="btn" href="/news/">Produkt-News</a>
-      <a class="btn" href="/ressourcen/">Case Studies &amp; Artikel</a>
+      <a class="btn primary" href="/migrations/">Explore migration paths</a>
+      <a class="btn" href="/news/">Product news</a>
+      <a class="btn" href="/resources/">Case studies &amp; articles</a>
     </div>
   </div>
 </section>
 <div class="wrap">
   <section id="was-ist-cicd-auf-zos" aria-labelledby="h-was">
-    <h2 id="h-was">Was bedeutet CI/CD auf z/OS?</h2>
-    <p>Continuous Integration und Continuous Delivery (CI/CD) heißt: Jede Änderung am Quellcode wird automatisch gebaut, geprüft und reproduzierbar bis in die Zielumgebung ausgeliefert. Auf dem Mainframe ersetzt das klassische, oft jahrzehntealte Library-Manager-Prozesse – oder ergänzt sie schrittweise. Typischerweise entsteht eine Kette wie:</p>
-    <ol class="pipeline" aria-label="Typische Pipeline-Stufen">
-      <li>Git (Quellcode)</li><li>CI-Orchestrierung</li><li>Abhängigkeitsbasierter Build</li><li>Qualität &amp; Security</li><li>Unit-/Integrationstest</li><li>Artefakt-Repository</li><li>Deployment &amp; Evidenz</li>
+    <h2 id="h-was">What does CI/CD on z/OS mean?</h2>
+    <p>Continuous integration and continuous delivery (CI/CD) means that every change to the source code is automatically built, checked and delivered reproducibly all the way to the target environment. On the mainframe, this replaces traditional library manager processes that are often decades old – or complements them step by step. A typical chain looks like this:</p>
+    <ol class="pipeline" aria-label="Typical pipeline stages">
+      <li>Git (source code)</li><li>CI orchestration</li><li>Dependency-based build</li><li>Quality &amp; security</li><li>Unit/integration test</li><li>Artifact repository</li><li>Deployment &amp; evidence</li>
     </ol>
-    <p class="muted small">Wichtig: Git allein ist noch kein Lifecycle. Build, Tests, Freigaben, Deployment und Rückverfolgbarkeit müssen bewusst gestaltet werden – darauf weisen Fachbeiträge 2026 ausdrücklich hin (siehe <a href="/ressourcen/#res-techchannel-sclm">TechChannel</a>, <a href="/ressourcen/#res-planetmf-radcliffe">Planet Mainframe</a>).</p>
+    <p class="muted small">Important: Git alone is not a lifecycle. Build, tests, approvals, deployment and traceability have to be designed deliberately – trade articles in 2026 explicitly point this out (see <a href="/resources/#res-techchannel-sclm">TechChannel</a>, <a href="/resources/#res-planetmf-radcliffe">Planet Mainframe</a>).</p>
   </section>
 
   <section id="bausteine" aria-labelledby="h-bausteine">
-    <h2 id="h-bausteine">Die Bausteine im Überblick</h2>
+    <h2 id="h-bausteine">The building blocks at a glance</h2>
     <div class="grid">
-      <div class="card"><h3>Quellcodeverwaltung</h3><p>Git (GitHub, GitLab, Bitbucket, Azure Repos) als „Single Source of Truth“ – oder synchronisiert mit einem bestehenden Library Manager (z.&nbsp;B. Endevor Bridge for Git, ChangeMan-Git-Integration, Code Pipeline mit Git).</p></div>
-      <div class="card"><h3>Build</h3><p>IBM Dependency Based Build (DBB) mit zBuilder (YAML) oder zAppBuild (Groovy), Broadcom Team Build, BMC AMI DevX Code Pipeline – oder weiterhin JCL, ausgelöst aus der Pipeline.</p></div>
-      <div class="card"><h3>Orchestrierung</h3><p>Jenkins, GitLab CI (inkl. nativem z/OS-Runner), GitHub Actions, Azure DevOps. Zugriff auf z/OS über SSH, z/OSMF-REST-APIs oder Zowe CLI.</p></div>
-      <div class="card"><h3>Test &amp; Qualität</h3><p>COBOL-Unit-Tests (z.&nbsp;B. IBM Test Accelerator for Z, BMC AMI DevX Total Test / Unit Test), Integrationstests mit Galasa, statische Analyse z.&nbsp;B. mit SonarQube (COBOL).</p></div>
-      <div class="card"><h3>Deployment</h3><p>IBM Wazi Deploy (Python/Ansible), Red Hat Ansible für z/OS, IBM DevOps Deploy (UCD), Herstellerfunktionen der SCM-Suiten – inklusive Deployment-Evidenz für Audits.</p></div>
-      <div class="card"><h3>Developer Experience</h3><p>VS Code mit Zowe Explorer, Code4z, BMC Workbench oder IBM Z Open Editor; Eclipse-basiert IBM Developer for z/OS. Zunehmend KI-Assistenten mit z/OS-Kontext.</p></div>
+      <div class="card"><h3>Source control</h3><p>Git (GitHub, GitLab, Bitbucket, Azure Repos) as the “single source of truth” – or synchronized with an existing library manager (e.g. Endevor Bridge for Git, ChangeMan Git integration, Code Pipeline with Git).</p></div>
+      <div class="card"><h3>Build</h3><p>IBM Dependency Based Build (DBB) with zBuilder (YAML) or zAppBuild (Groovy), Broadcom Team Build, BMC AMI DevX Code Pipeline – or existing JCL, triggered from the pipeline.</p></div>
+      <div class="card"><h3>Orchestration</h3><p>Jenkins, GitLab CI (including a native z/OS runner), GitHub Actions, Azure DevOps. Access to z/OS via SSH, z/OSMF REST APIs or Zowe CLI.</p></div>
+      <div class="card"><h3>Test &amp; quality</h3><p>COBOL unit tests (e.g. IBM Test Accelerator for Z, BMC AMI DevX Total Test / Unit Test), integration tests with Galasa, static analysis e.g. with SonarQube (COBOL).</p></div>
+      <div class="card"><h3>Deployment</h3><p>IBM Wazi Deploy (Python/Ansible), Red Hat Ansible for z/OS, IBM DevOps Deploy (UCD), vendor features of the SCM suites – including deployment evidence for audits.</p></div>
+      <div class="card"><h3>Developer experience</h3><p>VS Code with Zowe Explorer, Code4z, BMC Workbench or IBM Z Open Editor; Eclipse-based IBM Developer for z/OS. Increasingly, AI assistants with z/OS context.</p></div>
     </div>
   </section>
 
   <section id="zahlen" aria-labelledby="h-zahlen">
-    <h2 id="h-zahlen">Ein paar Zahlen zur Einordnung</h2>
+    <h2 id="h-zahlen">Some numbers for context</h2>
     <div class="stats">
-      <div class="stat"><b>67&nbsp;%</b>der Befragten nutzen DevOps auf dem Mainframe (2024: 63&nbsp;%). <a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html" rel="noopener">BMC Mainframe Survey 2025</a></div>
-      <div class="stat"><b>15&nbsp;%</b>der Befragten gehören zur Gen&nbsp;Z, Millennials stellen 51&nbsp;%. <a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html" rel="noopener">BMC Mainframe Survey 2025</a></div>
-      <div class="stat"><b>~40</b>Anwendungen in 8 Monaten auf ein Git-basiertes CI/CD-Framework gebracht. <a href="https://www.ibm.com/case-studies/anz" rel="noopener">ANZ / IBM Case Study</a></div>
-      <div class="stat"><b>~294.000</b>Endevor-Elemente nach Git migriert (150+ Anwendungen). <a href="https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/" rel="noopener">HCSC / Royal Cyber</a></div>
+      <div class="stat"><b>67%</b>of respondents use DevOps on the mainframe (2024: 63%). <a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html" rel="noopener">BMC Mainframe Survey 2025</a></div>
+      <div class="stat"><b>15%</b>of respondents belong to Gen&nbsp;Z; millennials make up 51%. <a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html" rel="noopener">BMC Mainframe Survey 2025</a></div>
+      <div class="stat"><b>~40</b>applications moved to a Git-based CI/CD framework in 8 months. <a href="https://www.ibm.com/case-studies/anz" rel="noopener">ANZ / IBM case study</a></div>
+      <div class="stat"><b>~294,000</b>Endevor elements migrated to Git (150+ applications). <a href="https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/" rel="noopener">HCSC / Royal Cyber</a></div>
     </div>
-    <p class="muted small">Herstellerstudien und Case Studies sind keine unabhängigen Erhebungen – wir kennzeichnen die Quelle jeweils transparent.</p>
+    <p class="muted small">Vendor surveys and case studies are not independent studies – we always state the source transparently.</p>
   </section>
 
   <section id="aktuell" aria-labelledby="h-aktuell">
-    <h2 id="h-aktuell">Neu &amp; wichtig</h2>
+    <h2 id="h-aktuell">New &amp; noteworthy</h2>
     {{LATEST_NEWS}}
-    <p><a class="btn" href="/news/">Alle Produkt-News →</a> <a class="btn" href="/feed.xml">Atom-Feed abonnieren</a></p>
+    <p><a class="btn" href="/news/">All product news →</a> <a class="btn" href="/feed.xml">Subscribe to the Atom feed</a></p>
   </section>
 
   <section id="fuer-wen" aria-labelledby="h-fuerwen">
-    <h2 id="h-fuerwen">Für wen ist diese Seite?</h2>
+    <h2 id="h-fuerwen">Who is this site for?</h2>
     <div class="grid">
-      <div class="card"><h3>Entscheider</h3><p>Gründe, Nutzen und Risiken eines Wechsels – belegt mit öffentlichen Quellen. <a href="/warum-cicd/">Warum CI/CD?</a></p></div>
-      <div class="card"><h3>Architekten &amp; SCM-Admins</h3><p>Pfade je Quellsystem, Werkzeuge und typische Stolpersteine. <a href="/migrationen/">Migrationen</a></p></div>
-      <div class="card"><h3>Entwickler</h3><p>Was sich im Alltag ändert und welche Tools es gibt. <a href="/ressourcen/">Ressourcen</a></p></div>
+      <div class="card"><h3>Decision-makers</h3><p>Reasons, benefits and risks of a switch – backed by public sources. <a href="/why-cicd/">Why CI/CD?</a></p></div>
+      <div class="card"><h3>Architects &amp; SCM admins</h3><p>Paths per source system, tools and typical pitfalls. <a href="/migrations/">Migrations</a></p></div>
+      <div class="card"><h3>Developers</h3><p>What changes in day-to-day work and which tools are available. <a href="/resources/">Resources</a></p></div>
     </div>
   </section>
 </div>

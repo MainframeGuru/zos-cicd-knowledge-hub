@@ -1,101 +1,119 @@
-# z/OS CI/CD Kompass
+# z/OS CI/CD Compass
 
-Herstellerneutrale, deutschsprachige Wissensseite zu CI/CD, Git und DevOps auf IBM z/OS.
-Statisch, ohne Framework, ohne Cookies, ohne Drittanbieter-Skripte.
-
-## Struktur
-
-```
-data/site.json        Name, Basis-URL (inkl. Pfad), Stand-Datum, Analytics-Schalter (EINZIGE Konfigurationsstelle)
-data/news.json        Produkt-News (eine Zeile = ein Eintrag, neueste werden automatisch zuerst sortiert)
-data/resources.json   Case Studies, Erfahrungsberichte, Vorträge, Whitepaper, Presse
-src/content/*.html    Redaktionelle Seiten (Überblick, Warum CI/CD, Migrationen, Impressum, Datenschutz)
-assets/               CSS, JS, Favicon, OG-Vorschaubild (og-image.png, 1200x630)
-build.py              Generator: erzeugt public/ (HTML, feed.xml, sitemap.xml, robots.txt, 404.html, _headers)
-scripts/check_links.py  Prüft alle externen Links im Build
-scripts/check_site.py   Crawlt die Live-Seite und prüft alle internen Links/Assets
-.github/workflows/pages.yml  Build + Deployment auf GitHub Pages bei jedem Push auf main
-scripts/og-template.html  Vorlage für das OG-Bild (Neu-Erzeugung siehe unten)
-```
-
-Alle Inhalte werden zur Build-Zeit als fertiges HTML gerendert (voll crawlbar, funktioniert ohne JS).
-JavaScript ergänzt nur Filter, Suche, Dark-Mode-Umschalter und „Link kopieren“.
-
-## Live-Seite & Deployment
+A vendor-neutral, English-language knowledge site about CI/CD, Git and DevOps on IBM z/OS.
+Static, no framework, no cookies, no third-party scripts.
 
 Live: https://mainframeguru.github.io/zos-cicd-knowledge-hub/
 
-Jeder Push auf `main` baut die Seite per GitHub Actions (`python3 build.py`) und veröffentlicht `public/` auf GitHub Pages.
-`public/` wird nicht eingecheckt.
+## Structure
 
-**Basis-Pfad:** `build.py` leitet aus `data/site.json` → `base_url` den Pfad ab (hier `/zos-cicd-knowledge-hub`) und
-präfixiert alle internen Links automatisch. Für eine eigene Domain genügt `"base_url": "https://www.example.org"`
-(ohne Pfad) plus Custom Domain in den Pages-Einstellungen.
+```
+data/site.json        Name, base URL (incl. path), last-updated date, language/locale, analytics switch (SINGLE config point)
+data/news.json        Product news (one line = one entry; newest are sorted first automatically)
+data/resources.json   Case studies, experience reports, talks, whitepapers, press
+src/content/*.html    Editorial pages (overview, why CI/CD, migrations, imprint, privacy)
+assets/               CSS, JS, favicon, OG preview image (og-image.png, 1200x630)
+build.py              Generator: produces public/ (HTML, feed.xml, sitemap.xml, robots.txt, 404.html, _headers, legacy redirects)
+scripts/check_links.py  Checks all external links in the build
+scripts/check_site.py   Crawls the live site and checks all internal links/assets, #anchors and legacy redirects
+.github/workflows/pages.yml  Build + deployment to GitHub Pages on every push to main
+scripts/og-template.html  Template for the OG image (regeneration see below)
+```
 
-## Lokal bauen und ansehen
+All content is rendered to plain HTML at build time (fully crawlable, works without JS).
+JavaScript only adds filters, search, the dark-mode toggle and “Copy link”.
+
+## Pages and URLs
+
+| Page | Path | Source |
+|---|---|---|
+| Overview | `/` | `src/content/index.html` |
+| Why CI/CD | `/why-cicd/` | `src/content/why-cicd.html` (+ FAQ in `build.py`) |
+| Migrations | `/migrations/` | `src/content/migrations.html` |
+| Product news | `/news/` | `data/news.json` |
+| Resources | `/resources/` | `data/resources.json` |
+| Imprint | `/imprint/` | `src/content/imprint.html` – this is the German legal notice (“Impressum”, § 5 DDG) |
+| Privacy | `/privacy/` | `src/content/privacy.html` |
+
+**Legacy redirects:** v1 of the site was in German. The former paths `/warum-cicd/`, `/migrationen/`, `/ressourcen/`,
+`/impressum/` and `/datenschutz/` are generated as small redirect pages (meta refresh + JS redirect that keeps
+`?query` and `#anchor`, `rel=canonical` to the new URL, `noindex`). They are configured in `build.py` → `REDIRECTS`
+and are not listed in the sitemap. Anchor IDs (`#news-…`, `#res-…` and section IDs) were kept unchanged.
+
+## Live site & deployment
+
+Every push to `main` builds the site via GitHub Actions (`python3 build.py`) and publishes `public/` to GitHub Pages.
+`public/` is not committed.
+
+**Base path:** `build.py` derives the path from `data/site.json` → `base_url` (here `/zos-cicd-knowledge-hub`) and
+prefixes all internal links automatically. For a custom domain, `"base_url": "https://www.example.org"`
+(without path) plus a custom domain in the Pages settings is enough.
+
+## Build and preview locally
 
 ```bash
 python3 build.py
 mkdir -p /tmp/srv && ln -sfn "$PWD/public" /tmp/srv/zos-cicd-knowledge-hub
 python3 -m http.server 8000 -d /tmp/srv   # → http://localhost:8000/zos-cicd-knowledge-hub/
-python3 scripts/check_site.py http://localhost:8000/zos-cicd-knowledge-hub/   # interne Links
-python3 scripts/check_links.py           # Linkprüfung (403 = meist Bot-Schutz, manuell prüfen)
+python3 scripts/check_site.py http://localhost:8000/zos-cicd-knowledge-hub/   # internal links, anchors, redirects
+python3 scripts/check_links.py           # external links (403 = usually bot protection, check manually)
 ```
 
-## Neue Produkt-News hinzufügen
+## Adding product news
 
-In `data/news.json` ein Objekt ergänzen:
+Add an object to `data/news.json`:
 
 ```json
-{"id":"hersteller-produkt-2026-12", "date":"2026-12-01", "vendor":"IBM", "product":"IBM DBB",
- "title":"…", "summary":"2–3 sachliche Sätze, keine Werbung.", "tags":["Build"],
- "url":"https://primärquelle…", "source":"IBM Documentation",
- "extra_links":[{"label":"Zweitquelle","url":"https://…"}]}
+{"id":"vendor-product-2026-12", "date":"2026-12-01", "vendor":"IBM", "product":"IBM DBB",
+ "title":"…", "summary":"2–3 factual sentences, no marketing.", "tags":["Build"],
+ "url":"https://primary-source…", "source":"IBM Documentation",
+ "extra_links":[{"label":"Secondary source","url":"https://…"}]}
 ```
 
-- `id` ist dauerhaft (Anker-Link `news/#news-<id>`), nie nachträglich ändern.
-- `date_precision: "month"` setzen, wenn nur der Monat bekannt ist.
-- `vendor`: neuer Wert erzeugt automatisch einen neuen Filter-Chip.
+- `id` is permanent (anchor link `news/#news-<id>`); never change it afterwards.
+- Set `date_precision: "month"` if only the month is known.
+- `vendor`: a new value automatically creates a new filter chip.
 
-## Neue Ressource hinzufügen
+## Adding a resource
 
 In `data/resources.json`:
 
 ```json
-{"id":"kurz-eindeutig", "type":"projektreferenz", "date":"2026-12", "title":"…",
- "org":"Organisation oder 'anonymisiert'", "publisher":"Wer hat es veröffentlicht?",
- "from":"Quellsystem", "to":"Zielwerkzeuge", "summary":"…", "url":"https://…",
- "note":"Hinweis zur Quelle, z. B. 'Vom Hersteller veröffentlicht'",
- "format":"Webinar|Konferenzvortrag|Folien|Demo-Video (nur bei Vorträgen)", "event":"SHARE 2026 (optional)"}
+{"id":"short-unique", "type":"case-study", "date":"2026-12", "title":"…",
+ "org":"Organization or 'anonymized'", "publisher":"Who published it?",
+ "from":"Source system", "to":"Target tools", "summary":"…", "url":"https://…",
+ "note":"Note on the source, e.g. 'Published by the vendor'",
+ "format":"Webinar|Conference talk|Slides|Demo video (talks only)", "event":"SHARE 2026 (optional)"}
 ```
 
-Zulässige `type`-Werte (definiert in `build.py` → `RES_TYPES`, dort erweiterbar):
+Allowed `type` values (defined in `build.py` → `RES_TYPES`, extensible there):
 
-| type | Label | Wann |
+| type | Label | When |
 |---|---|---|
-| `projektreferenz` | Projektreferenz / Case Study | konkretes, öffentlich dokumentiertes Projekt |
-| `erfahrungsbericht` | Erfahrungsbericht | Anwender-Interview, -Blog, -Gespräch |
-| `vortrag` | Webinar / Vortrag / Präsentation | Konferenz, Webinar, Panel, Demo, Folien |
-| `whitepaper` | Whitepaper / Hersteller-Doku | Doku, Leitfaden, Produktseite, Marketing |
-| `presse` | Presse / Fachartikel | Medienberichte, Gastbeiträge, Pressemitteilungen |
+| `case-study` | Project reference / Case study | concrete, publicly documented project |
+| `experience` | Experience report | user interview, blog, conversation |
+| `talk` | Webinar / Talk / Presentation | conference, webinar, panel, demo, slides |
+| `whitepaper` | Whitepaper / Vendor docs | docs, guides, product pages, marketing |
+| `press` | Press / Article | media reports, guest articles, press releases |
 
-Redaktionsregeln: nur Einträge mit echter, geprüfter URL; keine erfundenen Kunden/Zahlen;
-Herstellerquellen als solche kennzeichnen; Stand-Datum in `data/site.json` → `last_updated` pflegen.
+Editorial rules: only entries with a real, verified URL; no invented customers or figures;
+label vendor sources as such; keep `last_updated` in `data/site.json` current.
+Old German filter values in shared URLs (e.g. `?type=projektreferenz`) are mapped to the new keys in `assets/app.js`.
 
-## Analytics aktivieren
+## Enabling analytics
 
-`data/site.json` → `analytics.provider` auf `"cloudflare"` oder `"goatcounter"` setzen und Token/Code
-eintragen. Ohne gültigen Token wird kein Skript eingebunden. Die Datenschutzseite passt ihren Text automatisch an.
+Set `data/site.json` → `analytics.provider` to `"cloudflare"` or `"goatcounter"` and enter the token/code.
+Without a valid token no script is included. The privacy page adapts its text automatically.
 
-## OG-Bild neu erzeugen
+## Regenerating the OG image
 
 ```bash
 google-chrome --headless=new --no-sandbox --hide-scrollbars --window-size=1200,630 \
   --screenshot=assets/og-image.png file://$PWD/scripts/og-template.html
 ```
 
-## Schutzliste (optional, lokal)
+## Banned-terms list (optional, local)
 
-Liegt `scripts/banned-terms.txt` vor (eine Zeile pro Begriff), bricht `build.py` ab, sobald einer dieser
-Begriffe in der generierten Seite auftaucht. Die Datei ist per `.gitignore` vom Repository ausgeschlossen.
-In GitHub Actions kann dieselbe Liste optional als Repository-Secret `BANNED_TERMS` hinterlegt werden.
+If `scripts/banned-terms.txt` exists (one term per line), `build.py` aborts as soon as one of these terms
+appears in the generated site. The file is excluded from the repository via `.gitignore`.
+In GitHub Actions the same list can optionally be stored as the repository secret `BANNED_TERMS`.

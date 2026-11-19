@@ -1,15 +1,15 @@
 {
-  "name": "z/OS CI/CD Kompass",
-  "tagline": "Unabhängiges Wissensportal zu CI/CD, Git und DevOps auf IBM z/OS",
-  "description": "Neutraler, deutschsprachiger Überblick über CI/CD auf z/OS: Gründe, Migrationspfade von Endevor, ChangeMan ZMF, ISPW/Code Pipeline und SCLM, Produkt-News aller Hersteller und geprüfte Quellen.",
+  "name": "z/OS CI/CD Compass",
+  "tagline": "Independent knowledge hub for CI/CD, Git and DevOps on IBM z/OS",
+  "description": "A vendor-neutral overview of CI/CD on z/OS: reasons to adopt it, migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline and SCLM, product news from all vendors, and verified sources.",
   "base_url": "https://mainframeguru.github.io/zos-cicd-knowledge-hub",
-  "language": "de",
-  "locale": "de_DE",
+  "language": "en",
+  "locale": "en_US",
   "last_updated": "2026-11-19",
   "twitter_handle": "",
   "analytics": {
     "provider": "none",
-    "cloudflare_token": "CF_WEB_ANALYTICS_TOKEN_HIER_EINTRAGEN",
-    "goatcounter_code": "GOATCOUNTER_CODE_HIER_EINTRAGEN"
+    "cloudflare_token": "CF_WEB_ANALYTICS_TOKEN_HERE",
+    "goatcounter_code": "GOATCOUNTER_CODE_HERE"
   }
 }

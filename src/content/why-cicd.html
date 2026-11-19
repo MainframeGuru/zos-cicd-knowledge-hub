@@ -1,0 +1,45 @@
+<div class="wrap">
+<header class="page-head"><span class="eyebrow">Motivation</span><h1>Why CI/CD on z/OS?</h1>
+<p class="lead">The reasons for switching are rarely purely technical. Usually the skills situation, company-wide standardization, speed, quality and compliance all come together. Here are the main drivers – each with publicly documented examples.</p></header>
+<nav class="toc" aria-label="Contents"><a href="#skills">Skills</a> · <a href="#standard">One standard: Git</a> · <a href="#speed">Speed</a> · <a href="#qualitaet">Quality &amp; testing</a> · <a href="#compliance">Compliance</a> · <a href="#kosten">Cost</a> · <a href="#ki">AI</a> · <a href="#risiken">Risks</a> · <a href="#faq">FAQ</a></nav>
+
+<section id="skills"><h2>1. Skills and developer experience</h2>
+<p>The mainframe workforce is getting younger: in the BMC Mainframe Survey 2025, millennials make up 51% and Gen&nbsp;Z 15% of respondents (<a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html">BMC</a>). People trained on Git, VS Code and pull requests find it hard to work with ISPF-centric library manager processes. Uniform tools across all platforms make knowledge transferable and shorten onboarding time.</p>
+<p>Real-world example: UBS has been training its own junior staff for years and relies on Git, GitLab, CI/CD and modern IDEs so that COBOL developers use the same processes as colleagues on other platforms (<a href="https://legacyit.de/legacy/wie-die-ubs-moderne-cobol-entwicklung-gestaltet/">Legacy IT Center</a>, in German).</p></section>
+
+<section id="standard"><h2>2. One standard for the whole enterprise</h2>
+<p>Git is the de facto standard for version control. Keeping mainframe code in the same system enables shared reviews, security scans, permission and audit models, and cross-platform releases. IBM argues that Git should be the authoritative source for code, pipeline definitions and configuration – rather than being permanently synchronized with a legacy library manager (<a href="https://planetmainframe.com/2026/08/git-on-ibm-z-modernize-the-workflow-not-just-the-repository/">Planet Mainframe</a>). Other vendors deliberately focus on coexistence (e.g. Endevor Bridge for Git, Code Pipeline with Git, ChangeMan Git integration) – see <a href="/migrations/">Migrations</a>.</p></section>
+
+<section id="speed"><h2>3. Speed and parallel development</h2>
+<ul>
+<li><b>ANZ Bank:</b> hotfixes that used to mean around four weeks of effort for retrofit and deployment now take one hour at most, according to an IBM case study (<a href="https://www.ibm.com/case-studies/anz">IBM</a>).</li>
+<li><b>Nedbank:</b> build-to-production reduced from hours to around 18 minutes, deployment cycles from 2–3 months to around 3 weeks (<a href="https://www.bmc.com/customers/how-nedbank-cut-mainframe-delivery-from-hours-to-18-minutes-with-bmc-ami-devx.html">BMC</a>).</li>
+<li><b>Incremental builds:</b> dependency-based builds compile only what changed and what is affected – a BMC internal team reports a reduction from around 90 to 3 minutes (<a href="https://www.bmc.com/customers/bmc-cuts-code-fix-build-time-with-bmc-ami-devx.html">BMC</a>).</li>
+</ul>
+<p>Branches instead of check-out/check-in allow several developers to work on the same program at the same time.</p></section>
+
+<section id="qualitaet"><h2>4. Quality through automated testing</h2>
+<p>Unit tests for COBOL and PL/I are now widely available and increasingly generated with AI assistance (e.g. <a href="/news/#news-ibm-taz-3-0-2026-09">IBM Test Accelerator for Z 3.0</a>, <a href="/news/#news-bmc-oct-2026-release">BMC AMI DevX Unit Test (beta)</a>). Integration tests against real z/OS systems can be automated with the open-source framework <a href="https://galasa.dev/">Galasa</a>, static analysis e.g. with SonarQube (COBOL). In a pipeline, these become quality gates.</p></section>
+
+<section id="compliance"><h2>5. Compliance and traceability</h2>
+<p>Regulated industries need a complete trail from the business change to the module in production. Modern toolchains provide this through commit history, pull request approvals, build metadata (e.g. DBB build maps), SBOMs (e.g. Broadcom sbomz) and deployment evidence (e.g. Wazi Deploy, which from 3.0.8 can also store it in Db2). What matters is that this chain is designed deliberately – Git alone does not provide it (<a href="https://techchannel.com/api/replacing-sclm-takes-more-than-git/">TechChannel</a>).</p></section>
+
+<section id="kosten"><h2>6. Cost and tool landscape</h2>
+<p>Some case studies cite significant savings in license costs – ANZ, for example, around 90% compared with its previous mainframe SCM (<a href="https://www.ibm.com/case-studies/anz">IBM</a>). Such figures come from vendor sources and depend heavily on the original contract. New costs arise for build/deploy tools, pipeline infrastructure, migration and training.</p></section>
+
+<section id="ki"><h2>7. AI needs modern pipelines</h2>
+<p>In 2026, IBM (Bob Premium Package for Z, Pipeline Automation for Z), BMC (Code Pipeline MCP Server) and Rocket announced AI features for mainframe development. AI assistants work best with code in Git and automated build/test loops that check changes immediately.</p></section>
+
+<section id="risiken"><h2>Risks and counterarguments – an honest look</h2>
+<ul>
+<li><b>Culture:</b> “The technical change was big, but the cultural change was decisive” – that is the gist of what ANZ says. Training teams and bringing them along is critical to success.</li>
+<li><b>Loss of proven processes:</b> library managers bundle promotion, approvals and emergency procedures. These must be deliberately recreated in the new world.</li>
+<li><b>Character sets:</b> EBCDIC content with non-printable or non-round-trippable characters needs a strategy (IBM Z DevOps Guide).</li>
+<li><b>Security:</b> code leaves the z/OS security domain; permissions, secrets and runner access must be designed carefully.</li>
+<li><b>Big bang:</b> many successful projects migrate step by step, application by application.</li>
+</ul></section>
+
+<section id="faq"><h2>Frequently asked questions</h2>
+{{FAQ}}
+</section>
+</div>

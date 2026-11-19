@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prüft alle externen Links in public/ (HTTP-Status). Aufruf: python3 scripts/check_links.py"""
+"""Checks all external links in public/ (HTTP status). Usage: python3 scripts/check_links.py"""
 import re, glob, subprocess, concurrent.futures as cf, html
 urls = set()
 for f in glob.glob("public/**/*.html", recursive=True):
@@ -15,4 +15,4 @@ with cf.ThreadPoolExecutor(12) as ex:
     res = sorted(ex.map(check, urls))
 bad = [r for r in res if r[0] != "200"]
 for c, u in bad: print(c, u)
-print(f"{len(urls)} Links geprüft, {len(bad)} nicht 200 (403/999 = Bot-Schutz, manuell prüfen)")
+print(f"{len(urls)} links checked, {len(bad)} not 200 (403/999 = usually bot protection, check manually)")

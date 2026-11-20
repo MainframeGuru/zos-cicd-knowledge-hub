@@ -606,5 +606,35 @@
     "summary": "Blog article by IBM partner CROZ on how DBB 4.0 cross-application dependency support and Release Orchestrator for Z address two related questions: what else a change affects, and how several applications are released together.",
     "url": "https://croz.net/mainframe-releases-are-a-team-sport/",
     "note": "Published by a service provider that offers implementation services for these products."
+  },
+  {
+    "id": "gsuk-2026-orchestrate-deployments",
+    "type": "talk",
+    "format": "Conference talk",
+    "event": "GS UK Forge 2026 (2–5 Nov 2026)",
+    "date": "2026-11",
+    "title": "Orchestrate Mainframe Application Deployments (Dennis Behm, IBM)",
+    "org": "—",
+    "publisher": "GS UK conference agenda",
+    "from": "—",
+    "to": "CI pipeline, artifact repository, deployment orchestration",
+    "summary": "Walks through the deployment lifecycle: CI pipelines package build outputs and publish them to an artifact repository; packages are retrieved, prepared and installed into target runtime environments under end-to-end governance. Covers deployment scheduling and cross-application dependency management.",
+    "url": "https://conferences.gs-uk.org/2026/agenda/presentation/16705",
+    "note": "Conference abstract by an IBM speaker; slides may be available to registered delegates only."
+  },
+  {
+    "id": "gsuk-2026-omp-stream",
+    "type": "talk",
+    "format": "Conference track",
+    "event": "GS UK Forge 2026 (2–5 Nov 2026)",
+    "date": "2026-11-04",
+    "title": "Open Mainframe stream at GS UK Forge 2026 (including “Introducing Zowe MCP Server”, “Migrating to Zowe V3 before the V2 end of support”)",
+    "org": "—",
+    "publisher": "Open Mainframe Project",
+    "from": "Zowe V2",
+    "to": "Zowe V3, Zowe MCP Server, Galasa",
+    "summary": "Session overview: Broadcom introduces the Open Mainframe Project Zowe MCP Server, which lets AI agents reach Zowe-mediated z/OS data and services via the Model Context Protocol; an IBM session shows the Zowe MCP server with Zowe CLI/SDK; further talks on migrating the API Mediation Layer to V3, Zowe DevOps workshops, configuration as code with Ansible and NatWest’s Galasa test structures (user report).",
+    "url": "https://openmainframeproject.org/gs-uk/open-mainframe-project-at-gs-uk-forge-2026/",
+    "note": "Program overview (abstracts); slides vary by talk."
   }
 ]

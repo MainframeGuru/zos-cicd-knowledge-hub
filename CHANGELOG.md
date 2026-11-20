@@ -2,6 +2,19 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.0] – 2026-11-20
+### Added
+- Migrations page: new section “Support deadlines & lifecycle dates” (`/migrations/#deadlines`) with publicly announced
+  dates (watsonx Code Assistant for Z Validation Assistant final release, Zowe V2 end of support 30 Mar 2027,
+  Endevor Bridge for Git 2.x end of service 30 Jun 2027, SCLM removal intent), linked from the TOC and the overview page.
+- News: Rocket Transaction Platform (`/news/#news-rocket-transaction-platform-2026-11`); Zowe V2 end of support and
+  remaining V2 maintenance releases (`/news/#news-zowe-v2-eos-2026-10`).
+- Resources (Webinar / Talk): GS UK Forge 2026 talk “Orchestrate Mainframe Application Deployments”
+  (`/resources/#res-gsuk-2026-orchestrate-deployments`) and the Open Mainframe stream incl. Zowe MCP Server
+  (`/resources/#res-gsuk-2026-omp-stream`).
+### Changed
+- SEO: resources page now emits an `ItemList` in its JSON-LD (one entry per resource anchor), like the news page.
+
 ## [2.1.1] – 2026-11-19
 ### Added
 - News: IBM Developer for z/OS EE 18.0 / ADFz 6.0 with DBB 4.0, Wazi Deploy 4.0 and the new Release Orchestrator for Z

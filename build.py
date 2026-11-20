@@ -152,6 +152,9 @@ def json_ld(page):
     if slug == "news":
         graph.append({"@type": "ItemList", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "url": url("news") + "#news-" + n["id"], "name": n["title"]} for i, n in enumerate(NEWS)]})
+    if slug == "resources":
+        graph.append({"@type": "ItemList", "name": "Case studies, experience reports, talks and articles", "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "url": url("resources") + "#res-" + r["id"], "name": r["title"]} for i, r in enumerate(RES)]})
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 

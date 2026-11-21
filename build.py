@@ -53,17 +53,34 @@ PAGES = [
     ("migrations", "Migrations", "Migration paths: Endevor, ChangeMan ZMF, ISPW, SCLM → Git & CI/CD", "Migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline, SCLM, Panvalet and Librarian to Git, DBB and CI/CD – including automated migration approaches.", "migrations.html", True, "Article"),
     ("news", "Product news", "Product news on CI/CD for z/OS: IBM, Broadcom, BMC, Rocket, Zowe", "Dated product announcements around mainframe DevOps: IBM DBB, Wazi Deploy, Endevor Bridge for Git, BMC AMI DevX, Zowe, Galasa, Rocket and more – filterable by vendor.", None, True, "CollectionPage"),
     ("resources", "Resources", "Case studies, talks & articles on mainframe CI/CD", "Curated, clearly labeled sources: project references, experience reports, talks/webinars, whitepapers and press articles on Git and CI/CD on z/OS.", None, True, "CollectionPage"),
-    ("imprint", "Imprint", "Imprint (Impressum)", "Imprint (German legal notice, “Impressum”) and disclaimer of the z/OS CI/CD Compass.", "imprint.html", False, "WebPage"),
-    ("privacy", "Privacy", "Privacy policy", "Privacy policy: no cookies, no third-party scripts, optional cookieless audience measurement.", "privacy.html", False, "WebPage"),
+    ("imprint", "Imprint", "Imprint", "Imprint (legal notice) of the z/OS CI/CD Compass: operator, contact, person responsible for content and editorial policy.", "imprint.html", False, "WebPage"),
+    ("privacy", "Privacy", "Privacy policy", "Privacy policy of the z/OS CI/CD Compass: hosting on GitHub Pages, no cookies, no analytics, browser functions and your rights.", "privacy.html", False, "WebPage"),
+    ("impressum", "Impressum", "Impressum", "Impressum des z/OS CI/CD Compass: Anbieter, Kontakt, inhaltlich Verantwortlicher und redaktionelle Grundsätze.", "impressum.html", False, "WebPage"),
+    ("datenschutz", "Datenschutz", "Datenschutzerklärung", "Datenschutzerklärung des z/OS CI/CD Compass: Hosting bei GitHub Pages, keine Cookies, keine Reichweitenmessung, Browser-Funktionen und Ihre Rechte.", "datenschutz.html", False, "WebPage"),
 ]
+
+# German-language pages (all other pages use SITE["language"]) and EN<->DE translation pairs for hreflang.
+PAGE_LANG = {"impressum": ("de", "de_DE"), "datenschutz": ("de", "de_DE")}
+TRANSLATIONS = {"imprint": "impressum", "privacy": "datenschutz"}  # en slug -> de slug
+
+
+def page_lang(slug):
+    return PAGE_LANG.get(slug, (LANG, SITE["locale"]))
+
+
+def hreflang_links(slug):
+    pairs = {**TRANSLATIONS, **{v: k for k, v in TRANSLATIONS.items()}}
+    if slug not in pairs:
+        return f'<link rel="alternate" hreflang="{LANG}" href="{url(slug)}">\n<link rel="alternate" hreflang="x-default" href="{url(slug)}">'
+    en, de = (slug, pairs[slug]) if slug in TRANSLATIONS else (pairs[slug], slug)
+    return (f'<link rel="alternate" hreflang="en" href="{url(en)}">\n<link rel="alternate" hreflang="de" href="{url(de)}">\n'
+            f'<link rel="alternate" hreflang="x-default" href="{url(en)}">')
 
 # Former German URL paths (v1) -> new English slugs. Redirect pages keep existing links working.
 REDIRECTS = {
     "warum-cicd": "why-cicd",
     "migrationen": "migrations",
     "ressourcen": "resources",
-    "impressum": "imprint",
-    "datenschutz": "privacy",
 }
 
 
@@ -137,7 +154,7 @@ def json_ld(page):
     slug, _, title, desc, _, _, ptype = page
     graph = [
         {"@type": "WebSite", "@id": BASE + "/#website", "url": BASE + "/", "name": SITE["name"], "description": SITE["description"], "inLanguage": LANG},
-        {"@type": ptype, "@id": url(slug) + "#page", "url": url(slug), "name": title, "description": desc, "inLanguage": LANG,
+        {"@type": ptype, "@id": url(slug) + "#page", "url": url(slug), "name": title, "description": desc, "inLanguage": page_lang(slug)[0],
          "isPartOf": {"@id": BASE + "/#website"}, "dateModified": SITE["last_updated"],
          "image": BASE + "/assets/og-image.png"},
     ]
@@ -166,23 +183,23 @@ def layout(page, body):
     nav = "".join(
         '<li><a href="/' + (p[0] + "/" if p[0] else "") + '"' + (cur if p[0] == slug else "") + '>' + E(p[1]) + '</a></li>'
         for p in PAGES if p[5])
+    plang, plocale = page_lang(slug)
     tw = f'<meta name="twitter:site" content="{E(SITE["twitter_handle"])}">' if SITE.get("twitter_handle") else ""
     return f'''<!doctype html>
-<html lang="{LANG}">
+<html lang="{plang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(full_title)}</title>
 <meta name="description" content="{E(desc)}">
 <link rel="canonical" href="{page_url}">
-<link rel="alternate" hreflang="{LANG}" href="{page_url}">
-<link rel="alternate" hreflang="x-default" href="{page_url}">
+{hreflang_links(slug)}
 <link rel="alternate" type="application/atom+xml" title="{E(SITE['name'])} – Product news" href="/feed.xml">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="theme-color" content="#0b7a75">
 <meta property="og:type" content="{"article" if page[6] == "Article" else "website"}">
 <meta property="og:site_name" content="{E(SITE['name'])}">
-<meta property="og:locale" content="{SITE['locale']}">
+<meta property="og:locale" content="{plocale}">
 <meta property="og:title" content="{E(title)}">
 <meta property="og:description" content="{E(desc)}">
 <meta property="og:url" content="{page_url}">
@@ -215,7 +232,7 @@ def layout(page, body):
   <div><b>{E(SITE['name'])}</b><br>{E(SITE['tagline'])}.<br>No cookies · no third-party trackers.</div>
   <div>Last updated: <time datetime="{SITE['last_updated']}">{fmt_date(SITE['last_updated'])}</time><br>
   <a href="/feed.xml">Atom feed</a> · <a href="/sitemap.xml">Sitemap</a><br>
-  <a href="/imprint/">Imprint</a> · <a href="/privacy/">Privacy</a></div>
+  <a href="/imprint/">Imprint</a> · <a href="/privacy/">Privacy</a> · <a href="/impressum/" hreflang="de" lang="de">Impressum (DE)</a> · <a href="/datenschutz/" hreflang="de" lang="de">Datenschutz (DE)</a></div>
   <div class="small">Trademarks belong to their respective owners. Information provided without warranty; sources are linked in each case.</div>
 </div></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

@@ -2,6 +2,17 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.1] – 2026-11-21
+### Added
+- Legal pages published in English and German: Imprint (`/imprint/`), Privacy policy (`/privacy/`),
+  Impressum (`/impressum/`) and Datenschutzerklärung (`/datenschutz/`), each with a link to the other language version.
+- Footer on every page links all four legal pages; hreflang alternates pair imprint↔impressum and privacy↔datenschutz
+  (x-default = English); German pages use `lang="de"` and are listed in the sitemap.
+### Changed
+- `/impressum/` and `/datenschutz/` are now real German pages instead of redirects to the English pages;
+  `scripts/check_site.py` checks them as German pages.
+- Placeholder legal texts replaced by the final versions.
+
 ## [2.2.0] – 2026-11-20
 ### Added
 - Migrations page: new section “Support deadlines & lifecycle dates” (`/migrations/#deadlines`) with publicly announced

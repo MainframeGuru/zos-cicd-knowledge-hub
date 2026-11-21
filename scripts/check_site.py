@@ -12,8 +12,10 @@ if not start.endswith("/"):
 host, prefix = urlparse(start).netloc, urlparse(start).path
 extra = ["feed.xml", "sitemap.xml", "robots.txt", "assets/og-image.png", "assets/style.css", "assets/app.js", "assets/favicon.svg"]
 # Former German paths -> new English slugs (must stay in sync with REDIRECTS in build.py)
-legacy = {"warum-cicd": "why-cicd", "migrationen": "migrations", "ressourcen": "resources", "impressum": "imprint", "datenschutz": "privacy"}
-todo, seen, bad = [start] + [start + e for e in extra] + [start + n + "/" for n in legacy.values()], set(), []
+legacy = {"warum-cicd": "why-cicd", "migrationen": "migrations", "ressourcen": "resources"}
+# /impressum/ and /datenschutz/ are real German pages since v2.2.1 (no longer redirects); check them explicitly.
+pages_de = ["impressum", "datenschutz"]
+todo, seen, bad = [start] + [start + e for e in extra] + [start + n + "/" for n in list(legacy.values()) + pages_de], set(), []
 ids, anchors = {}, []  # page -> set of ids; (page, fragment, found_in)
 
 
@@ -64,6 +66,16 @@ for old, new in legacy.items():
     print(("OK " if ok else "BAD"), "redirect", start + old + "/", "->", target)
     if not ok:
         bad.append(("REDIRECT", start + old + "/"))
+
+# German legal pages: real pages (HTTP 200, lang="de", canonical to themselves, no meta refresh)
+for slug in pages_de:
+    code, _, body = fetch(start + slug + "/")
+    text = body.decode("utf-8", "replace")
+    ok = (code == 200 and '<html lang="de">' in text and "http-equiv=\"refresh\"" not in text
+          and re.search(r'rel="canonical" href="https?://[^"/]+' + re.escape(prefix + slug + "/") + '"', text) is not None)
+    print(("OK " if ok else "BAD"), "german page", start + slug + "/")
+    if not ok:
+        bad.append(("DE-PAGE", start + slug + "/"))
 
 print(f"\n{len(seen)} internal URLs checked, {len(anchors)} anchor links checked, {len(bad)} problems")
 for b in bad:

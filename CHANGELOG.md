@@ -2,6 +2,20 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.2] – 2026-11-23
+### Added
+- News: Git for z/OS (zopen community port) with encoding-aware 3-way merges and opt-in transliteration
+  (`/news/#news-zopen-git-encoding-2026-11`); Zowe security-driven breaking changes in minor/maintenance releases incl.
+  V2 2.18.7 (`/news/#news-zowe-security-breaking-changes-2026-11`); DBB Git Migration Modeler 2.0.0
+  (`/news/#news-dbb-git-migration-modeler-2-0-2026-09`); IBM Bob Premium Package for Z self-hosted option
+  (`/news/#news-ibm-bob-premium-z-self-hosted-2026-09`).
+- Migrations page: stable anchors for each pitfall (`#pitfall-codepages`, `#pitfall-metadata`, `#pitfall-processors`,
+  `#pitfall-approvals`, `#pitfall-people`); deep links open the collapsed section automatically.
+### Changed
+- Migrations page: code page pitfall mentions the Git for z/OS encoding improvements; automated-migration card notes
+  DBB Git Migration Modeler 2.0; deadlines table (as of 23 Nov 2026) flags Zowe 2.18.7 as a release with breaking changes.
+- Resources: DBB Git Migration Modeler entry updated for version 2.0.0.
+
 ## [2.2.1] – 2026-11-21
 ### Added
 - Legal pages published in English and German: Imprint (`/imprint/`), Privacy policy (`/privacy/`),

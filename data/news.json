@@ -476,5 +476,78 @@
         "url": "https://www.zowe.org/vnext"
       }
     ]
+  },
+  {
+    "id": "zopen-git-encoding-2026-11",
+    "date": "2026-11-06",
+    "vendor": "zopen community",
+    "product": "Git for z/OS (zopen port)",
+    "title": "Git for z/OS: encoding-aware 3-way merges and opt-in transliteration in the zopen community port",
+    "summary": "According to an IBM Community blog post by a zopen community maintainer, the latest Git port for z/OS handles EBCDIC-encoded files natively in git apply --3way, and applies encoding conversion and file tagging consistently in merges, cherry-picks, rebases and stashes. A new opt-in setting (core.iconvtranslit) substitutes the closest character (e.g. “€” → “EUR”) instead of stopping when a character has no EBCDIC equivalent; strict conversion stays the default. The zopen release overview lists Git 2.56.1 builds from 11–12 Nov 2026.",
+    "tags": [
+      "Git",
+      "Open Source",
+      "Migration"
+    ],
+    "url": "https://community.ibm.com/community/user/blogs/d-harithamma/2026/11/06/git-on-z-os-encoding-handling-taken-further",
+    "source": "IBM Community blog",
+    "extra_links": [
+      {
+        "label": "zopen: newly released tools",
+        "url": "https://zopen.community/newly_released"
+      }
+    ]
+  },
+  {
+    "id": "zowe-security-breaking-changes-2026-11",
+    "date": "2026-11-06",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe",
+    "title": "Zowe makes security-driven breaking changes in minor and maintenance releases – including V2 2.18.7",
+    "summary": "The Zowe documentation (updated 6 Nov 2026) states that, in response to a growing number of security reports produced with the help of frontier AI models, the project now makes breaking changes outside major releases where a security fix requires it. Affected releases listed: Zowe client 3.6.0, Zowe server 3.6.0, Zowe client 3.7.0 and Zowe 2.18.7 (GA planned for 24 Nov 2026). Opt-out flags exist where possible, but the project recommends adapting rather than opting out. Pipelines that call the Zowe CLI should be re-tested before upgrading.",
+    "tags": [
+      "Open Source",
+      "CLI",
+      "Security",
+      "Lifecycle"
+    ],
+    "url": "https://docs.zowe.org/stable/appendix/security-breaking-changes/",
+    "source": "Zowe Docs",
+    "extra_links": [
+      {
+        "label": "Zowe release schedule",
+        "url": "https://www.zowe.org/vnext"
+      }
+    ]
+  },
+  {
+    "id": "dbb-git-migration-modeler-2-0-2026-09",
+    "date": "2026-09-29",
+    "vendor": "IBM",
+    "product": "DBB Git Migration Modeler",
+    "title": "DBB Git Migration Modeler 2.0.0: rewritten in Java, zBuilder only, incremental additions to existing repositories",
+    "summary": "Major version of IBM’s open-source tool for modeling application boundaries and migrating z/OS sources to Git. According to the release notes, the Groovy scripts were converted to Java, support for zAppBuild was dropped in favor of the DBB zBuilder, the Git repository structure was simplified, sources can be added incrementally to previously initialized repositories, and the DBB MetadataStore can be initialized with the zBuilder metadata lifecycle.",
+    "tags": [
+      "Migration",
+      "Git",
+      "Build",
+      "Open Source"
+    ],
+    "url": "https://github.com/IBM/dbb-git-migration-modeler/releases/tag/2.0.0",
+    "source": "GitHub release notes"
+  },
+  {
+    "id": "ibm-bob-premium-z-self-hosted-2026-09",
+    "date": "2026-09-30",
+    "vendor": "IBM",
+    "product": "IBM Bob Premium Package for Z",
+    "title": "IBM Bob Premium Package for Z adds a self-hosted (on-premises) deployment option",
+    "summary": "IBM announced a self-hosted deployment option in which Bob services run in a customer-managed Red Hat OpenShift environment, with approved models hosted internally or externally through the Bob model gateway. New capabilities named in the announcement: Application View (top-down application understanding in the IDE), zContext (IBM-curated Z-specific knowledge supplied to the assistant) and COBOL performance recommendations that use application runtime profiling data.",
+    "tags": [
+      "AI",
+      "IDE"
+    ],
+    "url": "https://www.ibm.com/new/announcements/ibm-bob-premium-package-for-z-expands-with-on-premises-deployment-and-new-saas-capabilities",
+    "source": "IBM Announcement"
   }
 ]

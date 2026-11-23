@@ -40,3 +40,9 @@
     apply();
   });
 })();
+// Deep links to collapsible sections (e.g. /migrations/#pitfall-codepages): open the targeted <details>.
+(function(){
+  function openTarget(){var id=decodeURIComponent(location.hash.slice(1));if(!id)return;var el=document.getElementById(id);if(el&&el.tagName==='DETAILS'){el.open=true;el.scrollIntoView();}}
+  window.addEventListener('hashchange',openTarget);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',openTarget);else openTarget();
+})();

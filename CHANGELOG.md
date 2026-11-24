@@ -2,6 +2,19 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.3] – 2026-11-24
+### Added
+- News: IBM Z Atlas public preview – system intelligence and change orchestration for z/OS (backfill, 27 Oct 2026;
+  `/news/#news-ibm-z-atlas-preview-2026-10`).
+- Resources (Press / Article): DevOps.com, “Mainframe AI Is Stuck at the Keyboard. The Pipeline Is Why” (Techstrong
+  PulseMeter poll, 145 respondents; `/resources/#res-devops-com-mainframe-ai-pipeline-2026-11`).
+- Overview page: context figure on AI use in mainframe delivery (poll via DevOps.com).
+- Migrations page: approvals pitfall extended with “approvals and evidence as pipeline outputs”; ISPW/Code Pipeline
+  section notes CycloneDX SBOM generation (BMC) and Team Build `sbomz` (Broadcom).
+### Changed
+- Migrations page: deadlines table as of 24 Nov 2026; Zowe 2.18.7 row states that release artifacts were not yet
+  published on the scheduled GA date at the time of the check.
+
 ## [2.2.2] – 2026-11-23
 ### Added
 - News: Git for z/OS (zopen community port) with encoding-aware 3-way merges and opt-in transliteration

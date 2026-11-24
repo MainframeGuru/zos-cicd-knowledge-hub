@@ -642,5 +642,18 @@
     "summary": "Session overview: Broadcom introduces the Open Mainframe Project Zowe MCP Server, which lets AI agents reach Zowe-mediated z/OS data and services via the Model Context Protocol; an IBM session shows the Zowe MCP server with Zowe CLI/SDK; further talks on migrating the API Mediation Layer to V3, Zowe DevOps workshops, configuration as code with Ansible and NatWest’s Galasa test structures (user report).",
     "url": "https://openmainframeproject.org/gs-uk/open-mainframe-project-at-gs-uk-forge-2026/",
     "note": "Program overview (abstracts); slides vary by talk."
+  },
+  {
+    "id": "devops-com-mainframe-ai-pipeline-2026-11",
+    "type": "press",
+    "date": "2026-11-23",
+    "title": "Mainframe AI Is Stuck at the Keyboard. The Pipeline Is Why",
+    "org": "—",
+    "publisher": "DevOps.com (Guy Currier)",
+    "from": "Manual approvals, fragmented toolchains",
+    "to": "Controls and evidence inside the pipeline",
+    "summary": "Reports a Techstrong PulseMeter poll of 145 mainframe software delivery professionals: 86% use AI somewhere in mainframe software delivery, 57% for code generation or developer assistance, but only about a quarter to automate deployment, security and compliance; nearly half still run manual or legacy delivery processes. Recommends finding “emailed” approvals and making policy checks, approvals and audit evidence outputs of the pipeline. Describes BMC AMI DevX Code Pipeline’s MCP server and CycloneDX SBOM generation as one example.",
+    "url": "https://devops.com/mainframe-ai-is-stuck-at-the-keyboard-the-pipeline-is-why",
+    "note": "Based on a webinar with BMC (Vijay Namasevi, Area VP of R&D); the product section describes BMC’s offering. Poll methodology beyond the sample size is not published in the article."
   }
 ]

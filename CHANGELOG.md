@@ -2,6 +2,16 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.8] – 2026-11-25
+### Changed
+- Case studies: figures and outcomes are attributed in the sentence (“According to the case study: …”, “According to the
+  service provider’s case study: …”, “According to the reference (in German): …”), the same way for every publisher.
+- Undated resources (Atruvia, dwpbank) no longer show a date line, like the other undated case studies.
+- Fields a source does not specify are shown uniformly as not set (“n/a” values normalized).
+### Removed
+- News entry for the IBM Expert Labs dwpbank success story: the source states no publication date, so it cannot be placed in the
+  chronological news list. The story remains listed under Resources (`/resources/#res-dwpbank-qgroup`).
+
 ## [2.2.7] – 2026-11-25
 ### Changed
 - Case studies and the dwpbank news entry: notes state the publisher and source type only; the added sentence from 2.2.6

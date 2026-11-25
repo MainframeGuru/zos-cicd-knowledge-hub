@@ -2,6 +2,22 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.5] – 2026-11-25
+### Changed
+- Overview and migrations pages: English section anchors (`#what-is-cicd-on-zos`, `#building-blocks`, `#numbers`,
+  `#automated-migration`, `#tooling-comparison`, `#approach`); the previous IDs (`#was-ist-cicd-auf-zos`, `#bausteine`,
+  `#zahlen`, `#automatisiert`, `#tools-vergleich`, `#vorgehen` and heading IDs) stay as hidden aliases, so existing
+  links keep working. Other existing IDs (e.g. `#tabelle`, `#stolpersteine`, `#aktuell`) are unchanged.
+- News vendor label “Markt & Studien” renamed to “Market & surveys”; old filter value in shared URLs is mapped.
+- Atruvia, dwpbank and the dwpbank news entry: attribution to the IBM Expert Labs success stories, timelines as stated
+  in the stories, and an “added” date instead of a publication date where the source states none.
+- Q-Wing entry and tooling table: archive targets as stated on the product page and in the success stories.
+- Tooling table and resource notes: wording aligned with the editorial policy (factual, attributed descriptions);
+  Royal Cyber and CROZ rows corrected.
+- Support deadlines: neutral status wording for Explorer for Endevor 2.0.0 and Zowe 2.18.7.
+### Removed
+- Resource “Mainframe releases are a team sport” (CROZ blog), as the source is no longer available.
+
 ## [2.2.4] – 2026-11-25
 ### Added
 - News: Zowe CLI 8.44.0 – REST responses above 64 MiB fail by default, new `--max-response-bytes` option

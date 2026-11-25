@@ -2,6 +2,16 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.7] – 2026-11-25
+### Changed
+- Case studies and the dwpbank news entry: notes state the publisher and source type only; the added sentence from 2.2.6
+  and the earlier verification remarks were removed.
+- Atruvia, dwpbank and the dwpbank news entry: only the date added to the site is shown where the source gives no date.
+- ANZ case study “From” field, BMC DataStream, a webinar note and a trade-portal note: neutral source-type wording.
+- dwpbank case study: deployment statement attributed to the story.
+- Overview page (`#numbers`): note under the figures now reads “Each figure is shown with its source and publisher.”
+- Migrations tooling table, IBM row: the SCLM-to-Git tool reads SCLM; other legacy SCMs are unloaded to PDS first (per IBM).
+
 ## [2.2.6] – 2026-11-25
 ### Added
 - Resources (Whitepaper / Vendor docs): Techstrong PulseMeter report “The Orchestration Challenge in Mainframe Software
@@ -11,8 +21,7 @@ Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
   PulseMeter report (25% deployment automation, 26% security and compliance automation); the DevOps.com article on the
   poll is labeled as sponsored content.
 - Resource `#res-devops-com-mainframe-ai-pipeline-2026-11`: the source’s “Sponsored Content” label is stated.
-- Case studies: one uniform note on all entries – “Figures and details as reported by the publisher; not independently
-  verified.”
+- Case studies: notes harmonized (see 2.2.7).
 - Site description and preview image: “linked sources” instead of “verified sources”.
 
 ## [2.2.5] – 2026-11-25

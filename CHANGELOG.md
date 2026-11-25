@@ -15,6 +15,8 @@ Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 - News page JSON-LD: ItemList entries are now `NewsArticle` items with headline, `datePublished` and source URL.
 ### Changed
 - Migrations page: deadlines table as of 25 Nov 2026; Zowe 2.18.7 still listed without artifacts.
+- Resources: CROZ article on DBB 4 / Release Orchestrator flagged as no longer available at its source (HTTP 404)
+  (`/resources/#res-croz-dbb4-release-orchestrator`).
 
 ## [2.2.3] – 2026-11-24
 ### Added

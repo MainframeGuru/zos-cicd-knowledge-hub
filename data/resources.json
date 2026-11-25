@@ -611,7 +611,7 @@
     "to": "IBM DBB 4, IBM Wazi Deploy 4.0, IBM Release Orchestrator for Z",
     "summary": "Blog article by IBM partner CROZ on how DBB 4.0 cross-application dependency support and Release Orchestrator for Z address two related questions: what else a change affects, and how several applications are released together.",
     "url": "https://croz.net/mainframe-releases-are-a-team-sport/",
-    "note": "Published by a service provider that offers implementation services for these products."
+    "note": "Published by a service provider that offers implementation services for these products. Availability: as of 25 Nov 2026 the original URL returns HTTP 404 and the article no longer appears in the CROZ blog index; no archived copy was found."
   },
   {
     "id": "gsuk-2026-orchestrate-deployments",

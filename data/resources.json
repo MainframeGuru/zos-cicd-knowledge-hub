@@ -6,11 +6,11 @@
     "title": "ANZ Bank: DevOps modernization for core banking systems",
     "org": "ANZ Bank (Australia)",
     "publisher": "IBM (case study)",
-    "from": "Mainframe SCM (not named)",
+    "from": "Mainframe SCM",
     "to": "Git, IBM DBB, IBM Developer for z/OS",
     "summary": "CI/CD framework for around 40 applications (including 3 highly critical core banking systems) and more than 1,000 Git repositories within 8 months; around 90% lower license costs compared with the previous mainframe SCM according to the case study; hotfixes reduced from around 4 weeks of effort to one hour at most.",
     "url": "https://www.ibm.com/case-studies/anz",
-    "note": "Published by the vendor. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by the vendor."
   },
   {
     "id": "hcsc-royalcyber",
@@ -23,7 +23,7 @@
     "to": "Git, Jenkins, IBM DBB v3, IBM DevOps Deploy (UCD)",
     "summary": "150+ applications, 100+ build combinations across 15 DBB language processors, replication of Endevor “delete behind”, automated Db2 BINDs; according to the service provider, without production-relevant defects.",
     "url": "https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/",
-    "note": "Published by a service provider. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by a service provider."
   },
   {
     "id": "nedbank-bmc",
@@ -36,7 +36,7 @@
     "to": "BMC AMI DevX Code Pipeline, Total Test, zAdviser; SonarQube, Azure DevOps",
     "summary": "Migration of around 250 mainframe developers in six months; deployment cycle reduced from 2–3 months to around 3 weeks; DORA metrics via zAdviser.",
     "url": "https://www.bmc.com/customers/how-nedbank-cut-mainframe-delivery-from-hours-to-18-minutes-with-bmc-ami-devx.html",
-    "note": "Published by the vendor. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by the vendor."
   },
   {
     "id": "mtbank-ibm",
@@ -62,7 +62,7 @@
     "to": "GitHub, GitHub Actions, BMC AMI DevX Code Pipeline (Git integration)",
     "summary": "Source code stays in Git; GitHub Actions triggers Code Pipeline, which compiles only changed components.",
     "url": "https://www.bmc.com/customers/bmc-cuts-code-fix-build-time-with-bmc-ami-devx.html",
-    "note": "Vendor reporting on its own team – not an external customer. Figures and details as reported by the publisher; not independently verified."
+    "note": "Vendor reporting on its own internal team."
   },
   {
     "id": "cse-bmc",
@@ -75,7 +75,7 @@
     "to": "BMC AMI DevX Code Pipeline",
     "summary": "Case study on a “software factory” for mainframe development with faster deployments and rollback capabilities.",
     "url": "https://www.bmc.com/customers/consorzio-servizi-bancari.html",
-    "note": "Published by the vendor. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by the vendor."
   },
   {
     "id": "nrb-bmc",
@@ -88,7 +88,7 @@
     "to": "BMC AMI DevX",
     "summary": "Vendor case study on modernizing mainframe development.",
     "url": "https://www.bmc.com/customers/nrb-group.html",
-    "note": "Published by the vendor. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by the vendor."
   },
   {
     "id": "onemain-webinar",
@@ -137,7 +137,7 @@
     "to": "Git",
     "summary": "Service provider webinar presenting a four-phase model (Discover, Migrate, Validate, Enable).",
     "url": "https://www.royalcyber.com/webinar/mainframe-git-migration/",
-    "note": "Marketing webinar by a service provider, not a project reference.",
+    "note": "Marketing webinar by a service provider.",
     "format": "Webinar",
     "event": ""
   },
@@ -378,7 +378,7 @@
     "to": "Git, GitLab, CI/CD, DBB",
     "summary": "German-language report on a fireside chat: UBS uses Git, GitLab, CI/CD and code scanning; a move from ChangeMan to Dependency Based Build is planned.",
     "url": "https://legacyit.de/legacy/wie-die-ubs-moderne-cobol-entwicklung-gestaltet/",
-    "note": "Press/trade portal (in German); statements from a conversation, not project documentation."
+    "note": "Press/trade portal (in German); statements from a conversation."
   },
   {
     "id": "planetmf-getting-to-git",
@@ -417,7 +417,7 @@
     "to": "Git, Jenkins, IBM DBB, deployment automation",
     "summary": "German-language reference: building an SCM on an open-source basis, migrating more than a hundred applications, standardizing builds and deployment automation.",
     "url": "https://living-mainframe.de/modernisierung-ueber-offene-standards-implementierung-einer-software-development-plattform/",
-    "note": "Published by a service provider; customer anonymized. Figures and details as reported by the publisher; not independently verified."
+    "note": "Published by a service provider; customer anonymized."
   },
   {
     "id": "techxchange-2025-fasttrack",
@@ -553,7 +553,6 @@
     "type": "case-study",
     "date": "",
     "date_added": "2026-11-19",
-    "source_date": "not stated",
     "title": "Atruvia AG: Endevor to Git migration – about 3.6 million elements",
     "org": "Atruvia AG (Germany)",
     "publisher": "IBM Expert Labs success story, available via the Q Group website",
@@ -561,22 +560,21 @@
     "to": "Bitbucket, Jenkins, IBM DBB, IBM UrbanCode Deploy, IBM Developer for z/OS Enterprise Edition",
     "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs with Q Group AG as main business partner. The story reports: 3,620,999 elements with up to 200 version levels, 156 Endevor element types, about 350 stakeholders, 189 application bundles migrated in phases (elements locked in Endevor after their tranche), 8 tailored courses in 52 training sessions. According to the story, the implementation project was launched in early 2023 after an MVP in 2022; the migration was finalized by September 2025 and the project was completed by the end of 2025. The latest three versions of each element went to Git; older versions were archived automatically to LDMS with Q Group’s Q-Wing.",
     "url": "https://www.qgrp.com/en-gb/endevor-to-git-atruvia",
-    "note": "Named customer project; success story authored by IBM Expert Labs, published on the service provider’s website. Figures and details as reported by the publisher; not independently verified."
+    "note": "Named customer project; success story authored by IBM Expert Labs, published on the service provider’s website."
   },
   {
     "id": "dwpbank-qgroup",
     "type": "case-study",
     "date": "",
     "date_added": "2026-11-19",
-    "source_date": "not stated",
     "title": "dwpbank: Endevor to GitLab migration in 11 months",
     "org": "Deutsche WertpapierService Bank AG (dwpbank, Germany)",
     "publisher": "IBM Expert Labs success story, available via the Q Group website",
     "from": "Broadcom Endevor",
     "to": "GitLab with z/OS runners, IBM DBB, IBM Wazi Deploy, VS Code-based developer interface",
-    "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs and Q Group AG. The story reports: 181,435 elements with up to 180 version levels, 123 Endevor element types, about 120 stakeholders, 7 stages; 61 application bundles migrated to GitLab automatically by Q-Wing in monthly tranches; latest three versions of each element migrated, older versions archived to DMS3 via Q-Wing. According to the story, the project was launched in mid-2024; the complete transformation was delivered in 11 months against a compressed schedule of 18 months, the migration was finalized by November 2025 and the project was completed by the end of 2025. Deployments reportedly went from several hours to minutes.",
+    "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs and Q Group AG. The story reports: 181,435 elements with up to 180 version levels, 123 Endevor element types, about 120 stakeholders, 7 stages; 61 application bundles migrated to GitLab automatically by Q-Wing in monthly tranches; latest three versions of each element migrated, older versions archived to DMS3 via Q-Wing. According to the story, the project was launched in mid-2024; the complete transformation was delivered in 11 months against a compressed schedule of 18 months, the migration was finalized by November 2025 and the project was completed by the end of 2025. The story reports that deployments went from several hours to minutes.",
     "url": "https://www.qgrp.com/en-gb/endevor-to-git-dwp-bank",
-    "note": "Named customer project; the document states the project was presented publicly at industry events including GSE (Mainz 2026). Published by the service provider (© Q Group AG). Figures and details as reported by the publisher; not independently verified."
+    "note": "Named customer project; the document states the project was presented publicly at industry events including GSE (Mainz 2026). Published by the service provider (© Q Group AG)."
   },
   {
     "id": "qgroup-qwing",

@@ -246,9 +246,10 @@ def layout(page, body):
 
 
 def added_meta(x):
-    # Entries with "date_added": show the MainframeGuru publication date and the source date separately.
+    # Entries with "date_added": show the MainframeGuru publication date; the source date only if the source gives one.
     d = x["date_added"]
-    return f'<span>Added to MainframeGuru: <time datetime="{d}">{fmt_date(d)}</time> · Source date: {E(x.get("source_date") or "not stated")}</span>'
+    src = f' · Source date: {E(x["source_date"])}' if x.get("source_date") else ""
+    return f'<span>Added to MainframeGuru: <time datetime="{d}">{fmt_date(d)}</time>{src}</span>'
 
 
 def news_card(n, heading="h3"):

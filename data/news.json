@@ -388,12 +388,11 @@
     "id": "qgroup-dwpbank-success-story-2026-06",
     "date": "",
     "date_added": "2026-11-19",
-    "source_date": "not stated",
     "sort_date": "2026-06",
     "vendor": "Q Group",
     "product": "Q-Wing",
     "title": "IBM Expert Labs success story: Endevor to GitLab at dwpbank with Q Group’s Q-Wing",
-    "summary": "Success story on the migration of 181,435 Endevor elements to GitLab with z/OS runners, IBM DBB and Wazi Deploy, delivered by IBM Expert Labs and Q Group in 11 months. Q-Wing migrated application bundles automatically and archived older versions to DMS3. A companion story covers Atruvia (about 3.6 million elements, Bitbucket/Jenkins/DBB/UCD). As reported in the IBM Expert Labs success story, available via the Q Group website; figures not independently verified.",
+    "summary": "Success story on the migration of 181,435 Endevor elements to GitLab with z/OS runners, IBM DBB and Wazi Deploy, delivered by IBM Expert Labs and Q Group in 11 months. Q-Wing migrated application bundles automatically and archived older versions to DMS3. A companion story covers Atruvia (about 3.6 million elements, Bitbucket/Jenkins/DBB/UCD). As reported in the IBM Expert Labs success story, available via the Q Group website.",
     "tags": [
       "Migration",
       "SCM",

@@ -648,6 +648,25 @@
     "note": "Labeled “Sponsored Content” on DevOps.com; based on a webinar with BMC (Vijay Namasevi, Area VP of R&D), and the product section describes BMC’s offering."
   },
   {
+    "id": "techstrong-pulsemeter-mainframe-delivery-2026-11",
+    "type": "whitepaper",
+    "date": "2026-11-02",
+    "title": "Techstrong PulseMeter: The Orchestration Challenge in Mainframe Software Delivery",
+    "org": "—",
+    "publisher": "Techstrong PulseMeter report (Guy Currier, Futurum Group), published on DevOps.com",
+    "from": "—",
+    "to": "—",
+    "summary": "Poll of 145 practitioners and decision-makers in mainframe software delivery. 47% report manual or legacy delivery processes in their environment. 86% use AI somewhere in mainframe delivery: 57% for code generation or developer assistance, 38% for automated testing, 35% for monitoring and incident response, 34% for build and pipeline optimization, 26% for security and compliance automation and 25% for deployment automation. 30% name support for AI-assisted delivery as a top strategic outcome.",
+    "url": "https://devops.com/the-orchestration-challenge-in-mainframe-software-delivery",
+    "note": "Survey report; the report and its landing page state that it is sponsored by BMC.",
+    "extra_links": [
+      {
+        "label": "Report (PDF)",
+        "url": "https://devops.com/wp-content/uploads/2026/11/BMC-Techstrong-PulseMeter-Report_vFinal.pdf"
+      }
+    ]
+  },
+  {
     "id": "rocket-changeman-zmf-user-group-2026-12",
     "type": "talk",
     "format": "Webinar (virtual user group, two sessions)",

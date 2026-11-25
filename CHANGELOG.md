@@ -2,6 +2,19 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.6] – 2026-11-25
+### Added
+- Resources (Whitepaper / Vendor docs): Techstrong PulseMeter report “The Orchestration Challenge in Mainframe Software
+  Delivery” (poll of 145, sponsored by BMC; `/resources/#res-techstrong-pulsemeter-mainframe-delivery-2026-11`).
+### Changed
+- Overview page (`#numbers`) and migrations page (`#pitfall-approvals`): the AI-use figures are now attributed to the
+  PulseMeter report (25% deployment automation, 26% security and compliance automation); the DevOps.com article on the
+  poll is labeled as sponsored content.
+- Resource `#res-devops-com-mainframe-ai-pipeline-2026-11`: the source’s “Sponsored Content” label is stated.
+- Case studies: one uniform note on all entries – “Figures and details as reported by the publisher; not independently
+  verified.”
+- Site description and preview image: “linked sources” instead of “verified sources”.
+
 ## [2.2.5] – 2026-11-25
 ### Changed
 - Overview and migrations pages: English section anchors (`#what-is-cicd-on-zos`, `#building-blocks`, `#numbers`,

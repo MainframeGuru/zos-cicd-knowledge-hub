@@ -11,7 +11,7 @@ from urllib.parse import quote, urlparse
 ROOT = Path(__file__).parent
 OUT = ROOT / "public"
 SITE = json.loads((ROOT / "data/site.json").read_text(encoding="utf-8"))
-NEWS = sorted(json.loads((ROOT / "data/news.json").read_text(encoding="utf-8")), key=lambda n: n["date"], reverse=True)
+NEWS = sorted(json.loads((ROOT / "data/news.json").read_text(encoding="utf-8")), key=lambda n: n.get("sort_date") or n["date"] or n.get("date_added"), reverse=True)  # sort_date: keeps list position for entries whose source states no date
 RES = json.loads((ROOT / "data/resources.json").read_text(encoding="utf-8"))
 BASE = SITE["base_url"].rstrip("/")
 LANG = SITE.get("language", "en")
@@ -170,7 +170,7 @@ def json_ld(page):
         graph.append({"@type": "ItemList", "name": "Product news: CI/CD and DevOps on z/OS", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "item": {
                 "@type": "NewsArticle", "@id": url("news") + "#news-" + n["id"], "url": url("news") + "#news-" + n["id"],
-                "headline": n["title"], "datePublished": n["date"], "inLanguage": LANG,
+                "headline": n["title"], "datePublished": n["date"] or n.get("date_added"), "inLanguage": LANG,
                 "about": n["product"], "isBasedOn": n["url"]}} for i, n in enumerate(NEWS)]})
     if slug == "resources":
         graph.append({"@type": "ItemList", "name": "Case studies, experience reports, talks and articles", "itemListElement": [
@@ -245,12 +245,19 @@ def layout(page, body):
 '''
 
 
+def added_meta(x):
+    # Entries with "date_added": show the MainframeGuru publication date and the source date separately.
+    d = x["date_added"]
+    return f'<span>Added to MainframeGuru: <time datetime="{d}">{fmt_date(d)}</time> · Source date: {E(x.get("source_date") or "not stated")}</span>'
+
+
 def news_card(n, heading="h3"):
     extra = "".join(f' · <a href="{E(l["url"])}" rel="noopener">{E(l["label"])}</a>' for l in n.get("extra_links", []))
     tags = "".join(f'<span class="tag">{E(t)}</span>' for t in n.get("tags", []))
     aid = "news-" + n["id"]
+    when = added_meta(n) if n.get("date_added") else f'<time datetime="{n["date"][:7] if n.get("date_precision") == "month" else n["date"]}">{fmt_date(n["date"], n.get("date_precision"))}</time>'
     return f'''<li><article class="card" id="{aid}" data-vendor="{E(n['vendor'])}">
-  <div class="meta"><time datetime="{n['date'][:7] if n.get('date_precision') == 'month' else n['date']}">{fmt_date(n['date'], n.get('date_precision'))}</time><span class="badge v">{E(n['vendor'])}</span><span>{E(n['product'])}</span></div>
+  <div class="meta">{when}<span class="badge v">{E(n['vendor'])}</span><span>{E(n['product'])}</span></div>
   <{heading}>{E(n['title'])}<a class="anchor" href="/news/#{aid}" aria-label="Link to this entry" title="Link to this entry">¶</a></{heading}>
   <p>{E(n['summary'])}</p>
   <p class="small">Source: <a href="{E(n['url'])}" rel="noopener">{E(n['source'])}</a>{extra}</p>
@@ -288,7 +295,7 @@ def res_card(r):
         if v and v not in ("—", "n/a"):
             rows.append(f"<b>{lbl}:</b> {E(v)}")
     aid = "res-" + r["id"]
-    date = f'<time datetime="{E(r["date"])}">{fmt_date(r["date"])}</time>' if r.get("date") else ""
+    date = added_meta(r) if r.get("date_added") else f'<time datetime="{E(r["date"])}">{fmt_date(r["date"])}</time>' if r.get("date") else ""
     return f'''<li><article class="card" id="{aid}" data-type="{r['type']}">
   <div class="meta"><span class="badge t-{r['type']}">{E(TYPE_LABEL[r['type']])}</span>{date}<span>{E(r['publisher'])}</span></div>
   <h3>{E(r['title'])}<a class="anchor" href="/resources/#{aid}" aria-label="Link to this entry" title="Link to this entry">¶</a></h3>
@@ -304,7 +311,7 @@ def page_resources():
         f'<button class="chip" type="button" data-value="{k}" aria-pressed="false">{E(v)} ({sum(1 for r in RES if r["type"] == k)})</button>' for k, v, _ in RES_TYPES)
     legend = "".join(f'<div class="card"><span class="badge t-{k}">{E(v)}</span><p class="small">{E(d)}</p></div>' for k, v, d in RES_TYPES)
     order = {k: i for i, (k, _, _) in enumerate(RES_TYPES)}
-    items = "\n".join(res_card(r) for r in sorted(RES, key=lambda r: (order[r["type"]], -int((r.get("date") or "0")[:4]))))
+    items = "\n".join(res_card(r) for r in sorted(RES, key=lambda r: (order[r["type"]], -int((r.get("date_added") or r.get("date") or "0")[:4]))))
     return f'''<div class="wrap">
 <header class="page-head"><span class="eyebrow">Resources</span><h1>Case studies, experience reports, talks &amp; articles</h1>
 <p class="lead">Every source is clearly labeled. Important: a <b>project reference</b> documents a concrete undertaking; a <b>talk/webinar</b> is not automatically a reference; <b>whitepapers</b> and vendor pages are marketing or documentation.</p></header>
@@ -331,7 +338,7 @@ def atom_feed():
     for n in NEWS:
         link = url("news") + "#news-" + n["id"]
         entries.append(f'''<entry><title>{E(n['title'])}</title><link href="{link}"/><id>{link}</id>
-<updated>{n['date']}T00:00:00Z</updated><category term="{E(n['vendor'])}"/>
+<updated>{n.get('date_added') or n['date']}T00:00:00Z</updated><category term="{E(n['vendor'])}"/>
 <summary>{E(n['summary'])} Source: {E(n['url'])}</summary></entry>''')
     return f'''<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{LANG}">

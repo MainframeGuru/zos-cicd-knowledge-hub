@@ -655,5 +655,33 @@
     "summary": "Reports a Techstrong PulseMeter poll of 145 mainframe software delivery professionals: 86% use AI somewhere in mainframe software delivery, 57% for code generation or developer assistance, but only about a quarter to automate deployment, security and compliance; nearly half still run manual or legacy delivery processes. Recommends finding “emailed” approvals and making policy checks, approvals and audit evidence outputs of the pipeline. Describes BMC AMI DevX Code Pipeline’s MCP server and CycloneDX SBOM generation as one example.",
     "url": "https://devops.com/mainframe-ai-is-stuck-at-the-keyboard-the-pipeline-is-why",
     "note": "Based on a webinar with BMC (Vijay Namasevi, Area VP of R&D); the product section describes BMC’s offering. Poll methodology beyond the sample size is not published in the article."
+  },
+  {
+    "id": "rocket-changeman-zmf-user-group-2026-12",
+    "type": "talk",
+    "format": "Webinar (virtual user group, two sessions)",
+    "event": "2nd Annual Rocket ChangeMan ZMF Virtual User Group (10 and 15 Dec 2026)",
+    "date": "2026-12-10",
+    "title": "Rocket ChangeMan ZMF Virtual User Group: new VS Code extension, roadmap and new Git integration",
+    "org": "—",
+    "publisher": "Rocket Software",
+    "from": "ChangeMan ZMF",
+    "to": "VS Code, Git",
+    "summary": "Upcoming vendor webinar in two parts. Session 1 (10 Dec 2026, 10:00 a.m. EST): the new VS Code extension for ChangeMan ZMF and a product roadmap review. Session 2 (15 Dec 2026, 10:00 a.m. EST): presentation and demonstration of the “new Git integration for ChangeMan ZMF”. Presenters are listed as Rocket product management, solution architecture and engineering staff; recordings are offered to registrants.",
+    "url": "https://www.rocketsoftware.com/en-us/events/2nd-annual-rocket-changeman-zmf-virtual-user-group",
+    "note": "Vendor event announcement; technical details of the Git integration were not yet published at the time of listing (25 Nov 2026)."
+  },
+  {
+    "id": "popup-mainframe-getting-to-git",
+    "type": "whitepaper",
+    "date": "2025-01-15",
+    "title": "PopUp Mainframe: “Getting to Git” – branching strategy, SCM history migration and pilot teams",
+    "org": "—",
+    "publisher": "PopUp Mainframe (vendor blog, Stuart Ashby)",
+    "from": "ChangeMan, Endevor, Code Pipeline (ISPW)",
+    "to": "Git",
+    "summary": "Vendor blog covering build/deploy taxonomy, branching strategies (trunk-based vs. GitHub Flow) and the migration of source plus audit history into Git. PopUp Mainframe states that its migration tools and utilities preserve the full change history (who changed what and when), support ChangeMan, Endevor and Code Pipeline, and that such repository migrations typically take a few weeks depending on structure and volume.",
+    "url": "https://www.popup-mainframe.com/getting-to-git/",
+    "note": "Vendor self-description; no named customer references in the article. Published 15 Jan 2025, last modified 19 May 2026."
   }
 ]

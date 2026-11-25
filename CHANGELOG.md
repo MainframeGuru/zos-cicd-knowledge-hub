@@ -2,6 +2,20 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.4] – 2026-11-25
+### Added
+- News: Zowe CLI 8.44.0 – REST responses above 64 MiB fail by default, new `--max-response-bytes` option
+  (`/news/#news-zowe-cli-8-44-response-limit-2026-11`).
+- Resources (Webinar / Talk): Rocket ChangeMan ZMF Virtual User Group, 10 and 15 Dec 2026 – new VS Code extension,
+  roadmap and new Git integration (`/resources/#res-rocket-changeman-zmf-user-group-2026-12`).
+- Resources (Whitepaper / Vendor docs): PopUp Mainframe “Getting to Git” (`/resources/#res-popup-mainframe-getting-to-git`).
+- Migrations page: PopUp Mainframe row in the tooling table (`#tools-vergleich`) and in the service-provider card;
+  ChangeMan section notes the announced Git integration; deadlines table row for Explorer for Endevor 2.0.0
+  (REST API v1 removal, planned end of Oct 2026, not yet released).
+- News page JSON-LD: ItemList entries are now `NewsArticle` items with headline, `datePublished` and source URL.
+### Changed
+- Migrations page: deadlines table as of 25 Nov 2026; Zowe 2.18.7 still listed without artifacts.
+
 ## [2.2.3] – 2026-11-24
 ### Added
 - News: IBM Z Atlas public preview – system intelligence and change orchestration for z/OS (backfill, 27 Oct 2026;

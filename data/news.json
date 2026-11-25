@@ -570,5 +570,31 @@
         "url": "https://coderlegion.com/32375/ibm-z-atlas-uses-ai-to-prove-mainframe-changes-are-safe-before-they-hit-production"
       }
     ]
+  },
+  {
+    "id": "zowe-cli-8-44-response-limit-2026-11",
+    "date": "2026-11-24",
+    "vendor": "Open Mainframe Project",
+    "product": "Zowe CLI",
+    "title": "Zowe CLI 8.44.0: REST responses above 64 MiB now fail by default (breaking change)",
+    "summary": "Zowe CLI v8.44.0 (released on GitHub on 24 Nov 2026) bounds the memory used by REST responses: buffered responses that accumulate more than 64 MiB, or decompress to more than 64 MiB, now fail with an error; streamed downloads are limited to 8 GiB after decompression. The commands zos-files view data-set, zos-files view uss-file, zos-jobs view spool-file-by-id and zos-jobs view all-spool-content get a new --max-response-bytes option; the error message suggests downloading large content to a file instead. Pipeline steps that print large data sets or job spool via the CLI should be re-tested. On npm, 8.44.0 is published under the “latest” tag; the “zowe-v3-lts” tag still pointed to 8.43.0 when checked on 25 Nov 2026.",
+    "tags": [
+      "Open Source",
+      "CLI",
+      "Security",
+      "Breaking change"
+    ],
+    "url": "https://github.com/zowe/zowe-cli/releases/tag/v8.44.0",
+    "source": "GitHub release (zowe/zowe-cli)",
+    "extra_links": [
+      {
+        "label": "Pull request #3011",
+        "url": "https://github.com/zowe/zowe-cli/pull/3011"
+      },
+      {
+        "label": "npm: @zowe/cli",
+        "url": "https://www.npmjs.com/package/@zowe/cli"
+      }
+    ]
   }
 ]

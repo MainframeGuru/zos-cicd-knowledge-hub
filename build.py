@@ -167,8 +167,11 @@ def json_ld(page):
     if slug == "why-cicd":
         graph.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]})
     if slug == "news":
-        graph.append({"@type": "ItemList", "itemListElement": [
-            {"@type": "ListItem", "position": i + 1, "url": url("news") + "#news-" + n["id"], "name": n["title"]} for i, n in enumerate(NEWS)]})
+        graph.append({"@type": "ItemList", "name": "Product news: CI/CD and DevOps on z/OS", "itemListOrder": "https://schema.org/ItemListOrderDescending", "itemListElement": [
+            {"@type": "ListItem", "position": i + 1, "item": {
+                "@type": "NewsArticle", "@id": url("news") + "#news-" + n["id"], "url": url("news") + "#news-" + n["id"],
+                "headline": n["title"], "datePublished": n["date"], "inLanguage": LANG,
+                "about": n["product"], "isBasedOn": n["url"]}} for i, n in enumerate(NEWS)]})
     if slug == "resources":
         graph.append({"@type": "ItemList", "name": "Case studies, experience reports, talks and articles", "itemListElement": [
             {"@type": "ListItem", "position": i + 1, "url": url("resources") + "#res-" + r["id"], "name": r["title"]} for i, r in enumerate(RES)]})

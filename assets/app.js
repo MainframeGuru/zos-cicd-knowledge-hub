@@ -15,7 +15,7 @@
 
   /* List filters: container with data-filter-list, chips with data-value, optional search field */
   /* Legacy (v1, German) filter values in shared URLs are mapped to the new English keys */
-  var LEGACY={'alle':'all','projektreferenz':'case-study','erfahrungsbericht':'experience','vortrag':'talk','presse':'press'};
+  var LEGACY={'alle':'all','projektreferenz':'case-study','erfahrungsbericht':'experience','vortrag':'talk','presse':'press','Markt & Studien':'Market & surveys'};
   document.querySelectorAll('[data-filter-root]').forEach(function(rootEl){
     var key=rootEl.getAttribute('data-filter-root');
     var list=rootEl.querySelector('[data-filter-list]');

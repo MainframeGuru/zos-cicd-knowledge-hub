@@ -2,6 +2,26 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.13] – 2026-11-26
+### Added
+- Editorial blocks: own explanatory text on the overview, Why CI/CD and Migrations pages is marked “MainframeGuru editorial”
+  and set apart from source-based and sponsored data.
+### Changed
+- SCLM section, news entry and FAQ: the history is told from IBM sources only. The earlier plan comes from a LinkedIn post
+  by Marna Walle (IBM), and the change comes from IBM’s post of 27 Oct 2026 in the IBM Community thread “Infrastructure
+  Management Deprecations”. IBM’s wording “evaluate … as potential replacements” is used, and the SCLM-to-Git Migration Tool
+  is cited from the IBM Z DevOps Guide.
+- Migrations page: “Public examples” and the ChangeMan section give the source dates (OneMain Financial, 2021 talk; UBS,
+  2025 conversation: plans to move).
+- Why CI/CD page and FAQ: single-source claims name their source (ANZ quote in IBM’s wording; IKAN guest article; IBM
+  Expert Labs success stories); 2026 AI announcements link to the news entries.
+- SHARE talk cards carry the label “Conference talk (SHARE)”.
+### Removed
+- Overview page: the “trade articles … (see …)” attribution.
+- Generalisations: “experts”, “many organizations”, “many successful projects”, “widely”, “increasingly”, “multi-year programs”.
+- SCLM section: the IKAN quote (the article remains as a resource card).
+- IDz4VSE resource (its subject is z/VSE development, not z/OS).
+
 ## [2.2.12] – 2026-11-26
 ### Changed
 - Migrations page, overview table: the former “Points to note” column is split into “Source notes” (source content only,

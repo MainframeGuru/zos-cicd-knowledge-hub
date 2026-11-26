@@ -477,7 +477,7 @@
     "to": "Git + ISPW",
     "summary": "Vendor talk on combining ISPW (now Code Pipeline) with Git, including migrating code and history to Git.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/lnl-ispw-together-with-git-can-take-your-devops-to-the-next-level",
-    "note": "Vendor talk; check the date on the page."
+    "note": "Vendor talk."
   },
   {
     "id": "ibm-mediacenter-open-source-zos",
@@ -596,7 +596,7 @@
     "publisher": "Q Group (product page)",
     "from": "VSE Librarian, ICCF",
     "to": "Eclipse/IDz projects, Git-compatible workflows",
-    "summary": "Plug-in connecting IDz to VSE systems (Librarian, POWER, ICCF, VSAM, console): local projects with host synchronization, local syntax check (COBOL, PL/I), remote compile (COBOL, PL/I, ASM, C), VSE debugger integration; builds can be automated in toolchains such as GitLab or Jenkins. Relevant for shops that run VSE next to z/OS.",
+    "summary": "Plug-in connecting IDz to VSE systems (Librarian, POWER, ICCF, VSAM, console): local projects with host synchronization, local syntax check (COBOL, PL/I), remote compile (COBOL, PL/I, ASM, C), VSE debugger integration; builds can be automated in toolchains such as GitLab or Jenkins.",
     "url": "https://www.qgrp.com/en-gb/idz4vse",
     "note": "Vendor product page (marketing); VSE rather than z/OS."
   },

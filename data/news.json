@@ -134,7 +134,7 @@
     "vendor": "Broadcom",
     "product": "Endevor",
     "title": "Endevor 19.0: package approver groups now also via REST API v2, Zowe CLI and Endevor API",
-    "summary": "The enhancement (PTF LU20326 for V19, LU20331 for V18.1) extends approver group selection to the API and CLI interfaces – relevant for automated approval processes in pipelines.",
+    "summary": "The enhancement (PTF LU20326 for V19, LU20331 for V18.1) extends approver group selection to the API and CLI interfaces.",
     "tags": [
       "SCM",
       "API",
@@ -434,7 +434,7 @@
     "vendor": "Rocket Software",
     "product": "Rocket Transaction Platform",
     "title": "Rocket Transaction Platform: replatforming option added to Rocket’s modernization portfolio",
-    "summary": "Rocket announced a platform to replatform and continuously modernize COBOL, PL/I, Java and Python transaction applications on distributed and cloud environments, including AI-assisted code understanding, documentation and unit test generation. Rocket positions it next to its agentic AI platform Rocket EVA for customers who modernize on the mainframe. Not a z/OS CI/CD tool itself, but relevant context for “modernize on platform vs. replatform” decisions.",
+    "summary": "Rocket announced a platform to replatform and continuously modernize COBOL, PL/I, Java and Python transaction applications on distributed and cloud environments, including AI-assisted code understanding, documentation and unit test generation. Rocket positions it next to its agentic AI platform Rocket EVA for customers who modernize on the mainframe.",
     "tags": [
       "Modernization",
       "AI"

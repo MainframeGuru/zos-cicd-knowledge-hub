@@ -1,7 +1,7 @@
 {
   "name": "z/OS CI/CD Compass",
   "tagline": "Knowledge hub for CI/CD, Git and DevOps on IBM z/OS",
-  "description": "An overview of CI/CD on z/OS: reasons to adopt it, migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline and SCLM, product news from all vendors, and linked sources.",
+  "description": "An overview of CI/CD on z/OS: reasons to adopt it, migration paths from Endevor, ChangeMan ZMF, ISPW/Code Pipeline and SCLM, product news from z/OS tooling vendors and open-source projects, and linked sources.",
   "base_url": "https://mainframeguru.github.io/zos-cicd-knowledge-hub",
   "language": "en",
   "locale": "en_US",

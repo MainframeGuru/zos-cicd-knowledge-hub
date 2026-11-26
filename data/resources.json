@@ -122,7 +122,7 @@
     "to": "Git, VS Code",
     "summary": "Conference talk on how Morgan Stanley moved to Git and uses VS Code features for mainframe developers.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/leveraging-git-and-vs-code-tooling-for-your-mainframe-applications",
-    "note": "Proceedings may be available to SHARE members only.",
+    "note": "Conference talk (SHARE); proceedings may be available to SHARE members only.",
     "format": "Conference talk",
     "event": "SHARE Pittsburgh 2026"
   },
@@ -477,7 +477,7 @@
     "to": "Git + ISPW",
     "summary": "Talk on combining ISPW (now Code Pipeline) with Git, including migrating code and history to Git.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/lnl-ispw-together-with-git-can-take-your-devops-to-the-next-level",
-    "note": "Proceedings may be available to SHARE members only."
+    "note": "Conference talk (SHARE); proceedings may be available to SHARE members only."
   },
   {
     "id": "ibm-mediacenter-open-source-zos",

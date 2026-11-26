@@ -2,6 +2,19 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.11] – 2026-11-26
+### Changed
+- Case studies (HCSC, ANZ, CSE, dwpbank): summaries follow the sources’ wording more closely (e.g. HCSC “without
+  production-impacting defects”, CSE “software factory approach”).
+- Migrations page, support deadlines table: IBM row lists the IBM announcement as a second source and states IBM Docs’ scope
+  (“no additional Validate releases are planned”); Explorer for Endevor row uses the listing’s wording; SCLM row reads
+  “Future z/OS release, per IBM” with IBM’s Statement of Direction sentence. The same SCLM sentence is used in the tooling
+  table, the SCLM section and the SCLM news entry.
+### Removed
+- Zowe V2 end-of-support row and news entry: the sentence on a GS UK Forge 2026 session.
+- Bridge for Git 2.x news entry: the Java requirement sentence and the link to the 3.0 software requirements (added in 2.2.10).
+- SCLM news entry: the closing assessment sentence.
+
 ## [2.2.10] – 2026-11-26
 ### Changed
 - Resources, Open Mainframe Project TechXchange 2026 track report: event line now reads “IBM TechXchange 2026 (Atlanta);

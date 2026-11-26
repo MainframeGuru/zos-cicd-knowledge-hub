@@ -43,7 +43,7 @@
     "type": "experience",
     "date": "2025-09",
     "title": "M&T Bank: GitLab, DBB, SonarQube and Ansible for Hogan core banking",
-    "org": "M&T Bank (USA)",
+    "org": "M&T Bank",
     "publisher": "IBM Community (user interview)",
     "from": "Panvalet (in use for around 30 years)",
     "to": "GitLab (SCM + CI), IBM DBB, SonarQube, Ansible, IDz",
@@ -69,7 +69,7 @@
     "type": "case-study",
     "date": "",
     "title": "CSE (Consorzio Servizi Bancari): mainframe efficiency and compliance with BMC AMI",
-    "org": "CSE (banking service provider, Italy)",
+    "org": "CSE (banking service provider)",
     "publisher": "BMC (case study)",
     "from": "—",
     "to": "BMC AMI DevX Code Pipeline",
@@ -101,7 +101,7 @@
     "to": "GitLab, IBM DBB",
     "summary": "User talk about moving from ChangeMan to GitLab with DBB-based continuous integration and a unified developer experience.",
     "url": "https://ibm-zcouncil.com/events/build-better-and-deliver-faster-with-gitlab-and-dbb-on-ibm-z/",
-    "note": "Older talk (2021), still available as a recording.",
+    "note": "User talk.",
     "extra_links": [
       {
         "label": "Recording (IBM Mediacenter)",
@@ -326,7 +326,7 @@
     "to": "Git + lifecycle management",
     "summary": "Argues that Git only replaces source control; build (DBB or JCL), test, approvals, deployment and traceability must be solved separately.",
     "url": "https://techchannel.com/api/replacing-sclm-takes-more-than-git/",
-    "note": "Guest article by a vendor (IKAN); written before the October 2026 SoD update."
+    "note": "Guest article by a vendor (IKAN)."
   },
   {
     "id": "planetmf-radcliffe",
@@ -402,7 +402,7 @@
     "publisher": "OpenText (press release)",
     "from": "—",
     "to": "—",
-    "summary": "Background on the current ownership of ChangeMan ZMF.",
+    "summary": "Press release on the completed divestiture of OpenText’s AMC/Mainframe business to Rocket Software.",
     "url": "https://www.opentext.com/about/press-releases/opentext-completes-divestiture-of-application-modernization-and-connectivity-amc-business-to-rocket-software-for-2-275b",
     "note": "Corporate press release."
   },
@@ -475,9 +475,9 @@
     "publisher": "SHARE (Proceedings)",
     "from": "ISPW",
     "to": "Git + ISPW",
-    "summary": "Vendor talk on combining ISPW (now Code Pipeline) with Git, including migrating code and history to Git.",
+    "summary": "Talk on combining ISPW (now Code Pipeline) with Git, including migrating code and history to Git.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/lnl-ispw-together-with-git-can-take-your-devops-to-the-next-level",
-    "note": "Vendor talk."
+    "note": "Proceedings may be available to SHARE members only."
   },
   {
     "id": "ibm-mediacenter-open-source-zos",
@@ -505,9 +505,9 @@
     "publisher": "Open Mainframe Summit",
     "from": "—",
     "to": "Jenkins, Git, Polycephaly",
-    "summary": "User talk on the open-source project Polycephaly for builds with Jenkins and Git (historical context).",
+    "summary": "User talk on the open-source project Polycephaly for builds with Jenkins and Git.",
     "url": "https://oms2020.sched.com/speaker/jerry.edgington",
-    "note": "Older talk (2020)."
+    "note": "User talk."
   },
   {
     "id": "croz-ubs-fireside",
@@ -553,7 +553,7 @@
     "type": "case-study",
     "date": "",
     "title": "Atruvia AG: Endevor to Git migration – about 3.6 million elements",
-    "org": "Atruvia AG (Germany)",
+    "org": "Atruvia AG",
     "publisher": "IBM Expert Labs success story, available via the Q Group website",
     "from": "Broadcom Endevor",
     "to": "Bitbucket, Jenkins, IBM DBB, IBM UrbanCode Deploy, IBM Developer for z/OS Enterprise Edition",
@@ -566,7 +566,7 @@
     "type": "case-study",
     "date": "",
     "title": "dwpbank: Endevor to GitLab migration in 11 months",
-    "org": "Deutsche WertpapierService Bank AG (dwpbank, Germany)",
+    "org": "Deutsche WertpapierService Bank AG (dwpbank)",
     "publisher": "IBM Expert Labs success story, available via the Q Group website",
     "from": "Broadcom Endevor",
     "to": "GitLab with z/OS runners, IBM DBB, IBM Wazi Deploy, VS Code-based developer interface",
@@ -598,7 +598,7 @@
     "to": "Eclipse/IDz projects, Git-compatible workflows",
     "summary": "Plug-in connecting IDz to VSE systems (Librarian, POWER, ICCF, VSAM, console): local projects with host synchronization, local syntax check (COBOL, PL/I), remote compile (COBOL, PL/I, ASM, C), VSE debugger integration; builds can be automated in toolchains such as GitLab or Jenkins.",
     "url": "https://www.qgrp.com/en-gb/idz4vse",
-    "note": "Vendor product page (marketing); VSE rather than z/OS."
+    "note": "Vendor product page (marketing)."
   },
   {
     "id": "gsuk-2026-orchestrate-deployments",
@@ -643,7 +643,7 @@
     "to": "Zowe, Zowe MCP Server, zopen, GitLab CI",
     "summary": "The Open Mainframe Project reports on its one-day track on 26 Oct 2026: a project-leads keynote and sessions including “Empowering AI Experiences with Zowe Foundations: The Zowe MCP Server” (Broadcom), “Scaling Open Source Engineering on z/OS with AI-Assisted Workflows” (IBM) and a session on DevOps with GitLab CI for Python and Zowe applications (Kyndryl, EasiRun Europa). On 27 Oct, User Group Pavilion talks covered zopen and Zowe and the Zowe ZRS and zo capabilities introduced with Zowe 3.6. The blog says further session highlights and videos will be shared in the coming weeks (as of 19 Nov 2026).",
     "url": "https://openmainframeproject.org/blog/open-mainframe-project-at-ibm-techxchange-2026-2/",
-    "note": "Event report by the Open Mainframe Project, published 19 Nov 2026."
+    "note": "Event report by the Open Mainframe Project."
   },
   {
     "id": "devops-com-mainframe-ai-pipeline-2026-11",
@@ -703,6 +703,6 @@
     "to": "Git",
     "summary": "Vendor blog covering build/deploy taxonomy, branching strategies (trunk-based vs. GitHub Flow) and the migration of source plus audit history into Git. PopUp Mainframe states that its migration tools and utilities preserve the full change history (who changed what and when), support ChangeMan, Endevor and Code Pipeline, and that such repository migrations typically take a few weeks depending on structure and volume.",
     "url": "https://www.popup-mainframe.com/getting-to-git/",
-    "note": "Vendor blog post. Published 15 Jan 2025, last modified 19 May 2026."
+    "note": "Vendor blog post."
   }
 ]

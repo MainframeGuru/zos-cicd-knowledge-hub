@@ -541,7 +541,7 @@
     "vendor": "IBM",
     "product": "IBM Z Atlas",
     "title": "IBM Z Atlas: system intelligence and change orchestration for z/OS enters public preview",
-    "summary": "Announced at IBM TechXchange 2026, IBM Z Atlas is intended as a system-intelligence and change-orchestration layer across the z/OS stack: automated discovery and a topology of infrastructure, middleware, applications and operational processes, dependency and impact analysis, AI-assisted test planning and change evidence for audits. In an interview, IBM’s VP of IBM Z Hybrid Cloud stated that the public preview opened on 27 Oct 2026, general availability is targeted for Q1 2027, z/OS 3.1 is required, and the customer’s existing deployment and change-management systems continue to govern production execution. For CI/CD this is a source of impact analysis and evidence, not a replacement for build or deployment tooling; the efficiency figures in the announcement come from IBM’s early design program.",
+    "summary": "Announced at IBM TechXchange 2026, IBM Z Atlas is, according to IBM, intended as a system-intelligence and change-orchestration layer across the z/OS stack: automated discovery and a topology of infrastructure, middleware, applications and operational processes, dependency and impact analysis, AI-assisted test planning and change evidence for audits. In an interview, IBM’s VP of IBM Z Hybrid Cloud stated that the public preview opened on 27 Oct 2026, general availability is targeted for Q1 2027, z/OS 3.1 is required, and the customer’s existing deployment and change-management systems continue to govern production execution.",
     "tags": [
       "AI",
       "Compliance",

@@ -2,6 +2,22 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.10] – 2026-11-26
+### Changed
+- Resources, Open Mainframe Project TechXchange 2026 track report: event line now reads “IBM TechXchange 2026 (Atlanta);
+  OMP sessions on 26 and 27 Oct 2026”; the sentence on session videos follows the blog’s wording and date.
+- Case studies (Nedbank, HCSC, BMC DataStream): the figure in the headline is also given in the summary, attributed in the
+  sentence like all other case-study figures.
+- Migrations page, support deadlines table: dates that have passed are shown in the source’s own wording and attributed in
+  the cell (“GA date per Zowe release schedule”, “Release plan per Marketplace listing”, “Final release per IBM Docs”);
+  “(done)” only where the source confirms the release. Cells state only what the linked sources say (Explorer for Endevor,
+  Zowe V2 end of support, Bridge for Git wording aligned to the sources).
+- News: Zowe security breaking changes and Zowe CLI 8.44.0 entries state only what the sources say; IBM Bob Premium Package
+  for Z title uses IBM’s wording (“an evolution of watsonx Code Assistant for Z”); Bridge for Git 2.x entry follows
+  Broadcom’s letter and links the 3.0 software requirements.
+### Removed
+- News, Zowe CLI 8.44.0: the npm tag remark dated 25 Nov 2026.
+
 ## [2.2.9] – 2026-11-26
 ### Added
 - Resources (Talk): Open Mainframe Project track report from IBM TechXchange 2026, published 19 Nov 2026

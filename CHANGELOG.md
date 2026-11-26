@@ -15,6 +15,7 @@ Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 - Bridge for Git 2.x news entry: the Java requirement sentence and the link to the 3.0 software requirements (added in 2.2.10).
 - SCLM news entry: the closing assessment sentence.
 - Bridge for Git 3.0 news entry (Oct 2025): the Java requirement mention; the summary now follows Broadcom’s announcement.
+- Own assessments in source-attributed text: Rocket Transaction Platform and Endevor 19 approver-groups news entries, IDz4VSE resource summary, and a reader instruction in one talk note.
 
 ## [2.2.10] – 2026-11-26
 ### Changed

@@ -588,19 +588,6 @@
     "note": "Vendor product page (marketing); the product page describes Endevor as the source system."
   },
   {
-    "id": "qgroup-idz4vse",
-    "type": "whitepaper",
-    "date": "",
-    "title": "IDz4VSE: IBM Developer for z/OS plug-in for z/VSE / VSEn",
-    "org": "—",
-    "publisher": "Q Group (product page)",
-    "from": "VSE Librarian, ICCF",
-    "to": "Eclipse/IDz projects, Git-compatible workflows",
-    "summary": "Plug-in connecting IDz to VSE systems (Librarian, POWER, ICCF, VSAM, console): local projects with host synchronization, local syntax check (COBOL, PL/I), remote compile (COBOL, PL/I, ASM, C), VSE debugger integration; builds can be automated in toolchains such as GitLab or Jenkins.",
-    "url": "https://www.qgrp.com/en-gb/idz4vse",
-    "note": "Vendor product page (marketing)."
-  },
-  {
     "id": "gsuk-2026-orchestrate-deployments",
     "type": "talk",
     "format": "Conference talk",

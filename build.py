@@ -43,7 +43,7 @@ FAQ = [
     ("Can I keep my library manager?", "Yes. Endevor (Bridge for Git), ChangeMan ZMF and BMC Code Pipeline offer Git integrations for coexistence. Whether this makes sense permanently or only as a transition is assessed differently by experts."),
     ("How long does a migration take?", "Public examples range from a few months for pilot scopes to multi-year programs. ANZ reports around 40 applications in 8 months. The key factors are volume, the number of processor variants, test coverage and training effort."),
     ("Which CI servers work with z/OS?", "Jenkins, GitLab CI (including a native z/OS runner), GitHub Actions and Azure DevOps are publicly documented – usually with an agent/runner that accesses z/OS via SSH or Zowe. IBM provides pipeline templates on GitHub."),
-    ("What happens to SCLM?", "According to an updated Statement of Direction (Oct. 2026), IBM intends to remove SCLM from a future z/OS release. Originally, z/OS 3.2 had been named as the last release."),
+    ("What happens to SCLM?", "In an update of 27 Oct 2026 in the IBM Community thread “Infrastructure Management Deprecations”, IBM states that it intends to remove SCLM from a future release of z/OS. According to a LinkedIn post by Marna Walle (IBM), IBM had earlier planned to remove SCLM in the release after z/OS 3.2."),
 ]
 
 PAGES = [

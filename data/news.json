@@ -42,7 +42,7 @@
     "vendor": "IBM",
     "product": "z/OS SCLM",
     "title": "SCLM: IBM updates its Statement of Direction – removal “from a future release of z/OS”",
-    "summary": "In an update of 27 Oct 2026 to its z/OS simplification overview, IBM states: “IBM intends to remove Software Configuration Library Manager (SCLM) from a future release of z/OS.” According to a LinkedIn post by Marna Walle (IBM), IBM had planned to remove SCLM in the release after z/OS 3.2 and changed this plan based on user feedback.",
+    "summary": "In an update of 27 Oct 2026 in the IBM Community thread “Infrastructure Management Deprecations”, IBM states: “IBM intends to remove Software Configuration Library Manager (SCLM) from a future release of z/OS.” According to a LinkedIn post by Marna Walle (IBM), IBM had planned to remove SCLM in the release after z/OS 3.2 and changed this plan based on user feedback.",
     "tags": [
       "SCLM",
       "Migration",

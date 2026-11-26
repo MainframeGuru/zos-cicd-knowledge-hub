@@ -39,9 +39,9 @@ TYPE_LABEL = {k: v for k, v, _ in RES_TYPES}
 
 FAQ = [
     ("Is Git actually available on z/OS?", "Yes. A Git client for z/OS UNIX System Services is provided, among others, through IBM Open Enterprise Foundation for z/OS and the zopen Community. Alternatively, developers work locally (VS Code, Eclipse) and builds run on z/OS via SSH/Zowe."),
-    ("Do I have to switch to IBM DBB for CI/CD?", "No. DBB is a widely used option for dependency-based builds. Alternatives include Broadcom Team Build, BMC AMI DevX Code Pipeline, or existing JCL builds that are started and monitored by the pipeline."),
-    ("Can I keep my library manager?", "Yes. Endevor (Bridge for Git), ChangeMan ZMF and BMC Code Pipeline offer Git integrations for coexistence. Whether this makes sense permanently or only as a transition is assessed differently by experts."),
-    ("How long does a migration take?", "Public examples range from a few months for pilot scopes to multi-year programs. ANZ reports around 40 applications in 8 months. The key factors are volume, the number of processor variants, test coverage and training effort."),
+    ("Do I have to switch to IBM DBB for CI/CD?", "No. DBB is one option for dependency-based builds. Alternatives include Broadcom Team Build, BMC AMI DevX Code Pipeline, or existing JCL builds that are started and monitored by the pipeline."),
+    ("Can I keep my library manager?", "Yes. Endevor (Bridge for Git), ChangeMan ZMF and BMC Code Pipeline offer Git integrations for coexistence. IBM argues that Git should be the authoritative source rather than being permanently synchronized with a legacy library manager (see Why CI/CD?)."),
+    ("How long does a migration take?", "ANZ reports around 40 applications in 8 months; according to the IBM Expert Labs success story, dwpbank’s complete transformation was delivered in 11 months. The key factors are volume, the number of processor variants, test coverage and training effort."),
     ("Which CI servers work with z/OS?", "Jenkins, GitLab CI (including a native z/OS runner), GitHub Actions and Azure DevOps are publicly documented – usually with an agent/runner that accesses z/OS via SSH or Zowe. IBM provides pipeline templates on GitHub."),
     ("What happens to SCLM?", "In an update of 27 Oct 2026 in the IBM Community thread “Infrastructure Management Deprecations”, IBM states that it intends to remove SCLM from a future release of z/OS. According to a LinkedIn post by Marna Walle (IBM), IBM had earlier planned to remove SCLM in the release after z/OS 3.2."),
 ]

@@ -41,8 +41,8 @@
     "date": "2026-10-27",
     "vendor": "IBM",
     "product": "z/OS SCLM",
-    "title": "SCLM: IBM updates its Statement of Direction – removal “in a future release”",
-    "summary": "IBM had originally announced that z/OS 3.2 would be the last release to include SCLM. Following customer feedback, the updated intent is now to remove SCLM from an unspecified future z/OS release. Migration therefore remains necessary, but the time pressure is reduced.",
+    "title": "SCLM: IBM updates its Statement of Direction – removal “from a future release of z/OS”",
+    "summary": "IBM had planned to remove SCLM in the release after z/OS 3.2. In its update of 27 Oct 2026, IBM states: “IBM intends to remove Software Configuration Library Manager (SCLM) from a future release of z/OS.” According to a LinkedIn post by Marna Walle (IBM), the change was based on user feedback.",
     "tags": [
       "SCLM",
       "Migration",
@@ -454,7 +454,7 @@
     "vendor": "Open Mainframe Project",
     "product": "Zowe",
     "title": "Zowe V2 reaches end of support on 30 March 2027 – remaining V2 maintenance releases scheduled",
-    "summary": "According to the Open Mainframe Project, Zowe V2 reaches end of support on 30 March 2027; a Broadcom session at GS UK Forge 2026 covered migrating the API Mediation Layer from V2 to V3. The Zowe release schedule lists V2 maintenance releases 2.18.7 (GA 24 Nov 2026) and 2.18.8 (GA 30 Mar 2027); the next V3 release, 3.7.0, is planned for 2 Mar 2027.",
+    "summary": "According to the Open Mainframe Project, Zowe V2 reaches end of support on 30 March 2027. The Zowe release schedule lists V2 maintenance releases 2.18.7 (GA 24 Nov 2026) and 2.18.8 (GA 30 Mar 2027); the next V3 release, 3.7.0, is planned for 2 Mar 2027.",
     "tags": [
       "Open Source",
       "Lifecycle"

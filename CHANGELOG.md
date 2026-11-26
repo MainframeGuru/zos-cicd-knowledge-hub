@@ -2,6 +2,14 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.9] – 2026-11-26
+### Added
+- Resources (Talk): Open Mainframe Project track report from IBM TechXchange 2026, published 19 Nov 2026
+  (`/resources/#res-techxchange-2026-omp-track-report`).
+### Changed
+- Migrations page, support deadlines table: removed two availability remarks dated 25 Nov 2026 (Zowe 2.18.7 downloads,
+  Explorer for Endevor Marketplace version); table date set to 26 Nov 2026.
+
 ## [2.2.8] – 2026-11-25
 ### Changed
 - Case studies: figures and outcomes are attributed in the sentence (“According to the case study: …”, “According to the

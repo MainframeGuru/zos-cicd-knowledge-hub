@@ -2,6 +2,12 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.16] – 2026-11-26
+### Removed
+- Resource card for OpenText’s AMC divestiture press release (does not substantively cover z/OS delivery tooling under the
+  refined inclusion test). The release stays cited as a source for the ChangeMan ZMF ownership change, together with
+  Rocket’s product renaming reference.
+
 ## [2.2.15] – 2026-11-26
 ### Changed
 - AI in mainframe development: lists every vendor with AI news on this site (Rocket, Broadcom, IBM, BMC), each according

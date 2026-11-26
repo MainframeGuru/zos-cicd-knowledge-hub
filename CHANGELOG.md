@@ -2,6 +2,23 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.15] – 2026-11-26
+### Changed
+- AI in mainframe development: lists every vendor with AI news on this site (Rocket, Broadcom, IBM, BMC), each according
+  to its announcement, plus the Zowe MCP Server per the Open Mainframe Project’s GS UK Forge 2026 overview.
+- Editorial leads on “Why CI/CD” and “Migrations” moved out of the page header so text readers keep their label.
+- Endevor section: Broadcom and IBM statements attributed in the sentence; HCSC figures attributed to the Royal Cyber case
+  study; the Q Group stories give the archive reason in their own words (“to meet compliance guidelines and regulatory
+  requirements”; LDMS at Atruvia, DMS3 at dwpbank).
+- Site self-description: “product news from z/OS tooling vendors and open-source projects” (home, site and news page
+  descriptions), without a vendor list.
+- In-sentence attribution for source-based product statements: Galasa, Team Build sbomz, automated migration approaches,
+  coexistence options, Nedbank, BMC internal team, M&T Bank, ChangeMan ownership, zopen Git, FAQ.
+- Migration overview: column B is headed “Git + IBM DBB (as described in the cited sources)”; a line below the table lists
+  the other Git build options documented on this site (BMC, Broadcom, IKAN guest article), each attributed.
+- Resources: the GS UK Forge 2026 card quotes the page’s access requirement (“Sessions require a registered delegate
+  pass.”); the CSE card states that it covers only the case study’s Code Pipeline paragraph.
+
 ## [2.2.14] – 2026-11-26
 ### Changed
 - Editorial blocks: the “MainframeGuru editorial” label is a block element. Editorial blocks no longer contain vendor

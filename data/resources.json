@@ -21,7 +21,7 @@
     "publisher": "Royal Cyber (service provider case study)",
     "from": "CA Endevor",
     "to": "Git, Jenkins, IBM DBB v3, IBM DevOps Deploy (UCD)",
-    "summary": "According to the service provider’s case study: 150+ applications, 100+ build combinations across 15 DBB language processors, replication of Endevor “delete behind”, automated Db2 BINDs, without production-relevant defects.",
+    "summary": "According to the service provider’s case study: around 294,000 Endevor elements migrated to Git; 150+ applications, 100+ build combinations across 15 DBB language processors, replication of Endevor “delete behind”, automated Db2 BINDs, without production-relevant defects.",
     "url": "https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/",
     "note": "Published by a service provider."
   },
@@ -34,7 +34,7 @@
     "publisher": "BMC (case study)",
     "from": "Manual processes / previous tools",
     "to": "BMC AMI DevX Code Pipeline, Total Test, zAdviser; SonarQube, Azure DevOps",
-    "summary": "According to the case study: migration of around 250 mainframe developers in six months; deployment cycle reduced from 2–3 months to around 3 weeks; DORA metrics via zAdviser.",
+    "summary": "According to the case study: build-to-production time reduced from hours to around 18 minutes; migration of around 250 mainframe developers in six months; deployment cycle reduced from 2–3 months to around 3 weeks; DORA metrics via zAdviser.",
     "url": "https://www.bmc.com/customers/how-nedbank-cut-mainframe-delivery-from-hours-to-18-minutes-with-bmc-ami-devx.html",
     "note": "Published by the vendor."
   },
@@ -55,12 +55,12 @@
     "id": "bmc-datastream",
     "type": "case-study",
     "date": "",
-    "title": "BMC internal team: code fix build from around 90 to 3 minutes",
+    "title": "BMC internal team: code fix build from around 90 to around 3 minutes",
     "org": "BMC AMI Datastream Engineering (BMC internal)",
     "publisher": "BMC (case study)",
     "from": "In-house build processes",
     "to": "GitHub, GitHub Actions, BMC AMI DevX Code Pipeline (Git integration)",
-    "summary": "According to the case study: source code stays in Git; GitHub Actions triggers Code Pipeline, which compiles only changed components.",
+    "summary": "According to the case study: code-fix build time reduced from around 90 to around 3 minutes; source code stays in Git; GitHub Actions triggers Code Pipeline, which compiles only changed components.",
     "url": "https://www.bmc.com/customers/bmc-cuts-code-fix-build-time-with-bmc-ami-devx.html",
     "note": "Vendor reporting on its own internal team."
   },

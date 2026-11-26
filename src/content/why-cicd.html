@@ -21,7 +21,7 @@
 <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>Branches instead of check-out/check-in allow several developers to work on the same program at the same time.</p></div></section>
 
 <section id="qualitaet"><h2>4. Quality through automated testing</h2>
-<p>According to the vendors, <a href="/news/#news-ibm-taz-3-0-2026-09">IBM Test Accelerator for Z 3.0</a> generates and runs COBOL unit tests with AI assistance, and <a href="/news/#news-bmc-oct-2026-release">BMC AMI DevX Unit Test (beta)</a> generates test data from COBOL sources. Integration tests against real z/OS systems can be automated with the open-source framework <a href="https://galasa.dev/">Galasa</a>, and Sonar documents static analysis for COBOL in <a href="/resources/#res-sonar-cobol">SonarQube</a>.</p>
+<p>According to IBM, <a href="/news/#news-ibm-taz-3-0-2026-09">IBM Test Accelerator for Z 3.0</a> generates and runs COBOL unit tests with AI assistance; according to BMC, <a href="/news/#news-bmc-oct-2026-release">BMC AMI DevX Unit Test (beta)</a> generates test data from COBOL sources. Integration tests against real z/OS systems can be automated with the open-source framework <a href="https://galasa.dev/">Galasa</a>, and Sonar documents static analysis for COBOL in <a href="/resources/#res-sonar-cobol">SonarQube</a>.</p>
 <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>In a pipeline, these become quality gates.</p></div></section>
 
 <section id="compliance"><h2>5. Compliance and traceability</h2>
@@ -37,8 +37,9 @@
 <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>AI assistants work best with code in Git and automated build/test loops that check changes immediately.</p></div></section>
 
 <section id="risiken"><h2>Risks and counterarguments</h2>
+<p>ANZ’s Core Banking Engineering Lead says in the IBM case study: “Whilst the technical changes were significant, the cultural shift was paramount.” (<a href="https://www.ibm.com/case-studies/anz">IBM</a>)</p>
 <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><ul>
-<li><b>Culture:</b> ANZ’s Core Banking Engineering Lead says in the IBM case study: “Whilst the technical changes were significant, the cultural shift was paramount.” Training teams and bringing them along is part of the project.</li>
+<li><b>Culture:</b> training teams and bringing them along is part of the project.</li>
 <li><b>Loss of proven processes:</b> library managers bundle promotion, approvals and emergency procedures. These must be deliberately recreated in the new world.</li>
 <li><b>Character sets:</b> EBCDIC content with non-printable or non-round-trippable characters needs a strategy (see <a href="/migrations/#pitfall-codepages">code pages</a>).</li>
 <li><b>Security:</b> code leaves the z/OS security domain; permissions, secrets and runner access must be designed carefully.</li>

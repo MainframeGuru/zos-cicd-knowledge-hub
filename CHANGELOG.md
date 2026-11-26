@@ -2,6 +2,31 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.14] – 2026-11-26
+### Changed
+- Editorial blocks: the “MainframeGuru editorial” label is a block element. Editorial blocks no longer contain vendor
+  product facts. The overview building blocks are described without product names and point to news, resources and the
+  tooling comparison. Product facts stand in attributed sentences outside the blocks (compliance, DBB 4.0, DBB “scan only”,
+  code pages).
+- FAQ: no longer an editorial block. Every answer names its source (IBM, the IBM case study on ANZ, the IBM Expert Labs
+  success story, an IKAN guest article, Rosalind Radcliffe’s Planet Mainframe article).
+- ANZ: hotfix comparison keeps IBM’s scope (“non-production environments” before; “an hour maximum” after). The FAQ and
+  the home figure follow the case study’s wording (CI/CD framework for approximately 40 applications within 8 months), and
+  the licensing comparison reads “traditional mainframe-based SCM”.
+- UBS: per Legacy IT Center (plans to switch from ChangeMan to Dependency Based Build for deployment) and CROZ (“moving away
+  from ChangeMan toward IBM Dependency Based Build (DBB)”; key takeaway “Bridge first, then evolve.”).
+- Wording follows the sources: Rocket “AI-powered code explanation”; the Planet Mainframe article is credited to IBM Fellow
+  Rosalind Radcliffe; the SCLM post title is quoted in full; the GS UK Forge 2026 session titles are quoted in full; Royal
+  Cyber’s “Delete Behind” wording; the ChangeMan ownership news follows OpenText’s release and Rocket’s renaming reference.
+- Q Group stories: each project’s stated reason for the iterative approach is attributed. Editorial headings are neutral
+  (“Synchronization during the transition”, “AI in mainframe development”, “Risks and counterarguments”).
+- Resource notes use the standard label set.
+### Removed
+- Unsourced access hedges in notes (“may be available to SHARE members / registered delegates only”, “slides vary by talk”,
+  “slides not publicly linked”).
+- “The figure comes from a vendor source.” (ANZ cost figure).
+- Scare quotes around “right”, “migrated” and “delete behind” in editorial text.
+
 ## [2.2.13] – 2026-11-26
 ### Added
 - Editorial blocks: own explanatory text on the overview, Why CI/CD and Migrations pages is marked “MainframeGuru editorial”

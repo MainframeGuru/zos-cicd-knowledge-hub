@@ -122,7 +122,7 @@
     "to": "Git, VS Code",
     "summary": "Conference talk on how Morgan Stanley moved to Git and uses VS Code features for mainframe developers.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/leveraging-git-and-vs-code-tooling-for-your-mainframe-applications",
-    "note": "Conference talk (SHARE); proceedings may be available to SHARE members only.",
+    "note": "Conference talk (SHARE).",
     "format": "Conference talk",
     "event": "SHARE Pittsburgh 2026"
   },
@@ -432,7 +432,7 @@
     "to": "Git, IBM DBB, zAppBuild",
     "summary": "Talk about a large-scale migration: integrating a legacy build system, carrying over a custom versioning scheme, detecting non-printable characters, onboarding 300+ developers.",
     "url": "https://www.linkedin.com/posts/bauer-marc_cobol-zos-git-activity-7344000659072950272-DE33",
-    "note": "Source is a LinkedIn post by the speaker; slides not publicly linked."
+    "note": "Source is a LinkedIn post by the speaker."
   },
   {
     "id": "gseuk-2025-pitfalls",
@@ -462,7 +462,7 @@
     "to": "Git, Zowe, Galasa",
     "summary": "Agenda of the Open Mainframe track with talks on Git strategies on z/OS, a Galasa rollout (user report) and Zowe automation.",
     "url": "https://openmainframeproject.org/event/gs-uk-in-person-conference-2025-whittlebury-northamptonshire/",
-    "note": "Program overview; slides vary by talk."
+    "note": "Program overview."
   },
   {
     "id": "share-lnl-ispw-git",
@@ -477,7 +477,7 @@
     "to": "Git + ISPW",
     "summary": "Talk on combining ISPW (now Code Pipeline) with Git, including migrating code and history to Git.",
     "url": "https://www.share.org/Events/Past-Events/Proceedings/Proceeding-Details/lnl-ispw-together-with-git-can-take-your-devops-to-the-next-level",
-    "note": "Conference talk (SHARE); proceedings may be available to SHARE members only."
+    "note": "Conference talk (SHARE)."
   },
   {
     "id": "ibm-mediacenter-open-source-zos",
@@ -559,7 +559,7 @@
     "to": "Bitbucket, Jenkins, IBM DBB, IBM UrbanCode Deploy, IBM Developer for z/OS Enterprise Edition",
     "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs with Q Group AG as main business partner. The story reports: 3,620,999 elements with up to 200 version levels, 156 Endevor element types, about 350 stakeholders, 189 application bundles migrated in phases (elements locked in Endevor after their tranche), 8 tailored courses in 52 training sessions. According to the story, the implementation project was launched in early 2023 after an MVP in 2022; the migration was finalized by September 2025 and the project was completed by the end of 2025. The latest three versions of each element went to Git; older versions were archived automatically to LDMS with Q Group’s Q-Wing.",
     "url": "https://www.qgrp.com/en-gb/endevor-to-git-atruvia",
-    "note": "Named customer project; success story authored by IBM Expert Labs, published on the service provider’s website."
+    "note": "Success story authored by IBM Expert Labs, published by a service provider (Q Group)."
   },
   {
     "id": "dwpbank-qgroup",
@@ -572,7 +572,7 @@
     "to": "GitLab with z/OS runners, IBM DBB, IBM Wazi Deploy, VS Code-based developer interface",
     "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs and Q Group AG. The story reports: 181,435 elements with up to 180 version levels, 123 Endevor element types, about 120 stakeholders, 7 stages; 61 application bundles migrated to GitLab automatically by Q-Wing in tranches; latest three versions of each element migrated, older versions archived to DMS3 via Q-Wing. According to the story, the project was launched in mid-2024; the complete transformation was delivered in 11 months against a compressed schedule of 18 months, the migration was finalized by November 2025 and the project was completed by the end of 2025. The story reports that deployments went from several hours to minutes.",
     "url": "https://www.qgrp.com/en-gb/endevor-to-git-dwp-bank",
-    "note": "Named customer project; the document states the project was presented publicly at industry events including GSE (Mainz 2026). Published by the service provider (© Q Group AG)."
+    "note": "Success story authored by IBM Expert Labs, published by a service provider (Q Group); the document states the project was presented publicly at industry events including GSE (Mainz 2026)."
   },
   {
     "id": "qgroup-qwing",
@@ -585,7 +585,7 @@
     "to": "Git (GitHub, GitLab, Bitbucket and others); archive on Linux/Windows",
     "summary": "Product description: export rules by system, subsystem, type or an element “shopping list”; export via the Endevor API into a PDS; Git fast-import in z/OS UNIX; preserves original Endevor timestamps and authors; all versions or the last n versions incl. sync levels; delta imports into existing repositories; big-bang or iterative migration; delta-based archive for elements and versions not moved to Git; the product page names Linux or Windows for the archive. In the IBM Expert Labs success stories, Q-Wing transferred older versions to an LDMS archive (Atruvia) and a DMS3 archive (dwpbank).",
     "url": "https://www.qgrp.com/en-gb/qwing",
-    "note": "Vendor product page (marketing); the product page describes Endevor as the source system."
+    "note": "Vendor marketing; the product page describes Endevor as the source system."
   },
   {
     "id": "gsuk-2026-orchestrate-deployments",
@@ -600,7 +600,7 @@
     "to": "CI pipeline, artifact repository, deployment orchestration",
     "summary": "Walks through the deployment lifecycle: CI pipelines package build outputs and publish them to an artifact repository; packages are retrieved, prepared and installed into target runtime environments under end-to-end governance. Covers deployment scheduling and cross-application dependency management.",
     "url": "https://conferences.gs-uk.org/2026/agenda/presentation/16705",
-    "note": "Conference abstract by an IBM speaker; slides may be available to registered delegates only."
+    "note": "Conference abstract by a vendor speaker (IBM)."
   },
   {
     "id": "gsuk-2026-omp-stream",
@@ -615,7 +615,7 @@
     "to": "Zowe V3, Zowe MCP Server, Galasa",
     "summary": "Session overview: Broadcom introduces the Open Mainframe Project Zowe MCP Server, which lets AI agents reach Zowe-mediated z/OS data and services via the Model Context Protocol; an IBM session shows the Zowe MCP server with Zowe CLI/SDK; further talks on migrating the API Mediation Layer to V3, Zowe DevOps workshops, configuration as code with Ansible and NatWest’s Galasa test structures (user report).",
     "url": "https://openmainframeproject.org/gs-uk/open-mainframe-project-at-gs-uk-forge-2026/",
-    "note": "Program overview (abstracts); slides vary by talk."
+    "note": "Program overview."
   },
   {
     "id": "techxchange-2026-omp-track-report",
@@ -690,6 +690,6 @@
     "to": "Git",
     "summary": "Vendor blog covering build/deploy taxonomy, branching strategies (trunk-based vs. GitHub Flow) and the migration of source plus audit history into Git. PopUp Mainframe states that its migration tools and utilities preserve the full change history (who changed what and when), support ChangeMan, Endevor and Code Pipeline, and that such repository migrations typically take a few weeks depending on structure and volume.",
     "url": "https://www.popup-mainframe.com/getting-to-git/",
-    "note": "Vendor blog post."
+    "note": "Vendor blog."
   }
 ]

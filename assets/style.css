@@ -120,3 +120,8 @@ footer.site a{color:var(--muted)}
 code{font-family:var(--mono);font-size:.9em;background:var(--bg-alt);border:1px solid var(--border);border-radius:5px;padding:.05rem .3rem}
 .cite-box{margin-top:.5rem}
 .timeline h2{font-size:1.2rem;margin:.35rem 0 .2rem}
+
+/* Editorial blocks (own text, visibly separated from source-based data; §9.5 addendum 2) */
+.editorial{border-left:3px solid var(--border);padding:.15rem 0 .15rem .9rem;margin:1rem 0}
+.editorial>p:first-of-type,.editorial>.lead{margin-top:.2rem}
+.ed-tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}

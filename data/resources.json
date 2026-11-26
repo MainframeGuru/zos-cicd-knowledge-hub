@@ -75,7 +75,7 @@
     "to": "BMC AMI DevX Code Pipeline",
     "summary": "According to the case study: replacing the previous source code management solution with BMC AMI DevX Code Pipeline created a “software factory approach”; developers can quickly deploy code or revert to a previous state.",
     "url": "https://www.bmc.com/customers/consorzio-servizi-bancari.html",
-    "note": "Published by the vendor."
+    "note": "Published by the vendor. The case study covers several BMC AMI products; this entry covers only its Code Pipeline paragraph."
   },
   {
     "id": "nrb-bmc",
@@ -615,7 +615,7 @@
     "to": "Zowe V3, Zowe MCP Server, Galasa",
     "summary": "Session overview: Broadcom introduces the Open Mainframe Project Zowe MCP Server, which lets AI agents reach Zowe-mediated z/OS data and services via the Model Context Protocol; an IBM session shows the Zowe MCP server with Zowe CLI/SDK; further talks on migrating the API Mediation Layer to V3, Zowe DevOps workshops, configuration as code with Ansible and NatWest’s Galasa test structures (user report).",
     "url": "https://openmainframeproject.org/gs-uk/open-mainframe-project-at-gs-uk-forge-2026/",
-    "note": "Program overview."
+    "note": "Program overview. According to the page, “Sessions require a registered delegate pass.”"
   },
   {
     "id": "techxchange-2026-omp-track-report",

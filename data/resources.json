@@ -339,7 +339,7 @@
     "to": "Git as single source of truth",
     "summary": "Article (author: IBM Fellow) arguing against permanent Git bridges to legacy library managers and in favor of Git-driven pipelines.",
     "url": "https://planetmainframe.com/2026/08/git-on-ibm-z-modernize-the-workflow-not-just-the-repository/",
-    "note": "Trade article with a vendor perspective."
+    "note": "Trade article by a vendor author (IBM Fellow Rosalind Radcliffe)."
   },
   {
     "id": "siliconangle-bmc-survey",

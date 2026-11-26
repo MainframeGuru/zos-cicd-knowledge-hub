@@ -263,7 +263,7 @@
     "vendor": "Rocket Software",
     "product": "Rocket DevOps-Portfolio",
     "title": "Rocket Software announces a new DevOps generation for IBM Z and IBM i",
-    "summary": "Focus areas according to the press release: Git-integrated source change management, CI/CD and LLM API integration, AI-assisted code explanation (e.g. COBOL), anomaly detection, and compliance through separation of duties and audit reports.",
+    "summary": "Focus areas according to the press release: Git-integrated source change management, CI/CD and LLM API integration, AI-powered code explanation (e.g. COBOL), anomaly detection, and compliance through separation of duties and audit reports.",
     "tags": [
       "SCM",
       "Git",

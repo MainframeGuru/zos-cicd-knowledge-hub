@@ -148,7 +148,7 @@
     "date": "2026-07-09",
     "vendor": "IBM",
     "product": "IBM Bob Premium Package for Z",
-    "title": "IBM Bob Premium Package for Z generally available – successor to watsonx Code Assistant for Z",
+    "title": "IBM Bob Premium Package for Z generally available – described by IBM as an evolution of watsonx Code Assistant for Z",
     "summary": "IBM positions the package as an agentic AI development partner for IBM Z with modes, reusable “skills”, repository-level AGENTS.md rules and impact analysis based on Z Understand.",
     "tags": [
       "AI",
@@ -163,14 +163,20 @@
     "vendor": "Broadcom",
     "product": "Endevor Bridge for Git",
     "title": "Endevor Bridge for Git 2.x: end of service on 30 June 2027",
-    "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027. Users are advised to move to 3.0 or later (prerequisites include Java 17 and higher hardware requirements).",
+    "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027 and asks users to migrate to 3.0 or higher before that date. According to Broadcom’s software requirements, the 3.0 standalone JAR requires Java 17 or 21.",
     "tags": [
       "SCM",
       "Git",
       "Lifecycle"
     ],
     "url": "https://community.broadcom.com/discussion/bridge-for-git-2x-component-end-of-service",
-    "source": "Broadcom Community"
+    "source": "Broadcom Community",
+    "extra_links": [
+      {
+        "label": "Bridge for Git 3.0 software requirements (Broadcom TechDocs)",
+        "url": "https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/endevor-bridge-for-git/3-0/installing/prepare-for-installation/address-software-requirements-.html"
+      }
+    ]
   },
   {
     "id": "team-build-1-11-2026-06",
@@ -489,7 +495,7 @@
     "vendor": "Open Mainframe Project",
     "product": "Zowe",
     "title": "Zowe makes security-driven breaking changes in minor and maintenance releases – including V2 2.18.7",
-    "summary": "The Zowe documentation (updated 6 Nov 2026) states that, in response to a growing number of security reports produced with the help of frontier AI models, the project now makes breaking changes outside major releases where a security fix requires it. Affected releases listed: Zowe client 3.6.0, Zowe server 3.6.0, Zowe client 3.7.0 and Zowe 2.18.7 (GA planned for 24 Nov 2026). Opt-out flags exist where possible, but the project recommends adapting rather than opting out. Pipelines that call the Zowe CLI should be re-tested before upgrading.",
+    "summary": "The Zowe documentation (updated 6 Nov 2026) states that, in response to a growing number of security reports produced with the help of frontier AI models, the project now makes breaking changes outside major releases where a security fix requires it. Affected releases listed: Zowe client 3.6.0, Zowe server 3.6.0, Zowe client 3.7.0 and Zowe 2.18.7 (GA date per the Zowe release schedule: 24 Nov 2026). Opt-out flags exist where possible, but the project recommends adapting rather than opting out.",
     "tags": [
       "Open Source",
       "CLI",
@@ -562,7 +568,7 @@
     "vendor": "Open Mainframe Project",
     "product": "Zowe CLI",
     "title": "Zowe CLI 8.44.0: REST responses above 64 MiB now fail by default (breaking change)",
-    "summary": "Zowe CLI v8.44.0 (released on GitHub on 24 Nov 2026) bounds the memory used by REST responses: buffered responses that accumulate more than 64 MiB, or decompress to more than 64 MiB, now fail with an error; streamed downloads are limited to 8 GiB after decompression. The commands zos-files view data-set, zos-files view uss-file, zos-jobs view spool-file-by-id and zos-jobs view all-spool-content get a new --max-response-bytes option; the error message suggests downloading large content to a file instead. Pipeline steps that print large data sets or job spool via the CLI should be re-tested. On npm, 8.44.0 is published under the “latest” tag; the “zowe-v3-lts” tag still pointed to 8.43.0 when checked on 25 Nov 2026.",
+    "summary": "Zowe CLI v8.44.0 (released on GitHub on 24 Nov 2026) bounds the memory used by REST responses: buffered responses that accumulate more than 64 MiB, or decompress to more than 64 MiB, now fail with an error; streamed downloads are limited to 8 GiB after decompression. The commands zos-files view data-set, zos-files view uss-file, zos-jobs view spool-file-by-id and zos-jobs view all-spool-content get a new --max-response-bytes option; the error message suggests downloading large content to a file instead.",
     "tags": [
       "Open Source",
       "CLI",

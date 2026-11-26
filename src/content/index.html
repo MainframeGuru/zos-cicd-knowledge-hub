@@ -15,7 +15,7 @@
     <span id="was-ist-cicd-auf-zos" class="anchor-alias" aria-hidden="true"></span>
     <span id="h-was" class="anchor-alias" aria-hidden="true"></span>
     <h2 id="h-what-is-cicd-on-zos">What does CI/CD on z/OS mean?</h2>
-    <div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>Continuous integration and continuous delivery (CI/CD) means that every change to the source code is automatically built, checked and delivered reproducibly all the way to the target environment. On the mainframe, this replaces traditional library manager processes that are often decades old – or complements them step by step. A typical chain looks like this:</p>
+    <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>Continuous integration and continuous delivery (CI/CD) means that every change to the source code is automatically built, checked and delivered reproducibly all the way to the target environment. On the mainframe, this replaces traditional library manager processes that are often decades old – or complements them step by step. A typical chain looks like this:</p>
     <ol class="pipeline" aria-label="Typical pipeline stages">
       <li>Git (source code)</li><li>CI orchestration</li><li>Dependency-based build</li><li>Quality &amp; security</li><li>Unit/integration test</li><li>Artifact repository</li><li>Deployment &amp; evidence</li>
     </ol>
@@ -26,14 +26,15 @@
     <span id="bausteine" class="anchor-alias" aria-hidden="true"></span>
     <span id="h-bausteine" class="anchor-alias" aria-hidden="true"></span>
     <h2 id="h-building-blocks">The building blocks at a glance</h2>
-    <div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><div class="grid">
-      <div class="card"><h3>Source control</h3><p>Git (GitHub, GitLab, Bitbucket, Azure Repos) as the “single source of truth” – or synchronized with an existing library manager (e.g. Endevor Bridge for Git, ChangeMan Git integration, Code Pipeline with Git).</p></div>
-      <div class="card"><h3>Build</h3><p>IBM Dependency Based Build (DBB) with zBuilder (YAML) or zAppBuild (Groovy), Broadcom Team Build, BMC AMI DevX Code Pipeline – or existing JCL, triggered from the pipeline.</p></div>
-      <div class="card"><h3>Orchestration</h3><p>Jenkins, GitLab CI (including a native z/OS runner), GitHub Actions, Azure DevOps. Access to z/OS via SSH, z/OSMF REST APIs or Zowe CLI.</p></div>
-      <div class="card"><h3>Test &amp; quality</h3><p>COBOL unit tests (e.g. IBM Test Accelerator for Z, BMC AMI DevX Total Test / Unit Test), integration tests with Galasa, static analysis e.g. with SonarQube (COBOL).</p></div>
-      <div class="card"><h3>Deployment</h3><p>IBM Wazi Deploy (Python/Ansible), Red Hat Ansible for z/OS, IBM DevOps Deploy (UCD), vendor features of the SCM suites – including deployment evidence for audits.</p></div>
-      <div class="card"><h3>Developer experience</h3><p>VS Code with Zowe Explorer, Code4z, BMC Workbench or IBM Z Open Editor; Eclipse-based IBM Developer for z/OS; AI assistants with z/OS context (e.g. IBM Bob Premium Package for Z).</p></div>
+    <div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><div class="grid">
+      <div class="card"><h3>Source control</h3><p>Git as the single source of truth – or synchronized with an existing library manager during a transition.</p></div>
+      <div class="card"><h3>Build</h3><p>Dependency-based builds that compile what changed and what it affects – or existing JCL builds, triggered from the pipeline.</p></div>
+      <div class="card"><h3>Orchestration</h3><p>A CI server or pipeline service that reaches z/OS through SSH, REST APIs or a command-line interface.</p></div>
+      <div class="card"><h3>Test &amp; quality</h3><p>Unit tests, integration tests against real z/OS systems and static analysis, used as quality gates.</p></div>
+      <div class="card"><h3>Deployment</h3><p>Automated deployment to the target environments, including deployment evidence for audits.</p></div>
+      <div class="card"><h3>Developer experience</h3><p>Modern IDEs with z/OS integration and AI assistants with z/OS context.</p></div>
     </div></div>
+    <p class="muted small">Products per building block, each with its source: <a href="/news/">Product news</a>, <a href="/resources/">Resources</a> and the <a href="/migrations/#tooling-comparison">migration tooling comparison</a>.</p>
   </section>
 
   <section id="numbers" aria-labelledby="h-numbers">

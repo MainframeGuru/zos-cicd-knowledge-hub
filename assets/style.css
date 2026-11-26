@@ -123,5 +123,5 @@ code{font-family:var(--mono);font-size:.9em;background:var(--bg-alt);border:1px 
 
 /* Editorial blocks (own text, visibly separated from source-based data; §9.5 addendum 2) */
 .editorial{border-left:3px solid var(--border);padding:.15rem 0 .15rem .9rem;margin:1rem 0}
-.editorial>p:first-of-type,.editorial>.lead{margin-top:.2rem}
-.ed-tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.editorial>.ed-tag+p,.editorial>.ed-tag+.lead{margin-top:.2rem}
+.ed-tag{display:block;margin:0 0 .2rem;font-size:.72rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}

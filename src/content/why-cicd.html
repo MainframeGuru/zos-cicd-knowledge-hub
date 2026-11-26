@@ -1,15 +1,15 @@
 <div class="wrap">
 <header class="page-head"><span class="eyebrow">Motivation</span><h1>Why CI/CD on z/OS?</h1>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p class="lead">The reasons for switching are rarely purely technical. Usually the skills situation, company-wide standardization, speed, quality and compliance all come together. Here are the main drivers – each with publicly documented examples.</p></div></header>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p class="lead">The reasons for switching are rarely purely technical. Usually the skills situation, company-wide standardization, speed, quality and compliance all come together. Here are the main drivers – each with publicly documented examples.</p></div></header>
 <nav class="toc" aria-label="Contents"><a href="#skills">Skills</a> · <a href="#standard">One standard: Git</a> · <a href="#speed">Speed</a> · <a href="#qualitaet">Quality &amp; testing</a> · <a href="#compliance">Compliance</a> · <a href="#kosten">Cost</a> · <a href="#ki">AI</a> · <a href="#risiken">Risks</a> · <a href="#faq">FAQ</a></nav>
 
 <section id="skills"><h2>1. Skills and developer experience</h2>
 <p>In the BMC Mainframe Survey 2025, millennials make up 51% and Gen&nbsp;Z 15% of respondents (<a href="https://www.bmc.com/resources/blogs/mainframe-survey-devops-insights.html">BMC</a>).</p>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>People trained on Git, VS Code and pull requests find it hard to work with ISPF-centric library manager processes. Uniform tools across all platforms make knowledge transferable and shorten onboarding time.</p></div>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>People trained on Git, modern IDEs and pull requests find it hard to work with ISPF-centric library manager processes. Uniform tools across all platforms make knowledge transferable and shorten onboarding time.</p></div>
 <p>Real-world example: UBS has been training its own junior staff for years and relies on Git, GitLab, CI/CD and modern IDEs so that COBOL developers use the same processes as colleagues on other platforms (<a href="https://legacyit.de/legacy/wie-die-ubs-moderne-cobol-entwicklung-gestaltet/">Legacy IT Center</a>, in German).</p></section>
 
 <section id="standard"><h2>2. One standard for the whole enterprise</h2>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>Git is the de facto standard for version control. Keeping mainframe code in the same system enables shared reviews, security scans, permission and audit models, and cross-platform releases.</p></div>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>Git is the de facto standard for version control. Keeping mainframe code in the same system enables shared reviews, security scans, permission and audit models, and cross-platform releases.</p></div>
 <p>IBM argues that Git should be the authoritative source for code, pipeline definitions and configuration – rather than being permanently synchronized with a legacy library manager (<a href="https://planetmainframe.com/2026/08/git-on-ibm-z-modernize-the-workflow-not-just-the-repository/">Planet Mainframe</a>). Broadcom, BMC and Rocket offer coexistence options (Endevor Bridge for Git, Code Pipeline with Git, ChangeMan Git integration) – see <a href="/migrations/">Migrations</a>.</p></section>
 
 <section id="speed"><h2>3. Speed and parallel development</h2>
@@ -18,34 +18,34 @@
 <li><b>Nedbank:</b> build-to-production reduced from hours to around 18 minutes, deployment cycles from 2–3 months to around 3 weeks (<a href="https://www.bmc.com/customers/how-nedbank-cut-mainframe-delivery-from-hours-to-18-minutes-with-bmc-ami-devx.html">BMC</a>).</li>
 <li><b>Incremental builds:</b> dependency-based builds compile only what changed and what is affected – a BMC internal team reports a reduction from around 90 to 3 minutes (<a href="https://www.bmc.com/customers/bmc-cuts-code-fix-build-time-with-bmc-ami-devx.html">BMC</a>).</li>
 </ul>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>Branches instead of check-out/check-in allow several developers to work on the same program at the same time.</p></div></section>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>Branches instead of check-out/check-in allow several developers to work on the same program at the same time.</p></div></section>
 
 <section id="qualitaet"><h2>4. Quality through automated testing</h2>
-<p>According to the vendors, <a href="/news/#news-ibm-taz-3-0-2026-09">IBM Test Accelerator for Z 3.0</a> generates and runs COBOL unit tests with AI assistance, and <a href="/news/#news-bmc-oct-2026-release">BMC AMI DevX Unit Test (beta)</a> generates test data from COBOL sources. Integration tests against real z/OS systems can be automated with the open-source framework <a href="https://galasa.dev/">Galasa</a>, static analysis e.g. with SonarQube (COBOL).</p>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>In a pipeline, these become quality gates.</p></div></section>
+<p>According to the vendors, <a href="/news/#news-ibm-taz-3-0-2026-09">IBM Test Accelerator for Z 3.0</a> generates and runs COBOL unit tests with AI assistance, and <a href="/news/#news-bmc-oct-2026-release">BMC AMI DevX Unit Test (beta)</a> generates test data from COBOL sources. Integration tests against real z/OS systems can be automated with the open-source framework <a href="https://galasa.dev/">Galasa</a>, and Sonar documents static analysis for COBOL in <a href="/resources/#res-sonar-cobol">SonarQube</a>.</p>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>In a pipeline, these become quality gates.</p></div></section>
 
 <section id="compliance"><h2>5. Compliance and traceability</h2>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>Regulated industries need a complete trail from the business change to the module in production. Modern toolchains provide this through commit history, pull request approvals, build metadata (e.g. DBB build maps), SBOMs (e.g. Broadcom sbomz) and deployment evidence (e.g. Wazi Deploy, which from 3.0.8 can also store it in Db2).</p></div>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>Regulated industries need a complete trail from the business change to the module in production. Toolchains can provide this through commit history, pull request approvals, build metadata, software bills of materials (SBOMs) and deployment evidence.</p></div>
 <p>According to a guest article by IKAN on TechChannel, Git “does not manage the complete application lifecycle” (<a href="https://techchannel.com/api/replacing-sclm-takes-more-than-git/">TechChannel</a>).</p></section>
 
 <section id="kosten"><h2>6. Cost and tool landscape</h2>
 <p>The IBM case study on ANZ reports an approximately 90% licensing cost reduction compared with traditional mainframe-based SCM (<a href="https://www.ibm.com/case-studies/anz">IBM</a>).</p>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>New costs arise for build/deploy tools, pipeline infrastructure, migration and training.</p></div></section>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>New costs arise for build/deploy tools, pipeline infrastructure, migration and training.</p></div></section>
 
 <section id="ki"><h2>7. AI needs modern pipelines</h2>
 <p>In 2026, IBM (<a href="/news/#news-ibm-bob-premium-z-2026-07">Bob Premium Package for Z</a>, <a href="/news/#news-ibm-pipeline-automation-for-z-2026-10">Pipeline Automation for Z</a>) and BMC (<a href="/news/#news-bmc-oct-2026-release">Code Pipeline MCP Server</a>) announced AI features for mainframe development; Rocket announced AI-assisted code explanation in <a href="/news/#news-rocket-devops-2025-11">November 2025</a>.</p>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><p>AI assistants work best with code in Git and automated build/test loops that check changes immediately.</p></div></section>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><p>AI assistants work best with code in Git and automated build/test loops that check changes immediately.</p></div></section>
 
 <section id="risiken"><h2>Risks and counterarguments – an honest look</h2>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span><ul>
+<div class="editorial"><p class="ed-tag">MainframeGuru editorial</p><ul>
 <li><b>Culture:</b> ANZ’s Core Banking Engineering Lead says in the IBM case study: “Whilst the technical changes were significant, the cultural shift was paramount.” Training teams and bringing them along is part of the project.</li>
 <li><b>Loss of proven processes:</b> library managers bundle promotion, approvals and emergency procedures. These must be deliberately recreated in the new world.</li>
-<li><b>Character sets:</b> EBCDIC content with non-printable or non-round-trippable characters needs a strategy (IBM Z DevOps Guide).</li>
+<li><b>Character sets:</b> EBCDIC content with non-printable or non-round-trippable characters needs a strategy (see <a href="/migrations/#pitfall-codepages">code pages</a>).</li>
 <li><b>Security:</b> code leaves the z/OS security domain; permissions, secrets and runner access must be designed carefully.</li>
 <li><b>Big bang:</b> according to the IBM Expert Labs success stories, Atruvia and dwpbank migrated in tranches of application bundles (see <a href="/migrations/#endevor">Migrations</a>).</li>
 </ul></div></section>
 
 <section id="faq"><h2>Frequently asked questions</h2>
-<div class="editorial"><span class="ed-tag">MainframeGuru editorial</span>{{FAQ}}</div>
+{{FAQ}}
 </section>
 </div>

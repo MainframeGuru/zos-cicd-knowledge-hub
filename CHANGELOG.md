@@ -2,6 +2,26 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.12] – 2026-11-26
+### Changed
+- Migrations page, overview table: the former “Points to note” column is split into “Source notes” (source content only,
+  with attribution) and a new column “Typical migration considerations (editorial)”, filled for every source system; the
+  table caption explains the split.
+- SCLM news entry, SCLM section and support deadlines row: the IBM quote now links to IBM’s post “Update: Planned removal
+  of SCLM” (IBM Z Simplification, Infrastructure Management Deprecations, 27 Oct 2026). The z/OS 3.2 statement is quoted
+  from the TechChannel guest article by IKAN, or attributed to a LinkedIn post by Marna Walle (IBM) in the news entry.
+- Code pages pitfall: describes the effect of zopen Git’s strict default instead of recommending it.
+- Resource notes and summaries use standard labels (“User talk.”, SHARE access note); the OpenText press release summary
+  follows the release’s wording.
+### Removed
+- IBM Z Atlas news entry: the closing assessment sentence and the mention of efficiency figures.
+- Resource notes: age and status remarks (“Older talk …”, “still available”, “written before …”), the IDz4VSE scope remark,
+  and dates repeated from the date field.
+- Organization fields: countries not stated by the sources (CSE, M&T Bank, Atruvia, dwpbank).
+- Migrations page: “rather than a one-off migration” (tooling table), “Used in many projects” (IBM row), “German”
+  (Q Group projects), the trade-article sentence on JCL builds and DBB in the SCLM section.
+- Rocket Transaction Platform news entry (outside the site’s z/OS CI/CD scope).
+
 ## [2.2.11] – 2026-11-26
 ### Changed
 - Case studies (HCSC, ANZ, CSE, dwpbank): summaries follow the sources’ wording more closely (e.g. HCSC “without

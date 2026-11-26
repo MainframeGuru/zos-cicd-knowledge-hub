@@ -163,20 +163,14 @@
     "vendor": "Broadcom",
     "product": "Endevor Bridge for Git",
     "title": "Endevor Bridge for Git 2.x: end of service on 30 June 2027",
-    "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027 and asks users to migrate to 3.0 or higher before that date. According to Broadcom’s software requirements, the 3.0 standalone JAR requires Java 17 or 21.",
+    "summary": "Broadcom ends support for Bridge for Git 2.x and earlier on 30 June 2027 and asks users to migrate to 3.0 or higher before that date.",
     "tags": [
       "SCM",
       "Git",
       "Lifecycle"
     ],
     "url": "https://community.broadcom.com/discussion/bridge-for-git-2x-component-end-of-service",
-    "source": "Broadcom Community",
-    "extra_links": [
-      {
-        "label": "Bridge for Git 3.0 software requirements (Broadcom TechDocs)",
-        "url": "https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/endevor-bridge-for-git/3-0/installing/prepare-for-installation/address-software-requirements-.html"
-      }
-    ]
+    "source": "Broadcom Community"
   },
   {
     "id": "team-build-1-11-2026-06",

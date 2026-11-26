@@ -278,7 +278,7 @@
     "vendor": "Broadcom",
     "product": "Endevor Bridge for Git",
     "title": "Endevor Bridge for Git 3.0 generally available",
-    "summary": "Major release with multi-branching, separate sync and refresh operations, a new front end and a new TechDocs site. Java 17 is a prerequisite; note the breaking changes.",
+    "summary": "According to Broadcom’s announcement, the major release introduces advanced multi-branching, separate sync and refresh operations and a new frontend; the announcement asks users to review the list of breaking changes before upgrading.",
     "tags": [
       "SCM",
       "Git"

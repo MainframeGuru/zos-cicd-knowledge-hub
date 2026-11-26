@@ -394,19 +394,6 @@
     "note": "Trade article."
   },
   {
-    "id": "opentext-rocket-pr",
-    "type": "press",
-    "date": "2024-05-01",
-    "title": "OpenText completes divestiture of its AMC business to Rocket Software",
-    "org": "—",
-    "publisher": "OpenText (press release)",
-    "from": "—",
-    "to": "—",
-    "summary": "Press release on the completed divestiture of OpenText’s AMC/Mainframe business to Rocket Software.",
-    "url": "https://www.opentext.com/about/press-releases/opentext-completes-divestiture-of-application-modernization-and-connectivity-amc-business-to-rocket-software-for-2-275b",
-    "note": "Corporate press release."
-  },
-  {
     "id": "living-mainframe-ref",
     "type": "case-study",
     "date": "2026-02",

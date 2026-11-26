@@ -631,6 +631,21 @@
     "note": "Program overview (abstracts); slides vary by talk."
   },
   {
+    "id": "techxchange-2026-omp-track-report",
+    "type": "talk",
+    "format": "Conference track",
+    "event": "IBM TechXchange 2026 (Atlanta, 26–27 Oct 2026)",
+    "date": "2026-11-19",
+    "title": "Open Mainframe Project at IBM TechXchange 2026: track report (Zowe MCP Server, AI-assisted open-source engineering on z/OS, GitLab CI for Zowe applications)",
+    "org": "—",
+    "publisher": "Open Mainframe Project (blog)",
+    "from": "—",
+    "to": "Zowe, Zowe MCP Server, zopen, GitLab CI",
+    "summary": "The Open Mainframe Project reports on its one-day track on 26 Oct 2026: a project-leads keynote and sessions including “Empowering AI Experiences with Zowe Foundations: The Zowe MCP Server” (Broadcom), “Scaling Open Source Engineering on z/OS with AI-Assisted Workflows” (IBM) and a session on DevOps with GitLab CI for Python and Zowe applications (Kyndryl, EasiRun Europa). On 27 Oct, User Group Pavilion talks covered zopen and Zowe and the Zowe ZRS and zo capabilities introduced with Zowe 3.6. Session videos are announced for the coming weeks.",
+    "url": "https://openmainframeproject.org/blog/open-mainframe-project-at-ibm-techxchange-2026-2/",
+    "note": "Event report by the Open Mainframe Project, published 19 Nov 2026."
+  },
+  {
     "id": "devops-com-mainframe-ai-pipeline-2026-11",
     "type": "press",
     "date": "2026-11-23",

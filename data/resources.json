@@ -8,7 +8,7 @@
     "publisher": "IBM (case study)",
     "from": "Mainframe SCM",
     "to": "Git, IBM DBB, IBM Developer for z/OS",
-    "summary": "According to the case study: CI/CD framework for around 40 applications (including 3 highly critical core banking systems) and more than 1,000 application repositories in Git-based version control within 8 months; around 90% lower licensing costs compared with traditional mainframe-based SCM; hotfixes reduced from around 4 weeks of effort to one hour at most.",
+    "summary": "According to the case study: CI/CD framework for around 40 applications (including 3 highly critical core banking systems) and more than 1,000 application repositories in Git-based version control within 8 months; around 90% lower licensing costs compared with traditional mainframe-based SCM; hotfixes previously took approximately 4 weeks of effort to retrofit into the SCM and deploy into non-production environments; each hotfix, now deployed directly to production through the pipeline, takes an hour maximum.",
     "url": "https://www.ibm.com/case-studies/anz",
     "note": "Published by the vendor."
   },
@@ -374,9 +374,9 @@
     "title": "Wie die UBS moderne COBOL-Entwicklung gestaltet (How UBS shapes modern COBOL development)",
     "org": "UBS",
     "publisher": "Legacy IT Center (legacyit.de)",
-    "from": "ChangeMan (planned move)",
+    "from": "ChangeMan (planned switch for deployment)",
     "to": "Git, GitLab, CI/CD, DBB",
-    "summary": "German-language report on a fireside chat: UBS uses Git, GitLab, CI/CD and code scanning; a move from ChangeMan to Dependency Based Build is planned.",
+    "summary": "German-language report on a fireside chat: UBS uses Git, GitLab, CI/CD and code scanning; for deployment, UBS plans to switch from ChangeMan to Dependency Based Build.",
     "url": "https://legacyit.de/legacy/wie-die-ubs-moderne-cobol-entwicklung-gestaltet/",
     "note": "Press/trade portal (in German); statements from a conversation."
   },
@@ -512,13 +512,13 @@
   {
     "id": "croz-ubs-fireside",
     "type": "experience",
-    "date": "2025",
+    "date": "2025-10-21",
     "title": "COBOL Architect Reality in 2025 – conversation with Tom Liechti (UBS)",
     "org": "UBS",
     "publisher": "CROZ (Mighty Mainframe Fireside Chat)",
-    "from": "ChangeMan (planned move)",
+    "from": "ChangeMan (moving away)",
     "to": "Git, GitLab, CI/CD, IBM DBB",
-    "summary": "User conversation: Git/GitLab as the standard flow, pipelines for build, scan, test and deploy; strategy of “bridge first, then evolve” – integrating existing processes before moving to DBB.",
+    "summary": "CROZ’s summary of a conversation with Tom Liechti, a COBOL expert at UBS: Git/GitLab as the standard flow, pipelines for build, scan, test and deploy; UBS is “moving away from ChangeMan toward IBM Dependency Based Build (DBB)”. CROZ’s key takeaways include “Bridge first, then evolve.”",
     "url": "https://croz.net/mighty-mainframe-mingle-with-tom-liechti/",
     "note": "Conversation published on a service provider’s website."
   },

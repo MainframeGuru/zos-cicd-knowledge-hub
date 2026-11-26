@@ -8,7 +8,7 @@
     "publisher": "IBM (case study)",
     "from": "Mainframe SCM",
     "to": "Git, IBM DBB, IBM Developer for z/OS",
-    "summary": "According to the case study: CI/CD framework for around 40 applications (including 3 highly critical core banking systems) and more than 1,000 Git repositories within 8 months; around 90% lower license costs compared with the previous mainframe SCM; hotfixes reduced from around 4 weeks of effort to one hour at most.",
+    "summary": "According to the case study: CI/CD framework for around 40 applications (including 3 highly critical core banking systems) and more than 1,000 application repositories in Git-based version control within 8 months; around 90% lower licensing costs compared with traditional mainframe-based SCM; hotfixes reduced from around 4 weeks of effort to one hour at most.",
     "url": "https://www.ibm.com/case-studies/anz",
     "note": "Published by the vendor."
   },
@@ -21,7 +21,7 @@
     "publisher": "Royal Cyber (service provider case study)",
     "from": "CA Endevor",
     "to": "Git, Jenkins, IBM DBB v3, IBM DevOps Deploy (UCD)",
-    "summary": "According to the service provider’s case study: around 294,000 Endevor elements migrated to Git; 150+ applications, 100+ build combinations across 15 DBB language processors, replication of Endevor “delete behind”, automated Db2 BINDs, without production-relevant defects.",
+    "summary": "According to the service provider’s case study: around 294,000 Endevor elements migrated to Git; 150+ applications, 100+ unique build and compilation combinations through 15 DBB language processors, replication of Endevor’s “Delete Behind” functionality, automated Db2 BINDs, without production-impacting defects.",
     "url": "https://www.royalcyber.com/resources/case-studies/mainframe-modernization-endevor-to-git/",
     "note": "Published by a service provider."
   },
@@ -73,7 +73,7 @@
     "publisher": "BMC (case study)",
     "from": "—",
     "to": "BMC AMI DevX Code Pipeline",
-    "summary": "According to the case study: a “software factory” for mainframe development with faster deployments and rollback capabilities.",
+    "summary": "According to the case study: replacing the previous source code management solution with BMC AMI DevX Code Pipeline created a “software factory approach”; developers can quickly deploy code or revert to a previous state.",
     "url": "https://www.bmc.com/customers/consorzio-servizi-bancari.html",
     "note": "Published by the vendor."
   },
@@ -570,7 +570,7 @@
     "publisher": "IBM Expert Labs success story, available via the Q Group website",
     "from": "Broadcom Endevor",
     "to": "GitLab with z/OS runners, IBM DBB, IBM Wazi Deploy, VS Code-based developer interface",
-    "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs and Q Group AG. The story reports: 181,435 elements with up to 180 version levels, 123 Endevor element types, about 120 stakeholders, 7 stages; 61 application bundles migrated to GitLab automatically by Q-Wing in monthly tranches; latest three versions of each element migrated, older versions archived to DMS3 via Q-Wing. According to the story, the project was launched in mid-2024; the complete transformation was delivered in 11 months against a compressed schedule of 18 months, the migration was finalized by November 2025 and the project was completed by the end of 2025. The story reports that deployments went from several hours to minutes.",
+    "summary": "According to the IBM Expert Labs success story, available via the Q Group website, the project was delivered by IBM Expert Labs and Q Group AG. The story reports: 181,435 elements with up to 180 version levels, 123 Endevor element types, about 120 stakeholders, 7 stages; 61 application bundles migrated to GitLab automatically by Q-Wing in tranches; latest three versions of each element migrated, older versions archived to DMS3 via Q-Wing. According to the story, the project was launched in mid-2024; the complete transformation was delivered in 11 months against a compressed schedule of 18 months, the migration was finalized by November 2025 and the project was completed by the end of 2025. The story reports that deployments went from several hours to minutes.",
     "url": "https://www.qgrp.com/en-gb/endevor-to-git-dwp-bank",
     "note": "Named customer project; the document states the project was presented publicly at industry events including GSE (Mainz 2026). Published by the service provider (© Q Group AG)."
   },

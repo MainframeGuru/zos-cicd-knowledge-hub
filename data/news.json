@@ -429,20 +429,6 @@
     "source": "Broadcom Mainframe Software Community"
   },
   {
-    "id": "rocket-transaction-platform-2026-11",
-    "date": "2026-11-17",
-    "vendor": "Rocket Software",
-    "product": "Rocket Transaction Platform",
-    "title": "Rocket Transaction Platform: replatforming option added to Rocket’s modernization portfolio",
-    "summary": "Rocket announced a platform to replatform and continuously modernize COBOL, PL/I, Java and Python transaction applications on distributed and cloud environments, including AI-assisted code understanding, documentation and unit test generation. Rocket positions it next to its agentic AI platform Rocket EVA for customers who modernize on the mainframe.",
-    "tags": [
-      "Modernization",
-      "AI"
-    ],
-    "url": "https://www.rocketsoftware.com/en-us/news/rocket-software-introduces-rocket-transaction-platform",
-    "source": "Rocket Software press release"
-  },
-  {
     "id": "zowe-v2-eos-2026-10",
     "date": "2026-10-30",
     "vendor": "Open Mainframe Project",

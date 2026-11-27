@@ -2,6 +2,11 @@
 
 Format based on “Keep a Changelog”. Date format YYYY-MM-DD.
 
+## [2.2.17] – 2026-11-27
+### Added
+- News: Galasa 1.3.0 (release highlights of 14 Oct 2026) – the z/OS Batch Manager submits JCL that contains its own JOB
+  statement, and tests can choose the job name that JES sees (ZosBatchJobnames), including the stated limits.
+
 ## [2.2.16] – 2026-11-26
 ### Removed
 - Resource card for OpenText’s AMC divestiture press release (does not substantively cover z/OS delivery tooling under the

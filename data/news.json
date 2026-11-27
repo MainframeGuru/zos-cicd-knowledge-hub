@@ -567,5 +567,25 @@
         "url": "https://www.npmjs.com/package/@zowe/cli"
       }
     ]
+  },
+  {
+    "id": "galasa-1-3-2026-10",
+    "date": "2026-10-14",
+    "vendor": "Open Mainframe Project",
+    "product": "Galasa",
+    "title": "Galasa 1.3.0: z/OS Batch Manager submits JCL that contains its own JOB statement",
+    "summary": "According to the Galasa 1.3.0 release highlights, the z/OS Batch Manager gets a new submitJobWithSuppliedJobcard(String jcl) method that submits JCL which already contains its own JOB statement, such as a member of a JCL library; previously the manager always generated a JOB statement and put it in front of the supplied JCL. In this mode a ZosBatchJobcard cannot override values in the JOB statement, and everything required must be specified in it. A new ZosBatchJobnames class lets a test choose the job name that JES sees, either an exact name or a random name with a prefix; Galasa does not make exact names unique, so tests that run at the same time on the same z/OS system with the same name can collide. Both additions are supported by the z/OS MF and RSE API implementations of the z/OS Batch Manager.",
+    "tags": [
+      "Test",
+      "Open Source"
+    ],
+    "url": "https://galasa.dev/releases/2026/10/14/v1.3.0/",
+    "source": "galasa.dev (release highlights)",
+    "extra_links": [
+      {
+        "label": "Galasa release archive 2026",
+        "url": "https://galasa.dev/releases/archive/2026/"
+      }
+    ]
   }
 ]
